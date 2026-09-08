@@ -193,16 +193,6 @@ _SANGUO_PERSON_GROUPS: list[list[str]] = [
 ]
 
 
-# ── 斗罗大陆 (Soul Land) ──
-# The narrative deliberately withholds 玉小刚's real name until chapter 157;
-# before that point he is consistently identified only as “大师”.  Keeping the
-# title in the group is essential for retroactively attaching the early
-# teacher/student relations to the revealed canonical identity.
-_DOULUODALU_PERSON_GROUPS: list[list[str]] = [
-    ["玉小刚", "大师"],
-]
-
-
 def get_person_priors(novel_title: str) -> list[list[str]]:
     """Return hardcoded person alias groups for a well-known novel.
 
@@ -228,5 +218,6 @@ def get_person_priors(novel_title: str) -> list[list[str]]:
     if "斗罗大陆" in novel_title and not any(
         marker in novel_title for marker in douluo_sequel_markers
     ):
-        return _DOULUODALU_PERSON_GROUPS
+        from src.services.douluo1_person_prior import get_alias_groups
+        return get_alias_groups()
     return []

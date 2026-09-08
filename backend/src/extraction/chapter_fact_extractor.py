@@ -719,7 +719,7 @@ class ChapterFactExtractor:
             f"{example_text}"
             f"## 第 {chapter_id} 章{segment_hint}\n\n{chapter_text}\n\n"
             "【关键要求】\n"
-            "1. characters：宁多勿漏！包含所有有名字或固定称呼的人物。种族/物种名称作为称呼且有具体行为的角色也算（如赤尻马猴、通背猿猴）\n"
+            "1. characters：宁多勿漏！包含所有有名字或固定称呼的人物。持续用同一称谓指向且有具体言行的人物（如大师），即使真名尚未揭示，也先按该称谓提取，不得遗漏或猜真名。种族/物种名称作为称呼且有具体行为的角色也算（如赤尻马猴、通背猿猴）\n"
             "2. relationships：任何两个人物有互动或提及关系都必须提取，evidence 引用原文。命令/差遣/听令也是关系\n"
             "3. locations：宁多勿漏！所有具体地名都必须提取，即使只被简短提及也不可跳过\n"
             "4. events：每个事件的 participants 列出参与者姓名，location 填写地点，都不可为空\n"

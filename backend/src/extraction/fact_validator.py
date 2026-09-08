@@ -1061,6 +1061,13 @@ class FactValidator:
             return fact  # Ablation: bypass all validation
         self._audit_records = []
         characters = self._validate_characters(fact.characters)
+        # Rescue source-grounded relationship endpoints BEFORE relationship
+        # validation. Previously an endpoint omitted from ``characters`` made
+        # _validate_relationships drop the edge, so the later rescue pass could
+        # never see it (notably 唐三—大师 in early 斗罗 chapters).
+        characters = self._ensure_relation_persons_in_characters(
+            characters, fact.relationships, chapter_text,
+        )
         relationships = self._validate_relationships(fact.relationships, characters)
         locations = self._validate_locations(fact.locations, characters)
         spatial_relationships = self._validate_spatial_relationships(
@@ -1809,7 +1816,11 @@ class FactValidator:
         for ev in events:
             for p in ev.participants:
                 p = p.strip()
-                if p and p not in char_names and len(p) >= _NAME_MIN_LEN and not _is_generic_person(p, self._genre):
+                is_allowed_person = (
+                    not _is_generic_person(p, self._genre)
+                    or p in self._protected_person_names
+                )
+                if p and p not in char_names and len(p) >= _NAME_MIN_LEN and is_allowed_person:
                     if chapter_text is not None and not _name_in_text(p, chapter_text):
                         logger.info(
                             "事件参与者 %r 原文不可定位,不自动补为 character", p,
@@ -1836,7 +1847,11 @@ class FactValidator:
         for rel in relationships:
             for name in (rel.person_a, rel.person_b):
                 name = name.strip()
-                if name and name not in char_names and len(name) >= _NAME_MIN_LEN and not _is_generic_person(name, self._genre):
+                is_allowed_person = (
+                    not _is_generic_person(name, self._genre)
+                    or name in self._protected_person_names
+                )
+                if name and name not in char_names and len(name) >= _NAME_MIN_LEN and is_allowed_person:
                     if chapter_text is not None and not _name_in_text(name, chapter_text):
                         logger.info(
                             "关系人名 %r 原文不可定位,不自动补为 character", name,

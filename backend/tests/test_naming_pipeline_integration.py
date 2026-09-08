@@ -26,6 +26,12 @@ from src.models.entity_dict import EntityDictEntry
 from src.services.alias_resolver import build_alias_map
 from src.services.name_authority import pick_canonical
 from src.services.person_knowledge_prior import get_person_priors
+from src.services.douluo1_person_prior import (
+    OVERLOADED_NON_PERSON_TERMS,
+    PERSONA_ALIAS_GROUPS,
+    SCOPED_ROLE_TITLES,
+    STRICT_ALIAS_GROUPS,
+)
 
 
 class TestDouluoDeferredTitleIdentity:
@@ -36,6 +42,14 @@ class TestDouluoDeferredTitleIdentity:
     def test_person_prior_is_scoped_to_original_novel(self):
         assert ["玉小刚", "大师"] in get_person_priors("斗罗大陆1")
         assert get_person_priors("斗罗大陆Ⅱ绝世唐门") == []
+
+    def test_dangerous_context_terms_are_not_global_aliases(self):
+        flattened = {
+            name for group in STRICT_ALIAS_GROUPS + PERSONA_ALIAS_GROUPS
+            for name in group
+        }
+        assert not (SCOPED_ROLE_TITLES & flattened)
+        assert not (OVERLOADED_NON_PERSON_TERMS & flattened)
 
     def test_prescan_protected_title_keeps_character_and_relationship(self):
         fact = ChapterFact(
@@ -58,6 +72,27 @@ class TestDouluoDeferredTitleIdentity:
         kept = validator.validate(fact, chapter_text="唐三跟着大师进入学院。")
         assert {"唐三", "大师"} <= {c.name for c in kept.characters}
         assert len(kept.relationships) == 1
+
+    def test_relationship_endpoint_rescues_omitted_protected_title(self):
+        fact = ChapterFact(
+            chapter_id=19,
+            novel_id=self.NOVEL,
+            characters=[CharacterFact(name="唐三")],
+            relationships=[RelationshipFact(
+                person_a="唐三", person_b="大师", relation_type="师徒",
+            )],
+        )
+        validator = FactValidator()
+        validator.set_protected_person_names({"大师"})
+
+        kept = validator.validate(
+            fact, chapter_text="小三，你跟着大师进去吧。",
+        )
+
+        assert {"唐三", "大师"} <= {c.name for c in kept.characters}
+        assert [(r.person_a, r.person_b) for r in kept.relationships] == [
+            ("唐三", "大师"),
+        ]
 
 
 # ── Fixtures ──────────────────────────────────────────────────
@@ -614,7 +649,16 @@ class TestDouluoGraphRegression:
             title="《斗罗大陆》（校对版全本）",
         )
         alias_map = await build_alias_map(self.NOVEL)
-        assert alias_map.get("大师") == "玉小刚"
+        for group in STRICT_ALIAS_GROUPS + PERSONA_ALIAS_GROUPS:
+            canonical, *aliases = group
+            for alias in aliases:
+                assert alias_map.get(alias) == canonical, (
+                    f"斗罗大陆人物先验未归并: {alias} → {canonical}; "
+                    f"actual={alias_map.get(alias)}"
+                )
+        dangerous = SCOPED_ROLE_TITLES | OVERLOADED_NON_PERSON_TERMS
+        assert not (dangerous & set(alias_map))
+        assert not (dangerous & set(alias_map.values()))
 
     @pytest.mark.asyncio
     async def test_graph_preserves_early_title_edge(self, graph_db):

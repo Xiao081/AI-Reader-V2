@@ -144,6 +144,14 @@ async def get_graph_data(
         primaries like 王夫人/薛姨妈 (which end with "夫人/姨妈" and hit the
         structural spouse-pattern rule but are real characters).
         """
+        # A generic-looking title can be a trusted alias of a safe canonical
+        # identity (e.g. 大师 → 玉小刚 via a curated prior or explicit user
+        # override).  Let it reach canonicalization instead of deleting all of
+        # its earlier graph edges.  Unsafe names that are not actually mapped
+        # still follow the strict generic filter below.
+        mapped = alias_map.get(name)
+        if mapped and mapped != name and _is_generic_person(mapped) is None:
+            return False
         # Collective/generic references are never real entities — checked
         # BEFORE the canonical trust guard, since such a name can wrongly become
         # a canonical with aliases merged in (e.g. 群妖). _is_generic_person

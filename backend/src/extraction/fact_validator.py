@@ -1019,6 +1019,12 @@ class FactValidator:
         # entity dictionary.  E.g., {"愣子": "二愣子"} when the dictionary
         # contains "二愣子" with a numeric prefix that jieba/LLM truncated.
         self._name_corrections: dict[str, str] = {}
+        # Names confirmed as person entities by the whole-book pre-scan.  A
+        # stable title may be the only available identity for many chapters
+        # before the narrative reveals a real name (e.g. 大师 → 玉小刚).  These
+        # names must survive validation so their relationships are not lost
+        # before later alias resolution can canonicalize them.
+        self._protected_person_names: set[str] = set()
         # 决策审计(issue #70 provenance):validate() 内的改名/吞并决策,
         # 与 NameResolver 改写共用 name_resolution_log.jsonl 通道;
         # audit_log_path 仅供测试重定向,None = 默认审计路径。
@@ -1033,6 +1039,16 @@ class FactValidator:
         where numeric-prefix names are truncated (e.g., 愣子 → 二愣子).
         """
         self._name_corrections = corrections
+
+    def set_protected_person_names(self, names: set[str]) -> None:
+        """Trust whole-book pre-scan person names during generic filtering.
+
+        Callers should only provide high-frequency entries classified as
+        ``person``.  This is deliberately narrower than the hallucination
+        review whitelist: a word merely occurring in the dictionary is not
+        enough to turn an arbitrary generic role into a character.
+        """
+        self._protected_person_names = set(names)
 
     def validate(self, fact: ChapterFact, chapter_text: str | None = None) -> ChapterFact:
         """Return a cleaned copy of the ChapterFact.
@@ -1162,7 +1178,10 @@ class FactValidator:
             # Drop generic person references and pure titles
             # Exception: _GENERIC_PERSON_CANDIDATES are kept for later disambiguation
             # (e.g., "樵夫" → "灵台方寸山·樵夫" in validate() post-processing)
-            if name not in _GENERIC_PERSON_CANDIDATES:
+            if (
+                name not in _GENERIC_PERSON_CANDIDATES
+                and name not in self._protected_person_names
+            ):
                 reason = _is_generic_person(name, self._genre)
                 if reason:
                     logger.debug("Dropping person '%s': %s", name, reason)

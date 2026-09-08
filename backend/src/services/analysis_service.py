@@ -375,12 +375,35 @@ class AnalysisService:
         # _protected_names (FR-4.2 白名单): entity_dictionary 实体名 + 本次运行
         # 已确立的人物名,幻觉人物 LLM 判定层对它们永不判定(真实人物不误杀)。
         _protected_names: set[str] = set()
+        _protected_generic_person_names: set[str] = set()
+        try:
+            from src.services.person_knowledge_prior import get_person_priors
+            _novel = await novel_store.get_novel(novel_id)
+            _novel_title = _novel.get("title", "") if _novel else ""
+            _protected_generic_person_names.update(
+                name
+                for group in get_person_priors(_novel_title)
+                for name in group
+            )
+            validator.set_protected_person_names(_protected_generic_person_names)
+        except Exception as e:
+            logger.warning("Failed to load person knowledge prior for validation: %s", e)
         _NUM_PREFIXES = frozenset("一二三四五六七八九十")
         try:
             _dict_entries = await entity_dictionary_store.get_all(novel_id)
             _corrections: dict[str, str] = {}
             _dict_names = {e.name for e in _dict_entries}
             _protected_names.update(_dict_names)
+            # Keep stable title-only identities long enough for a later
+            # explicit real-name reveal to merge their historical facts.
+            # Match alias_resolver's existing high-frequency dictionary trust
+            # rule so validation and aggregation use the same authority.
+            _protected_generic_person_names.update({
+                e.name
+                for e in _dict_entries
+                if e.entity_type == "person" and e.frequency >= 10
+            })
+            validator.set_protected_person_names(_protected_generic_person_names)
             for entry in _dict_entries:
                 name = entry.name
                 if (
@@ -1090,6 +1113,24 @@ class AnalysisService:
         _retry_validator = FactValidator(
             genre=ws_struct.novel_genre_hint if ws_struct and ws_struct.novel_genre_hint else None
         )
+        try:
+            from src.services.person_knowledge_prior import get_person_priors
+            _retry_novel = await novel_store.get_novel(novel_id)
+            _retry_title = _retry_novel.get("title", "") if _retry_novel else ""
+            _retry_protected_names = {
+                name
+                for group in get_person_priors(_retry_title)
+                for name in group
+            }
+            _retry_dict_entries = await entity_dictionary_store.get_all(novel_id)
+            _retry_protected_names.update({
+                e.name
+                for e in _retry_dict_entries
+                if e.entity_type == "person" and e.frequency >= 10
+            })
+            _retry_validator.set_protected_person_names(_retry_protected_names)
+        except Exception as e:
+            logger.warning("Failed to load protected person names for retry: %s", e)
         total = len(rows)
         succeeded = 0
         failed_count = 0

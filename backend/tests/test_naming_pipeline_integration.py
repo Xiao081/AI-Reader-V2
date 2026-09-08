@@ -18,12 +18,46 @@ import src.db.entity_override_store as entity_override_store_mod
 import src.services.alias_resolver as alias_resolver_mod
 import src.services.visualization_service as visualization_mod
 from src.extraction.name_resolver import NameResolver
+from src.extraction.fact_validator import FactValidator
 from src.models.chapter_fact import (
     ChapterFact, CharacterFact, RelationshipFact, EventFact,
 )
 from src.models.entity_dict import EntityDictEntry
 from src.services.alias_resolver import build_alias_map
 from src.services.name_authority import pick_canonical
+from src.services.person_knowledge_prior import get_person_priors
+
+
+class TestDouluoDeferredTitleIdentity:
+    """Stable title facts survive until a much later real-name reveal."""
+
+    NOVEL = "test-douluo-deferred-title"
+
+    def test_person_prior_is_scoped_to_original_novel(self):
+        assert ["玉小刚", "大师"] in get_person_priors("斗罗大陆1")
+        assert get_person_priors("斗罗大陆Ⅱ绝世唐门") == []
+
+    def test_prescan_protected_title_keeps_character_and_relationship(self):
+        fact = ChapterFact(
+            chapter_id=19,
+            novel_id=self.NOVEL,
+            characters=[CharacterFact(name="唐三"), CharacterFact(name="大师")],
+            relationships=[RelationshipFact(
+                person_a="唐三", person_b="大师", relation_type="师徒",
+            )],
+        )
+
+        baseline = FactValidator().validate(
+            fact, chapter_text="唐三跟着大师进入学院。",
+        )
+        assert "大师" not in {c.name for c in baseline.characters}
+        assert baseline.relationships == []
+
+        validator = FactValidator()
+        validator.set_protected_person_names({"大师"})
+        kept = validator.validate(fact, chapter_text="唐三跟着大师进入学院。")
+        assert {"唐三", "大师"} <= {c.name for c in kept.characters}
+        assert len(kept.relationships) == 1
 
 
 # ── Fixtures ──────────────────────────────────────────────────
@@ -520,3 +554,80 @@ class TestGraphOutputNames:
         # No self-edges caused by alias resolution
         assert all(s != t for s, t in edges), \
             f"Self-edge after alias resolution: {sorted(edges)}"
+
+
+class TestDouluoGraphRegression:
+    """Chapter-19 title edges are projected onto the chapter-157 real name."""
+
+    NOVEL = "test-douluo-graph"
+
+    @pytest_asyncio.fixture
+    async def graph_db(self, memory_db):
+        factory = _make_conn_factory(memory_db)
+        alias_resolver_mod._alias_cache.clear()
+
+        async def _no_ungrounded(novel_id, names, alias_map):
+            return set()
+
+        async def _no_override_targets(novel_id):
+            return {}
+
+        with patch("src.services.visualization_service.get_connection", factory), \
+             patch("src.services.alias_resolver.get_connection", factory), \
+             patch("src.db.entity_override_store.get_connection", factory), \
+             patch("src.services.hallucination_filter.get_ungrounded_persons",
+                   _no_ungrounded), \
+             patch("src.services.alias_resolver.get_override_targets",
+                   _no_override_targets):
+            yield memory_db
+        alias_resolver_mod._alias_cache.clear()
+
+    @staticmethod
+    def _entries():
+        return [
+            EntityDictEntry(name="大师", entity_type="person", frequency=120,
+                            aliases=[], source="suffix"),
+            EntityDictEntry(name="玉小刚", entity_type="person", frequency=11,
+                            aliases=[], source="freq"),
+        ]
+
+    @classmethod
+    def _facts(cls):
+        return [
+            ChapterFact(
+                chapter_id=19, novel_id=cls.NOVEL,
+                characters=[CharacterFact(name="唐三"), CharacterFact(name="大师")],
+                relationships=[RelationshipFact(
+                    person_a="唐三", person_b="大师", relation_type="师徒",
+                )],
+            ),
+            ChapterFact(
+                chapter_id=157, novel_id=cls.NOVEL,
+                characters=[CharacterFact(name="玉小刚", new_aliases=["大师"])],
+            ),
+        ]
+
+    @pytest.mark.asyncio
+    async def test_prior_maps_title_to_revealed_name(self, graph_db):
+        await _seed_naming_db(
+            graph_db, self.NOVEL, self._entries(), self._facts(),
+            title="《斗罗大陆》（校对版全本）",
+        )
+        alias_map = await build_alias_map(self.NOVEL)
+        assert alias_map.get("大师") == "玉小刚"
+
+    @pytest.mark.asyncio
+    async def test_graph_preserves_early_title_edge(self, graph_db):
+        await _seed_naming_db(
+            graph_db, self.NOVEL, self._entries(), self._facts(),
+            title="斗罗大陆1",
+        )
+
+        graph = await visualization_mod.get_graph_data(self.NOVEL, 1, 200)
+        nodes = {n["name"]: n for n in graph["nodes"]}
+        edges = {(e["source"], e["target"]) for e in graph["edges"]}
+
+        assert "玉小刚" in nodes
+        assert "大师" not in nodes
+        assert "大师" in nodes["玉小刚"]["aliases"]
+        assert ("唐三", "玉小刚") in edges

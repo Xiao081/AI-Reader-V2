@@ -38,6 +38,58 @@ async def insert_batch(novel_id: str, entries: list[EntityDictEntry]) -> int:
         await conn.close()
 
 
+async def replace_all(
+    novel_id: str,
+    entries: list[EntityDictEntry],
+    *,
+    prescan_status: str = "completed",
+) -> int:
+    """Atomically replace one novel's dictionary with curated entries.
+
+    Unlike calling ``delete_all`` followed by ``insert_batch``, this keeps the
+    previous dictionary intact if validation or insertion fails midway.
+    """
+    conn = await get_connection()
+    try:
+        await conn.execute("BEGIN")
+        await conn.execute(
+            "DELETE FROM entity_dictionary WHERE novel_id = ?",
+            (novel_id,),
+        )
+        if entries:
+            await conn.executemany(
+                """
+                INSERT INTO entity_dictionary
+                    (novel_id, name, entity_type, frequency, confidence, aliases, source, sample_context)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                [
+                    (
+                        novel_id,
+                        entry.name,
+                        entry.entity_type,
+                        entry.frequency,
+                        entry.confidence,
+                        json.dumps(entry.aliases, ensure_ascii=False),
+                        entry.source,
+                        entry.sample_context,
+                    )
+                    for entry in entries
+                ],
+            )
+        await conn.execute(
+            "UPDATE novels SET prescan_status = ?, updated_at = datetime('now') WHERE id = ?",
+            (prescan_status, novel_id),
+        )
+        await conn.commit()
+        return len(entries)
+    except Exception:
+        await conn.rollback()
+        raise
+    finally:
+        await conn.close()
+
+
 async def get_all(novel_id: str) -> list[EntityDictEntry]:
     """Get all dictionary entries for a novel, ordered by frequency DESC."""
     conn = await get_connection()

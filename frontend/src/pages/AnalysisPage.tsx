@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import {
+  applyEntityPreset,
   checkEnvironment,
   clearAnalysisData,
   fetchCostEstimate,
@@ -13,7 +14,7 @@ import {
   startAnalysis,
   triggerPrescan,
 } from "@/api/client"
-import type { CostEstimate, EntityDictItem, Novel, PrescanStatus } from "@/api/types"
+import type { CostEstimate, EntityDictItem, EntityPresetInfo, Novel, PrescanStatus } from "@/api/types"
 import { CostPreviewDialog } from "@/components/shared/CostPreviewDialog"
 import { useAnalysisStore } from "@/stores/analysisStore"
 import { useLlmInfoStore, formatLlmLabel } from "@/stores/llmInfoStore"
@@ -110,6 +111,7 @@ export default function AnalysisPage() {
   const [prescanEntities, setPrescanEntities] = useState<EntityDictItem[]>([])
   const [prescanLoading, setPrescanLoading] = useState(false)
   const [prescanExpanded, setPrescanExpanded] = useState(false)
+  const [prescanPreset, setPrescanPreset] = useState<EntityPresetInfo | null>(null)
   const prescanPollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const {
@@ -201,8 +203,9 @@ export default function AnalysisPage() {
       const res = await fetchPrescanStatus(nId)
       setPrescanStatus(res.status)
       setPrescanEntityCount(res.entity_count)
+      setPrescanPreset(res.preset)
       if (res.status === "completed" && res.entity_count > 0) {
-        const dict = await fetchEntityDictionary(nId, undefined, 50)
+        const dict = await fetchEntityDictionary(nId, undefined, 100)
         setPrescanEntities(dict.data)
       }
     } catch {
@@ -212,6 +215,12 @@ export default function AnalysisPage() {
 
   const handleTriggerPrescan = useCallback(async () => {
     if (!novelId) return
+    if (prescanPreset?.applied) {
+      const confirmed = window.confirm(
+        "重新自动扫描会替换已经应用的《斗罗大陆1》精校词表。是否继续？",
+      )
+      if (!confirmed) return
+    }
     setPrescanLoading(true)
     try {
       await triggerPrescan(novelId)
@@ -227,7 +236,26 @@ export default function AnalysisPage() {
     } finally {
       setPrescanLoading(false)
     }
-  }, [novelId])
+  }, [novelId, prescanPreset])
+
+  const handleApplyPreset = useCallback(async () => {
+    if (!novelId || !prescanPreset || prescanPreset.applied) return
+    const confirmed = window.confirm(
+      `应用“${prescanPreset.label}”将替换当前小说的实体预扫描词典。已有章节分析不会删除；后续分析和重跑章节将使用新词表。是否继续？`,
+    )
+    if (!confirmed) return
+    setPrescanLoading(true)
+    setError(null)
+    try {
+      await applyEntityPreset(novelId, prescanPreset.id)
+      await loadPrescanData(novelId)
+      setPrescanExpanded(false)
+    } catch (err) {
+      setError(`应用精校词表失败：${String(err)}`)
+    } finally {
+      setPrescanLoading(false)
+    }
+  }, [novelId, prescanPreset, loadPrescanData])
 
   // Track previous novelId to avoid resetting stats when re-entering the same novel
   const prevNovelIdRef = useRef<string | null>(null)
@@ -251,6 +279,7 @@ export default function AnalysisPage() {
       setPrescanEntityCount(0)
       setPrescanEntities([])
       setPrescanExpanded(false)
+      setPrescanPreset(null)
     }
     setLoading(true)
     setError(null)
@@ -364,13 +393,14 @@ export default function AnalysisPage() {
         const res = await fetchPrescanStatus(novelId)
         setPrescanStatus(res.status)
         setPrescanEntityCount(res.entity_count)
+        setPrescanPreset(res.preset)
         if (res.status === "completed" || res.status === "failed") {
           if (prescanPollRef.current) {
             clearInterval(prescanPollRef.current)
             prescanPollRef.current = null
           }
           if (res.status === "completed" && res.entity_count > 0) {
-            const dict = await fetchEntityDictionary(novelId, undefined, 50)
+            const dict = await fetchEntityDictionary(novelId, undefined, 100)
             setPrescanEntities(dict.data)
           }
         }
@@ -578,8 +608,10 @@ export default function AnalysisPage() {
         loading={prescanLoading}
         expanded={prescanExpanded}
         llmLabel={llmLabel}
+        preset={prescanPreset}
         onToggleExpand={() => setPrescanExpanded((v) => !v)}
         onTrigger={handleTriggerPrescan}
+        onApplyPreset={handleApplyPreset}
       />
 
       {error && (
@@ -1068,8 +1100,10 @@ function PrescanCard({
   loading,
   expanded,
   llmLabel,
+  preset,
   onToggleExpand,
   onTrigger,
+  onApplyPreset,
 }: {
   status: PrescanStatus
   entityCount: number
@@ -1077,8 +1111,10 @@ function PrescanCard({
   loading: boolean
   expanded: boolean
   llmLabel: string
+  preset: EntityPresetInfo | null
   onToggleExpand: () => void
   onTrigger: () => void
+  onApplyPreset: () => void
 }) {
   const typeCounts = useMemo(() => {
     const counts: Record<string, number> = {}
@@ -1110,6 +1146,27 @@ function PrescanCard({
         </CardTitle>
       </CardHeader>
       <CardContent>
+        {preset && (
+          <div className="mb-3 rounded-md border bg-muted/30 p-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-sm font-medium">{preset.label}</span>
+              <Badge variant={preset.applied ? "default" : "secondary"}>
+                {preset.applied ? "已应用" : `${preset.entry_count} 个精校实体`}
+              </Badge>
+            </div>
+            <p className="text-muted-foreground mt-1 text-xs">{preset.description}</p>
+            {!preset.applied && status !== "running" && (
+              <Button
+                size="sm"
+                className="mt-2"
+                onClick={onApplyPreset}
+                disabled={loading}
+              >
+                {loading ? "应用中..." : "应用精校词表"}
+              </Button>
+            )}
+          </div>
+        )}
         {/* Pending */}
         {status === "pending" && (
           <div className="flex items-center justify-between">

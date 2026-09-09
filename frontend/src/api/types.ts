@@ -916,10 +916,20 @@ export type ChatWsIncoming =
 // ── Prescan Dictionary ──────────────────────────
 export type PrescanStatus = "pending" | "running" | "completed" | "failed"
 
+export interface EntityPresetInfo {
+  id: string
+  version: number
+  label: string
+  description: string
+  entry_count: number
+  applied: boolean
+}
+
 export interface PrescanStatusResponse {
   status: PrescanStatus
   entity_count: number
   created_at: string | null
+  preset: EntityPresetInfo | null
 }
 
 export interface EntityDictItem {

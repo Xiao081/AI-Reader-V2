@@ -1008,6 +1008,15 @@ export function triggerPrescan(
   return apiFetch(`/novels/${novelId}/prescan`, { method: "POST" })
 }
 
+export function applyEntityPreset(
+  novelId: string,
+  presetId: string,
+): Promise<{ status: string; preset_id: string; entity_count: number }> {
+  return apiFetch(`/novels/${novelId}/entity-presets/${encodeURIComponent(presetId)}`, {
+    method: "POST",
+  })
+}
+
 export function fetchEntityDictionary(
   novelId: string,
   type?: string,

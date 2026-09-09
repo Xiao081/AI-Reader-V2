@@ -11,7 +11,7 @@ from src.models.entity_dict import EntityDictEntry
 
 _PRESET_DIR = Path(__file__).resolve().parents[1] / "resources" / "entity_presets"
 _PRESET_FILES = {
-    "douluo1-curated-v1": _PRESET_DIR / "douluo1-curated-v1.json",
+    "douluo1-curated-v2": _PRESET_DIR / "douluo1-curated-v2.json",
 }
 
 

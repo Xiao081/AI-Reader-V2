@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 # How many recent chapters to consider for "active" entities
 _ACTIVE_WINDOW = 20
+_CURATED_DICTIONARY_HEADING = "### 本书人工精校实体词表（高优先级）"
 
 
 class ContextSummaryBuilder:
@@ -205,7 +206,13 @@ class ContextSummaryBuilder:
         if include_dictionary:
             dict_section = await self._build_dictionary_section(novel_id)
         if dict_section:
-            sections.append(dict_section)
+            # A packaged, title-scoped preset is compact and authoritative.
+            # Keep it at the front so the final context truncation cannot drop
+            # late-book names. Ordinary pre-scan output retains its old order.
+            if dict_section.startswith(_CURATED_DICTIONARY_HEADING):
+                sections.insert(0, dict_section)
+            else:
+                sections.append(dict_section)
 
         if not sections:
             return ""
@@ -730,6 +737,39 @@ class ContextSummaryBuilder:
             return ""
         if not dictionary:
             return ""
+
+        # A reviewed preset is fundamentally different from tentative scanner
+        # output: every entry was checked against this exact novel. Inject the
+        # complete preset in a compact grouped form instead of silently keeping
+        # only the first 100 rows. This branch is isolated by the source marker,
+        # so automatic pre-scan behavior remains unchanged.
+        curated_entries = [
+            entry for entry in dictionary if entry.source.startswith("preset:")
+        ]
+        if curated_entries:
+            type_labels = {
+                "person": "人物",
+                "org": "势力/组织",
+                "location": "地点",
+                "concept": "设定/生物",
+                "item": "武魂/魂技/物品",
+            }
+            lines = [
+                _CURATED_DICTIONARY_HEADING,
+                "以下名称已按《斗罗大陆1》全书原文复核。原文出现时必须优先识别完整名称；别名只归并到括号前的实体，不得据此虚构本章未出现的实体。",
+            ]
+            for entity_type in type_labels:
+                values = []
+                for entry in curated_entries:
+                    if entry.entity_type != entity_type:
+                        continue
+                    value = entry.name
+                    if entry.aliases:
+                        value += f"（别名：{'、'.join(entry.aliases)}）"
+                    values.append(value)
+                if values:
+                    lines.append(f"- {type_labels[entity_type]}：{'、'.join(values)}")
+            return "\n".join(lines)
 
         # Separate naming-source entries (highest quality: explicit name
         # introductions like "叫作二愣子") from frequency-sorted entries.

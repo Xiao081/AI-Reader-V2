@@ -1,0 +1,3168 @@
+{
+  "id": "douluo1-curated-v2",
+  "version": 2,
+  "label": "《斗罗大陆1》全书精校词表 v2",
+  "description": "按全书章节分段召回并复核，覆盖早中晚期人物、势力、地点、武魂、魂兽、魂技、魂骨与关键物品。",
+  "title_include": [
+    "斗罗大陆"
+  ],
+  "title_exclude": [
+    "绝世唐门",
+    "龙王传说",
+    "终极斗罗",
+    "重生唐三",
+    "神界传说",
+    "唐门英雄传",
+    "斗罗大陆2",
+    "斗罗大陆Ⅱ",
+    "斗罗大陆II",
+    "斗罗大陆3",
+    "斗罗大陆Ⅲ",
+    "斗罗大陆III",
+    "斗罗大陆4",
+    "斗罗大陆Ⅳ",
+    "斗罗大陆IV"
+  ],
+  "coverage": {
+    "chapter_count": 688,
+    "method": "32章分片原版Phase1 + 全书POS/介绍句/人物武魂名册召回 + 原文逐项存在性校验",
+    "missing_dropped": [
+      {
+        "entity_type": "person",
+        "name": "玉元震"
+      },
+      {
+        "entity_type": "org",
+        "name": "风剑宗"
+      },
+      {
+        "entity_type": "org",
+        "name": "火豹宗"
+      },
+      {
+        "entity_type": "concept",
+        "name": "魂核"
+      },
+      {
+        "entity_type": "item",
+        "name": "两极静止领域"
+      },
+      {
+        "entity_type": "item",
+        "name": "柔骨兔右臂骨"
+      },
+      {
+        "entity_type": "item",
+        "name": "深海魔鲸王躯干骨"
+      }
+    ]
+  },
+  "entries": [
+    {
+      "name": "唐三",
+      "entity_type": "person",
+      "frequency": 23612,
+      "confidence": "high",
+      "aliases": [
+        "小三",
+        "千手修罗",
+        "唐银"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第1章｜门，在外门弟子的辈分中排名第三，因此外门弟子称他一声三少。当然，到了内门弟子口中，就变成了唐三。 唐门从建立时开始就分为内外两门，外门都是外姓或被授予唐姓的弟子，而内门，则是唐门直"
+    },
+    {
+      "name": "小舞",
+      "entity_type": "person",
+      "frequency": 5348,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第24章｜，看着里面没人理会自己，再抬头看看门上那七舍的标牌，脸上流露出甜丝丝的微笑，“你们好，我叫小舞，跳舞的舞。” 王圣在唐三后背上连捅，示意他不能破坏宿舍的规矩。 唐三无奈之下，只"
+    },
+    {
+      "name": "戴沐白",
+      "entity_type": "person",
+      "frequency": 2659,
+      "confidence": "high",
+      "aliases": [
+        "沐白",
+        "戴老大"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第66章｜戴少的等级至少已经超过了三十，也就是说，他是一名魂尊，还是拥有强力兽武魂的战魂尊。 “戴沐白，武魂：白虎，三十七级战魂尊。请指教。”在威棱的霸气之中，戴少报出了自己的武魂和等级，这代"
+    },
+    {
+      "name": "奥斯卡",
+      "entity_type": "person",
+      "frequency": 2157,
+      "confidence": "high",
+      "aliases": [
+        "小奥"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第80章｜在这时，一个软绵绵的声音响起。 “卖香肠，卖香肠了。瞧一瞧，看一看，走过路过不要错过。奥斯卡牌香肠，味美香甜。价格便宜量又足。只要五个铜币一根。吃了奥斯卡牌香肠，保证你们更容易通过入"
+    },
+    {
+      "name": "宁荣荣",
+      "entity_type": "person",
+      "frequency": 1875,
+      "confidence": "high",
+      "aliases": [
+        "荣荣"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第84章｜说道：“小舞，兽武魂兔子，二十九级强攻系战魂师。” 齐耳短发少女犹豫了一下，才说道：“宁荣荣，器武魂七宝琉璃塔，二十六级辅助系器魂师。” 最后的冰冷少女依旧冷漠，淡淡的道：“朱竹"
+    },
+    {
+      "name": "马红俊",
+      "entity_type": "person",
+      "frequency": 1632,
+      "confidence": "high",
+      "aliases": [
+        "红俊",
+        "胖子"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第99章｜发育后刚长出来的，怎么看怎么像两撇鼠须。 少女看着小胖子，眼中流露着几分畏惧的神色，“马红俊，你以后不要再找我了。我不会和你在一起了。” 小胖子怪声怪气的道：“翠花，我对你不好嘛"
+    },
+    {
+      "name": "千仞雪",
+      "entity_type": "person",
+      "frequency": 1503,
+      "confidence": "high",
+      "aliases": [
+        "雪清河"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第546章｜种难言的复杂情感，其中最多的是叹惋，叹惋这样一个人才要毁灭在自己手中。 “我的真名叫做千仞雪。唐三，死在我手中，你总算不是个糊涂鬼了。”一边说着，她扬起的右手在空中缓缓下劈，速度很慢"
+    },
+    {
+      "name": "弗兰德",
+      "entity_type": "person",
+      "frequency": 1363,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第85章｜赵无极有些吃惊的看着宁荣荣，“好家伙，今年的考生中竟然有一个是七宝琉璃家族的。不错，不错，弗兰德老鬼这次肯定要兴奋了。”一边说着，他手上的香已经点燃，随手一扔，插入地面之上。 “七宝"
+    },
+    {
+      "name": "比比东",
+      "entity_type": "person",
+      "frequency": 1205,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第405章｜，哪怕是两大帝国的帝王见到我也要礼让三分。你认为我会有什么不好么？” 大师叹息一声，“比比东，我知道你心中的苦。” “比比东？不是你说，我都快要忘记这个名字了。请叫我教皇，或者称"
+    },
+    {
+      "name": "唐昊",
+      "entity_type": "person",
+      "frequency": 1204,
+      "confidence": "high",
+      "aliases": [
+        "昊天斗罗"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜过人的记忆回忆时，也只能记起，那个男人似乎在喊，三妹，不要抛下我，而那个男人，就是他的父亲唐昊。他在这个世界的母亲，那时候就已经死于难产之中。 不知道是冥冥中自有天意，还是因缘巧合"
+    },
+    {
+      "name": "朱竹清",
+      "entity_type": "person",
+      "frequency": 1025,
+      "confidence": "high",
+      "aliases": [
+        "竹清"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第84章｜荣荣，器武魂七宝琉璃塔，二十六级辅助系器魂师。” 最后的冰冷少女依旧冷漠，淡淡的道：“朱竹清，兽武魂幽冥灵猫，二十七级敏攻系战魂师。” 当四人分别介绍完自己，包括戴沐白在内，其中"
+    },
+    {
+      "name": "独孤博",
+      "entity_type": "person",
+      "frequency": 935,
+      "confidence": "high",
+      "aliases": [
+        "毒斗罗",
+        "老怪物",
+        "老毒物"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第223章｜才能做到。 “阁下复姓独孤，身上腥气逼人，如果我猜的不错。阁下应该就是封号为毒的毒斗罗独孤博前辈吧。”大师上前一步，挡住怒火中烧的史莱克学院几位老师，向绿发老者说道。 “哈哈哈哈"
+    },
+    {
+      "name": "赵无极",
+      "entity_type": "person",
+      "frequency": 868,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第83章｜的，就是你们在这方面的能力。” 微笑着的目光从唐三四人身上扫过，温和的看着四人，“我叫赵无极，既然你们四个都是免测通过二、三关的，那我就亲自陪你们玩玩吧。现在我给你们一柱香的时间相互"
+    },
+    {
+      "name": "胡列娜",
+      "entity_type": "person",
+      "frequency": 744,
+      "confidence": "high",
+      "aliases": [
+        "胡烈娜"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第413章｜男子名叫焱，五十二级火属性强攻系战魂王，武魂是火焰领主。在邪月另一侧的女孩子是他妹妹，叫做胡列娜，五十一级控制系战魂王，武魂是狐狸。邪月和胡列娜分别跟从与父母的姓氏以及分别继承了父母的武"
+    },
+    {
+      "name": "泰坦",
+      "entity_type": "person",
+      "frequency": 715,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第274章｜院混了。”泰隆一脸苦笑的哀求着自己的爷爷。 那站在他和泰诺中央的老者，正是他的亲爷爷，泰坦。也是家族族长。 泰坦双手背在身后，冷冷的瞥了孙子一眼，“闭嘴。”只用了两个字，就把泰"
+    },
+    {
+      "name": "波赛西",
+      "entity_type": "person",
+      "frequency": 684,
+      "confidence": "high",
+      "aliases": [
+        "海神斗罗"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第550章｜苦笑道：“我怎么可能不知道，我和你父亲还曾一起去过，为你曾祖送一封信给海神岛岛主，海神斗罗波赛西。小三，那可不是一个闹着玩的地方啊！” 唐三一听唐啸曾经去过那里，顿时大喜，大师当初的"
+    },
+    {
+      "name": "宁风致",
+      "entity_type": "person",
+      "frequency": 644,
+      "confidence": "high",
+      "aliases": [
+        "宁宗主"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第107章｜随着声音的出现，一名须发皆白，但面庞却如同婴儿般细嫩的老者从后堂走了出来，大刺刺的在宗主宁风致旁的一张椅子上坐了下来。 宁风致面露无奈之色，“剑叔，就冲您和龙叔，我也不能让这丫头留"
+    },
+    {
+      "name": "柳二龙",
+      "entity_type": "person",
+      "frequency": 592,
+      "confidence": "high",
+      "aliases": [
+        "二龙"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第227章｜略过大师，弗兰德将史莱克学院的几名老师分别引荐给美妇，最后才向史莱克学院的众人说道：“这是柳二龙，或许你们也曾经听说过，她就是当初跟我和大师一起，在魂师界闯荡，我们黄金铁三角的最后一角。"
+    },
+    {
+      "name": "白沉香",
+      "entity_type": "person",
+      "frequency": 539,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第527章｜变的聚精会神起来。 少女不屑的撇了撇嘴，她可不认为唐三在速度上能和自己相比，“敏之一族白沉香。我要开始了哦？” “请。” 唐三话音刚落，白沉香就已经动了，哪怕是以唐三的眼力，"
+    },
+    {
+      "name": "小白",
+      "entity_type": "person",
+      "frequency": 488,
+      "confidence": "high",
+      "aliases": [
+        "魔魂大白鲨之王"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第582章｜有去修炼人形的胆量。何况，我还要守护海神岛呢。我走了，哦，对了，我的名字可以告诉你们，我叫小白，以前海神大人都叫我小白白的。” 说完这句话，在众人目瞪口呆的注视下，魔魂大白鲨之王小"
+    },
+    {
+      "name": "火舞",
+      "entity_type": "person",
+      "frequency": 439,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第342章｜双之外，另外一名四十级以上的魂师。而且还是整个战队中等级最高的一个。四十三级的控制系战魂师火舞。她才是整个战队的灵魂，也是战队的副队长。她的武魂就是她自己，一个以她自己为本体的影子，火"
+    },
+    {
+      "name": "杨无敌",
+      "entity_type": "person",
+      "frequency": 411,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第529章｜到唐昊有你这样一个儿子，我真的感到很欣慰。破之一族今天上午必到，在他们到来之前，我给你说说杨无敌这个人吧。哦，杨无敌就是破之一族的族长，年纪比我还要大上半岁。” 唐三聚精会神的听着。"
+    },
+    {
+      "name": "深海魔鲸王",
+      "entity_type": "person",
+      "frequency": 394,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第585章｜上，而是落在唐三身上的原因。 小白有些胆怯了，多少年了，在这大海之中，除了那格外强大的深海魔鲸王之外，还从未有什么生物令她会产生出这样的无力感，面对那体型犹胜自己的巨大幽冥白虎，她的信心"
+    },
+    {
+      "name": "风笑天",
+      "entity_type": "person",
+      "frequency": 343,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第346章｜神风学院。 说话的，就是神风学院的队长，也同时是他们团队的灵魂，神风学院战队控制系魂师风笑天。 他虽然是在向火无双说话，但目光却始终停留在火舞身上，眼中的炽热根本无法掩饰。"
+    },
+    {
+      "name": "雪崩",
+      "entity_type": "person",
+      "frequency": 313,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第217章｜们。您可要为我们作主啊！” 孙老师眼看着面前这如同丧家之犬一般的学员，不禁眉头大皱，“雪崩，你这像个什么样子。” 当着外人，他也没有多训斥自己的学员，目光朝着史莱克学院一行人方"
+    },
+    {
+      "name": "牛皋",
+      "entity_type": "person",
+      "frequency": 311,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第523章｜，但你也别想勒断我这身老骨头。” 泰坦没好气的道：“谁不知道你皮厚啊。泰隆，过来。给你牛皋爷爷见礼。” 泰隆赶忙大步上前，恭敬的向那御之一族的族长行礼，“您好，牛爷爷。”"
+    },
+    {
+      "name": "泰隆",
+      "entity_type": "person",
+      "frequency": 258,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第258章｜的肌肉，几乎壮大了一倍，同时手臂延伸，垂至膝下，裸露在外的地方都露出了黑色的毛发。 “泰隆，武魂大力猩猩，三十七级强攻系战魂尊，请指教。” 三十七级？唐三愣了一下，脸上不禁流露"
+    },
+    {
+      "name": "白鹤",
+      "entity_type": "person",
+      "frequency": 257,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第526章｜唐三却知道，他的实际年龄比牛皋还要小伤一岁。魂力也在八十一、二级左右。正是敏之一族的族长，白鹤。 其实，敏之一族的武魂并不是鹤，鹤的飞行速度并不快。他们之所以走全敏路线，与自身的武"
+    },
+    {
+      "name": "雪夜大帝",
+      "entity_type": "person",
+      "frequency": 254,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第315章｜，恕本座卖个关子，暂时不能透露。但我相信，本届大赛最后的冠军，一定会属于帝国。” 坐在雪夜大帝身边，之前一直微合双目的那位白金主教在这时候睁开了双眼，他的眼睛看上去很浑浊，并没有什么光"
+    },
+    {
+      "name": "泰坦巨猿",
+      "entity_type": "person",
+      "frequency": 250,
+      "confidence": "high",
+      "aliases": [
+        "二明"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第135章｜凭借着大师给他灌输的知识，他几乎是立刻就辨别出了这个大家伙的种类。 “竟然是森林之王，泰坦巨猿。”哪怕是一向沉稳的唐三，此时声音都有些变了。 泰坦巨猿出现在任何魂兽森林，都绝对是霸"
+    },
+    {
+      "name": "唐啸",
+      "entity_type": "person",
+      "frequency": 248,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第484章｜“起来吧。”浑厚的声音从那男子口中传出。没错，这个人就是昊天宗当代宗主，唐昊的嫡亲大哥，唐啸。昊天宗一门双斗罗的另外一位。他的封号为啸天。 唐三没有立刻起身，而是用力的向唐啸叩头"
+    },
+    {
+      "name": "紫珍珠",
+      "entity_type": "person",
+      "frequency": 245,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第561章｜地。我可以饶你一命。” 海德尔微微松了口气，道：“我说。魂帝大人，我们这艘船，是隶属于紫珍珠海盗团的。我们每个人，都是紫珍珠海盗团的成员。专门负责在港口那里找到肥羊，在海上捕杀。然后"
+    },
+    {
+      "name": "海马斗罗",
+      "entity_type": "person",
+      "frequency": 216,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第568章｜神陛下的考验？你们只有穿过海中海，来到海马圣柱面前，才有接受考验的资格。” 一边说着，海马斗罗背后亮起一片蓝蒙蒙的光晕，紧接着，他背后的海马圣柱已经骤然亮起，一道湛蓝的光芒从下方一直通"
+    },
+    {
+      "name": "玉天恒",
+      "entity_type": "person",
+      "frequency": 212,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜莱克七怪一样，只有七人，资料如下。 皇斗战队，全七人，全银斗魂徽章拥有者。 队长：玉天恒，武魂：蓝电霸王龙，三十九级强攻系战魂师。魂环：两黄一紫。 副队长：独孤雁，武魂：碧磷"
+    },
+    {
+      "name": "楼高",
+      "entity_type": "person",
+      "frequency": 210,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第535章｜人突然听到前方一个洪亮的嗓音在大声的叫卖着，“走过路过不要错过，当今铁匠协会会长，神匠之王楼高再传弟子亲手打造辉煌亮银铠，只此一件，优惠出售了。” “楼高？”泰坦有些疑惑的道：“老"
+    },
+    {
+      "name": "吉祥",
+      "entity_type": "person",
+      "frequency": 201,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第563章｜功的缘故，所以眼睛看起来比常人有神一些。还未请教，恩人贵姓高名？” 青年淡然道：“我叫吉祥。你也可以这样叫我。我也不是你什么恩人。是你自己救了自己。没有你自身的恢复能力，虽然我懂些"
+    },
+    {
+      "name": "邪月",
+      "entity_type": "person",
+      "frequency": 195,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第413章｜四十级以上的实力。 “这三个人就是被武魂殿誉为黄金一代的三个奇才。最前面的黑发青年名叫邪月，五十二级强攻系战魂王，武魂是月刃，是一名器魂师。在他后面的红发男子名叫焱，五十二级火属性"
+    },
+    {
+      "name": "海龙斗罗",
+      "entity_type": "person",
+      "frequency": 183,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第569章｜者之一，通过的七个人，就是现在海神岛七圣柱的守护者。而在我们七个人中，只有海龙圣柱的守护者海龙斗罗才经过了黑级六考。他也是我们中最强的一个，魂力现在已经突破了九十五级。” 海马斗罗的解"
+    },
+    {
+      "name": "火无双",
+      "entity_type": "person",
+      "frequency": 173,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第342章｜身金红色的队服映衬着他那并不算英俊的面庞却是气势逼人。 这个人，就是炽火学院战队的队长火无双。一名四十二级的强攻系战魂师。武魂和柳二龙有些类似，是一条火龙。只不过柳二龙的火龙更偏向于"
+    },
+    {
+      "name": "泰诺",
+      "entity_type": "person",
+      "frequency": 160,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第264章｜的彪悍之色。 “放屁，儿子让人打的连关节都卸了，当老子要是还能忍，我就不配被称为大力王泰诺。你这混小子，只会给我丢人，连一个十几岁的小家伙都打不过。我到要看看，是谁这么厉害，连我泰"
+    },
+    {
+      "name": "秦明",
+      "entity_type": "person",
+      "frequency": 154,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第189章｜前这位秦老师，不只是因为这位秦老师是他们的专门指导老师，同时也是因为他的实力。秦老师全名叫秦明，今年三十四岁，却在年初时，刚刚突破了六十级的门槛，成为了一名魂帝。据说，是武魂殿记载中，"
+    },
+    {
+      "name": "金鳄斗罗",
+      "entity_type": "person",
+      "frequency": 153,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第636章｜八级。 唐三的判断没错，眼前这位武魂帝国供奉，正是在长老殿实力仅次于千道流，排名第二的金鳄斗罗。今年已经一百五十余岁，年纪甚至还在千道流之上，实力也达到了恐怖的九十八级之多。强悍的能力"
+    },
+    {
+      "name": "阿银",
+      "entity_type": "person",
+      "frequency": 151,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第446章｜的温柔。嘴唇颤抖着，唐昊痴痴的看着唐三的面庞，两行泪水顺着他那苍老的面庞流淌而下。 “阿银……”轻声的呼唤。唐昊的声音也在颤抖。整个人似乎都在震颤中站了起来。猛的跨前一步，他已经来"
+    },
+    {
+      "name": "孟依然",
+      "entity_type": "person",
+      "frequency": 147,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第130章｜够的对战空间。 “我叫唐三，武魂蓝银草，二十九级二环战魂大师。” 少女冷冷的道：“孟依然，武魂蛇杖，三十级二环战魂大师。” 离得近了，唐三发现，这名叫孟依然的少女很美，她毕竟"
+    },
+    {
+      "name": "千道流",
+      "entity_type": "person",
+      "frequency": 144,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第550章｜是那时打响的。而武魂殿的这位大供奉，当时是武魂殿的裁决长老，也就是武魂殿的第一刽子手。名叫千道流。他们曾多次比试，实力在伯仲之间。千道流拥有的武魂和你之前所说的千仞雪一样，也是六翼天使。"
+    },
+    {
+      "name": "焱",
+      "entity_type": "person",
+      "frequency": 132,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第413章｜的黑发青年名叫邪月，五十二级强攻系战魂王，武魂是月刃，是一名器魂师。在他后面的红发男子名叫焱，五十二级火属性强攻系战魂王，武魂是火焰领主。在邪月另一侧的女孩子是他妹妹，叫做胡列娜，五"
+    },
+    {
+      "name": "萨拉斯",
+      "entity_type": "person",
+      "frequency": 130,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第315章｜：“很遗憾，没能从宁宗主口中套出他看好的队伍。下面，有请天斗城武魂圣殿殿主，武魂殿白金主教萨拉斯大人进行第一轮预选赛的抽签。抽签结束之后，将由天斗皇家学院副队与他们第一轮抽签的对手进行比"
+    },
+    {
+      "name": "王圣",
+      "entity_type": "person",
+      "frequency": 127,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第22章｜读生？” 唐三脸上流露出一丝善意的微笑，“你好，我是从圣魂村来的工读生。” “我叫王圣，武魂是战虎，未来的战魂师。也是这里的头儿，小子，你叫什么名字？武魂是什么？” “我叫"
+    },
+    {
+      "name": "思龙",
+      "entity_type": "person",
+      "frequency": 114,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第536章｜因为楼高的原因，他们是楼高的亲传弟子，楼高一共有四名弟子，就是轮流在这里守卫的。左边这个叫思龙，右边这个叫思雨。今天找我们麻烦那个小子，就是另外两个人中思迪的儿子吧。” 唐三向面前"
+    },
+    {
+      "name": "唐月华",
+      "entity_type": "person",
+      "frequency": 108,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第470章｜浓于水的感觉还是令他第一时间就对眼前的女人失去了任何防备之心。 轻轻的抚摸着唐三的脸，唐月华眼圈再次红了，“你长得像你爸爸年轻的时候，也像你妈妈。” 听到这句话，唐三内心的防线也"
+    },
+    {
+      "name": "海矛斗罗",
+      "entity_type": "person",
+      "frequency": 104,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第592章｜奥斯卡道：“我的考官好，老熟人，海马斗罗。” 戴沐白道：“我的考官是海之矛。应该叫海矛斗罗吧。” 马红俊道：“我的考官是海魔鬼斗罗，估计正确称呼叫海鬼斗罗。” 唐三松了口气"
+    },
+    {
+      "name": "尘心",
+      "entity_type": "person",
+      "frequency": 99,
+      "confidence": "high",
+      "aliases": [
+        "剑斗罗",
+        "剑道尘心",
+        "剑爷爷"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第270章｜人，可以说是七宝琉璃宗的擎天柏玉柱，架海紫金粱，乃是宗门的两尊保护神。白衣老者封号为剑，名尘心。有攻击最强封号斗罗之称，魂力高达九十六级。枯槁老者封号为骨，名古榕，以诡变难缠著称。魂力"
+    },
+    {
+      "name": "独孤雁",
+      "entity_type": "person",
+      "frequency": 91,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜队长：玉天恒，武魂：蓝电霸王龙，三十九级强攻系战魂师。魂环：两黄一紫。 副队长：独孤雁，武魂：碧磷蛇，三十八级控制系战魂师。魂环：两黄一紫。 队员：石墨，武魂：玄武龟，三十"
+    },
+    {
+      "name": "海星斗罗",
+      "entity_type": "person",
+      "frequency": 88,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第595章｜充分利用起来才行。在接下来的考核中，自己真正要面对的封号斗罗其实只有三位，那就是海幻斗罗，海星斗罗和海龙斗罗。只要能够接连战胜这三人，就可以通过第五考了。而有了凭借精神力辅助伙伴们的战斗方"
+    },
+    {
+      "name": "邪魔虎鲸王",
+      "entity_type": "person",
+      "frequency": 87,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第587章｜么困难，但唐三却知道，这些考核没有一个是简单的。想要通过绝非易事。尤其是他要击杀的对象乃是邪魔虎鲸王。从小白的实力就能看得出，这位邪魔虎鲸王必定是一只十万年级别的魂兽。 唐三也隐隐感觉到"
+    },
+    {
+      "name": "戈龙",
+      "entity_type": "person",
+      "frequency": 85,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第626章｜漠然。显然对于这个能坐在他上首位的年轻人，不太在意。 雪崩向唐三道：“这位是帝国柱石，戈龙元帅，有九命神龙之称。也是帝国第一人，三军总指挥。戈龙元帅，请你简单的分析一下目前武魂帝国"
+    },
+    {
+      "name": "唐晨",
+      "entity_type": "person",
+      "frequency": 83,
+      "confidence": "high",
+      "aliases": [
+        "杀戮之王"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第550章｜奉，曾经并称为魂师界的两岳。意指不可逾越的山峰。我们昊天宗的那位，就是我的爷爷，你的曾祖父唐晨。当时，他老人家用的就是昊天斗罗这个称号。我们昊天宗天下第一宗门的名头，也是那时打响的。而"
+    },
+    {
+      "name": "时年",
+      "entity_type": "person",
+      "frequency": 83,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第314章｜最为亲近，赶忙问道：“老师，刚才那老头儿是谁？您认识？” 弗兰德颔首道：“那个老家伙叫时年，他的武魂十分特殊，是一种有形无质的特殊武魂。能够产生各种幻境，令人在幻境中迷失，以他现在"
+    },
+    {
+      "name": "唐虎",
+      "entity_type": "person",
+      "frequency": 79,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第485章｜得真好看。比我爸爸好看多了。” 唐三愣了一下，“你爸爸是谁？” 小丫头道：“我爸叫唐虎，是宗门三代首席哦。” 唐三疑惑的道：“三代首席不是唐龙大哥么？” 小丫头摇了摇头"
+    },
+    {
+      "name": "海德尔",
+      "entity_type": "person",
+      "frequency": 78,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第560章｜的中年人就赢了上来，哈哈大笑中作出欢迎的手势。 唐三为众人介绍道：“这位是海魔号的船长海德尔先生。” 海德尔很有风度的笑道：“欢迎各位漂亮的小姐，当然，还有英俊的先生们。看来，这"
+    },
+    {
+      "name": "孟蜀",
+      "entity_type": "person",
+      "frequency": 77,
+      "confidence": "high",
+      "aliases": [
+        "龙公"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第129章｜高名？” 老妇道：“不敢，老身朝天香，蒙魂师界朋友们看得起，给了个蛇婆的称号。我丈夫叫孟蜀，人称龙公。这次前来星斗大森林，就是为了给我们的孙女找一个合适的第三魂环。我看，你身边这些"
+    },
+    {
+      "name": "月关",
+      "entity_type": "person",
+      "frequency": 77,
+      "confidence": "high",
+      "aliases": [
+        "菊斗罗",
+        "菊花关"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第403章｜称呼他为剑道尘心。一声浸淫于他那柄长剑武魂之中，论攻击力，敢于他相比的人绝对不多。 “月关，亏你也是封号斗罗，竟然在这里欺负小孩子。还如此藏头露尾，就不怕被人耻笑么？唐三是我们七宝"
+    },
+    {
+      "name": "老杰克",
+      "entity_type": "person",
+      "frequency": 76,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第5章｜，头发也梳理的一丝不苟，和唐昊相比，简直就是两个极端。 这个人唐三认识，是圣魂村的村长老杰克。 “小三，来，让爷爷看看。”老杰克向唐三挥了挥手。 这位村长是个老好人，村里的人"
+    },
+    {
+      "name": "天青牛蟒",
+      "entity_type": "person",
+      "frequency": 75,
+      "confidence": "high",
+      "aliases": [
+        "大明"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第151章｜吼声究竟是什么？难道在星斗大森林中，还有什么魂兽能引起它的共鸣么？” “这牛吼声应该是天青牛蟒。”一个听上去有些僵硬又有些怪异的声音从门外传来。 赵无极一惊，之前他已经听到有脚步声"
+    },
+    {
+      "name": "水冰儿",
+      "entity_type": "person",
+      "frequency": 75,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第357章｜看时却能不断发现她的美。那是一种朦胧的美感。 她就是天水学院战队的队长，也是战队的大姐水冰儿。天水学院战队的队员们大小排位不是按照年龄，而是按照实力的。 所以，水冰儿的年纪虽然最"
+    },
+    {
+      "name": "蛇矛斗罗",
+      "entity_type": "person",
+      "frequency": 73,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第542章｜。毒斗罗的剧毒可不是那些弱小魂师所能抵挡的。 但是，诡异的一幕出现了，原本扑向独孤博的蛇矛斗罗手中蛇矛突兀的在地面上一撑，原本前扑的身体突然改变了方向，斜飞而出，蛇矛再次抬起时，指向已"
+    },
+    {
+      "name": "素云涛",
+      "entity_type": "person",
+      "frequency": 72,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第7章｜面前站定，唐三站在最左侧。他的身材和同龄的孩子相比，要瘦小一些。 年轻人微笑道：“我叫素云涛，二十六级大魂师，是你们的领路人。现在，我将逐一对你们进行武魂觉醒。记住，不论发生什么都不"
+    },
+    {
+      "name": "雪星",
+      "entity_type": "person",
+      "frequency": 68,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第222章｜，这位是史莱克学院院长，弗兰德。这次，是来与我们协商合作之事的。弗兰德院长，这位是天斗帝国雪星亲王殿下，皇家学院现在正是属于亲王殿下管辖。” 弗兰德虽然对这位高高在上的亲王不太感冒"
+    },
+    {
+      "name": "狂犀",
+      "entity_type": "person",
+      "frequency": 66,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第178章｜，你们也不用在这里争，正好，今天你们彼此就是斗魂台上的对手。有什么恩怨，自己到斗魂台解决。狂犀，下次再让我看到你在我的地盘闹事，可别怪我对你不客气，这是我最后一次警告你，你给我记住了。"
+    },
+    {
+      "name": "刺豚斗罗",
+      "entity_type": "person",
+      "frequency": 65,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第542章｜前扑的身体突然改变了方向，斜飞而出，蛇矛再次抬起时，指向已经变成了杨无敌。 而另外那名刺豚斗罗膨胀后的身体尖刺在地面上一撑，与蛇矛斗罗交错而过，只见他张口一吸，身上第三魂环闪亮，独孤博"
+    },
+    {
+      "name": "迈尔斯",
+      "entity_type": "person",
+      "frequency": 65,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第537章｜于言表。不用问，唐三也知道，这些人必定是来自于武魂殿庚辛城主殿的了。 思龙脸色一沉，“迈尔斯主教，你这话是什么意思？” 武魂殿为首的老者，也就是迈尔斯，嘴角处多了一丝冷笑，缓步走"
+    },
+    {
+      "name": "京灵",
+      "entity_type": "person",
+      "frequency": 63,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第311章｜三十五级强攻系战魂尊黄远，男，武魂：独狼。魂环：两黄一紫。 三十五级敏攻系战魂尊京灵，男，武魂：骷髅。魂环：两黄一紫。 三十五级治疗系器魂尊绛珠，女，武魂：治疗权杖。魂环"
+    },
+    {
+      "name": "呼延力",
+      "entity_type": "person",
+      "frequency": 63,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第327章｜他上前一步，两腿开立，比赛台地面上轰轰两声，剧烈的震荡了一下。 “象甲学院战队，队长，呼延力。四十三级防御系战魂宗。”这位队长的声音瓮声瓮气的，身上的肥肉似乎都随着自己的声音在轻微的"
+    },
+    {
+      "name": "朝天香",
+      "entity_type": "person",
+      "frequency": 62,
+      "confidence": "high",
+      "aliases": [
+        "蛇婆"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第129章｜谭了。 只听赵无极冷然一笑，“这位前辈，还未请教贵姓高名？” 老妇道：“不敢，老身朝天香，蒙魂师界朋友们看得起，给了个蛇婆的称号。我丈夫叫孟蜀，人称龙公。这次前来星斗大森林，就是"
+    },
+    {
+      "name": "黄远",
+      "entity_type": "person",
+      "frequency": 61,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第311章｜补队员。 后招入的四个人中，除了泰隆以外，另外三个人分别是： 三十五级强攻系战魂尊黄远，男，武魂：独狼。魂环：两黄一紫。 三十五级敏攻系战魂尊京灵，男，武魂：骷髅。魂环：两"
+    },
+    {
+      "name": "古榕",
+      "entity_type": "person",
+      "frequency": 58,
+      "confidence": "high",
+      "aliases": [
+        "骨斗罗"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第270章｜。白衣老者封号为剑，名尘心。有攻击最强封号斗罗之称，魂力高达九十六级。枯槁老者封号为骨，名古榕，以诡变难缠著称。魂力高达九十五级，乃是当世最强者之二。七宝琉璃宗始终能够在七大家族中名列"
+    },
+    {
+      "name": "唐龙",
+      "entity_type": "person",
+      "frequency": 57,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第483章｜衣人用力的拍拍唐三肩膀，“少来这套，分明是你的骨头震的我手生疼，真不知道你是怎么练的。我叫唐龙。你这声大哥可是没叫错，在咱们这一辈里，我年纪最大。这两个是唐天、唐玉，也都是我们直系的兄"
+    },
+    {
+      "name": "绛珠",
+      "entity_type": "person",
+      "frequency": 52,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第311章｜三十五级敏攻系战魂尊京灵，男，武魂：骷髅。魂环：两黄一紫。 三十五级治疗系器魂尊绛珠，女，武魂：治疗权杖。魂环：两黄一紫。 在史莱克七怪到来之前，或者说是学院更名史莱克学"
+    },
+    {
+      "name": "叶知秋",
+      "entity_type": "person",
+      "frequency": 51,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第124章｜算能战胜对方，他也不会让他们再出手了。有些麻烦是不能招惹的。 “我是苍晖学院外事部主任叶知秋，请问，你们是哪个宗门的？” 眼看着叶知秋走到自己三人面前，在自己释放的魂力面前并没有"
+    },
+    {
+      "name": "梦神机",
+      "entity_type": "person",
+      "frequency": 49,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第219章｜气，久仰大名，真是久仰大名啊！能得怪物学院各位老师亲临指导，敝院蓬荜生辉。我是教务会首席，梦神机，武魂黑妖，控制系八十六级八环战魂斗罗。我给你介绍一下。” 梦神机身材中等，很瘦，看上"
+    },
+    {
+      "name": "浩特",
+      "entity_type": "person",
+      "frequency": 49,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第502章｜不急。 奥斯卡笑道：“我这第六魂技有些奇怪，只是依靠自己的力量不行，还需要其他人帮助。浩特大哥，麻烦你。”他最后一句话就是向那位魂圣说的。一边说着，他还从自己怀中摸出一个尺长的黑匣"
+    },
+    {
+      "name": "萧尘宇",
+      "entity_type": "person",
+      "frequency": 49,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第50章｜萧老大冷冷的看着唐三，此时他脸上的轻蔑和不屑都已经消失了，取而代之的是凝重。 “萧尘宇，六年级学员，武魂，狼。十一级一环战魂师。” 报出自己的武魂和等级，是一种对对手尊重的"
+    },
+    {
+      "name": "戴维斯",
+      "entity_type": "person",
+      "frequency": 46,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第409章｜对面的挑战我，其实你已经成功了。但你应该明白，你这样做会让我必须要对你进行打击。” “戴维斯，不用惺惺作态了，你什么时候停止过对我的打击了。今天在场上，你我是敌人。有本事，你先战胜我"
+    },
+    {
+      "name": "海幻斗罗",
+      "entity_type": "person",
+      "frequency": 37,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第595章｜一定要将其充分利用起来才行。在接下来的考核中，自己真正要面对的封号斗罗其实只有三位，那就是海幻斗罗，海星斗罗和海龙斗罗。只要能够接连战胜这三人，就可以通过第五考了。而有了凭借精神力辅助伙伴"
+    },
+    {
+      "name": "马修诺",
+      "entity_type": "person",
+      "frequency": 37,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第53章｜识的流露出羡慕的光芒，先前说话的那么门卫道：“原来是这样，那你进去吧。到一层接待厅找那里的马修诺大魂师，他会帮助你的。” “谢谢。”唐三答应一声，赶忙走进了武魂殿。 两名门卫羡慕"
+    },
+    {
+      "name": "唐玉",
+      "entity_type": "person",
+      "frequency": 33,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第483章｜道你是怎么练的。我叫唐龙。你这声大哥可是没叫错，在咱们这一辈里，我年纪最大。这两个是唐天、唐玉，也都是我们直系的兄弟。这次，你可是救了他们的命。” 唐天、唐玉二人脸上早已挂满了感激"
+    },
+    {
+      "name": "朱竹云",
+      "entity_type": "person",
+      "frequency": 33,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第409章｜竹清那份冰冷，却有着一种发自内心的魅惑气息，柔媚的声音很容易令人不自觉的陷入其中。 “朱竹云，你不用在这里惺惺作态。如果我没有离家，或许已经死在你手里了吧。想念我？在我们家族之中，会"
+    },
+    {
+      "name": "智林",
+      "entity_type": "person",
+      "frequency": 32,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第219章｜绍到自己，朝着弗兰德微笑着点了点头。 梦神机指向最后一名老者，道：“这位是教委会三席，智林魂斗罗，武魂天青藤，控制系八十三级八环器魂斗罗。” 智林在这三位教委会高层中，外表看上"
+    },
+    {
+      "name": "玉天心",
+      "entity_type": "person",
+      "frequency": 29,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第389章｜绝天下。 在交涉无果的情况下，雷霆学院最后一名队员，也是他们的队长，终于出场了。 玉天心，四十三级强攻系战魂师，武魂：蓝电霸王龙。七大宗门中蓝电霸王龙家族直系子弟。论辈分，他还是"
+    },
+    {
+      "name": "御风",
+      "entity_type": "person",
+      "frequency": 28,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜黄一紫。 队员：石磨，武魂：玄武龟，三十七级防御系战魂师。魂环：两黄一紫。 队员：御风，武魂：风铃鸟，三十六级敏攻系战魂师。魂环：两黄一紫。 队员：奥斯罗，武魂：鬼豹，三十"
+    },
+    {
+      "name": "鬼魅",
+      "entity_type": "person",
+      "frequency": 27,
+      "confidence": "high",
+      "aliases": [
+        "鬼斗罗"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第403章｜翻在地。皇家骑士团骑士们跨下的战马连悲鸣声都没发出，就已经一个个瘫软在地口吐白沫。 “鬼魅，今天你们要是杀了唐三，就等着死亡的报复吧。”独孤博已经愤怒到了极点，他怎么也想不到鬼魅和"
+    },
+    {
+      "name": "任怨",
+      "entity_type": "person",
+      "frequency": 25,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第535章｜健，步伐沉稳有力。但却是一脸惊容。 看到这名老者，那士兵队长脸色顿时变了变，沉声道：“任怨铁匠师。请不要妨碍我执行公务。否则，就算你是铁匠师的身份，也担待不起。” 那名叫任怨的"
+    },
+    {
+      "name": "蓝银王",
+      "entity_type": "person",
+      "frequency": 25,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第444章｜蔓竟然也是蓝银草，号称废武魂的蓝银草竟然能够修炼到它这样强大的程度么？ 没等唐三开口，蓝银王再次说话了，“距离您这样的血脉境界，我至少还要再修炼一万五千年。能见到您，能感受到您身上的"
+    },
+    {
+      "name": "牛奔",
+      "entity_type": "person",
+      "frequency": 24,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第525章｜一击乱披风锤法，也不可能对释放了武魂的牛皋造成真正伤害。 泰隆在唐三耳边低声道：“他叫牛奔，是牛皋爷爷的长子。和我爸也是好朋友。他的天赋要比我爸爸强上不少。魂力修为应该和少主差不多"
+    },
+    {
+      "name": "石三",
+      "entity_type": "person",
+      "frequency": 24,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第57章｜开始他们的工作。 大汉抬起自己手中的铸造锤，一边锻造着面前的生铁，一边向唐三道：“我叫石三，石头的石，你可以叫我一声三叔。这铁匠铺是我家传的。以后你来我这里打工，每天的午饭和晚饭我"
+    },
+    {
+      "name": "邵鑫",
+      "entity_type": "person",
+      "frequency": 24,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第158章｜最后一位老师的年纪比前两位要年轻一些，似乎和弗兰德差不多的样子。 “这位是邵鑫邵老师，武魂糖豆，七十一级魂圣。食物系魂师。邵老师是我知道的食物系魂师中，绝对排名前五位的"
+    },
+    {
+      "name": "思迪",
+      "entity_type": "person",
+      "frequency": 23,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第535章｜任怨猛的回过身，表情也立刻变得冷厉起来，“好你个混小子，竟然敢抓泰坦大人。就算你父亲思迪大师在这里，也要恭敬的给泰坦大人磕头。你小子等着回家挨家法吧。我告诉你，泰坦大人乃是我们铁"
+    },
+    {
+      "name": "奥斯罗",
+      "entity_type": "person",
+      "frequency": 22,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜黄一紫。 队员：御风，武魂：风铃鸟，三十六级敏攻系战魂师。魂环：两黄一紫。 队员：奥斯罗，武魂：鬼豹，三十六级敏攻系战魂师。魂环：两黄一紫。 队员：叶泠泠，武魂：九心海棠，三"
+    },
+    {
+      "name": "叶泠泠",
+      "entity_type": "person",
+      "frequency": 21,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜黄一紫。 队员：奥斯罗，武魂：鬼豹，三十六级敏攻系战魂师。魂环：两黄一紫。 队员：叶泠泠，武魂：九心海棠，三十五级辅助系器魂师。魂环：两黄一紫。 在整个资料中，并没有提到对手"
+    },
+    {
+      "name": "降魔斗罗",
+      "entity_type": "person",
+      "frequency": 20,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第636章｜付眼前这两名巅峰斗罗要紧。 两位使用盘龙棍的武魂帝国供奉一人封号为千钧斗罗，一名封号为降魔斗罗。乃是一对亲兄弟。在武魂帝国七大供奉之中，排名最后。分列第六供奉和第七供奉。但这却并不代表"
+    },
+    {
+      "name": "千钧斗罗",
+      "entity_type": "person",
+      "frequency": 18,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第636章｜经顾不上其他了，先对付眼前这两名巅峰斗罗要紧。 两位使用盘龙棍的武魂帝国供奉一人封号为千钧斗罗，一名封号为降魔斗罗。乃是一对亲兄弟。在武魂帝国七大供奉之中，排名最后。分列第六供奉和第七"
+    },
+    {
+      "name": "铁龙",
+      "entity_type": "person",
+      "frequency": 18,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第115章｜两个人的实战经验明显非常丰富，并没有因为他们的年纪小就放松警惕。 左面的大汉道：“我叫铁龙。” 右面的大汉道：“我叫铁虎。” 两人异口同声的大喝一声，“小心了。”"
+    },
+    {
+      "name": "凌风",
+      "entity_type": "person",
+      "frequency": 16,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第49章｜去紧急救治，他们只是初级魂师学院的学员，凭那点魂力还出不了人命。 “第一场算我们输了。凌风，你上。” 第二个被萧老大派出的是一名身材瘦小的高年级学员，小鼻子小眼睛，纤瘦的身材一"
+    },
+    {
+      "name": "迪亚拉",
+      "entity_type": "person",
+      "frequency": 15,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第400章｜们做对么？想想后果吧。这不是你能参与的。” 龙公眼中厉光一闪，“你当我是吓大的么？洛尔迪亚拉，别人怕你，我可不怕。有本事先收拾了我这老头子。不然的话，今天你也别想随便离开。” 金"
+    },
+    {
+      "name": "雪舞",
+      "entity_type": "person",
+      "frequency": 14,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第358章｜白虎护身障是施加给自己的，而白虎烈光波则直接越过三名强攻系战魂师，直奔水冰儿而去。 “雪舞，开始。”水冰儿面对戴沐白的攻击不慌不忙，先下达了命令后，这才从容的给自己身上也施加了一个"
+    },
+    {
+      "name": "铁虎",
+      "entity_type": "person",
+      "frequency": 12,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第115章｜有因为他们的年纪小就放松警惕。 左面的大汉道：“我叫铁龙。” 右面的大汉道：“我叫铁虎。” 两人异口同声的大喝一声，“小心了。”"
+    },
+    {
+      "name": "玉小刚",
+      "entity_type": "person",
+      "frequency": 11,
+      "confidence": "high",
+      "aliases": [
+        "大师",
+        "小刚"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第158章｜自己研究，得出十大武魂竞争力，被誉为武魂理论的最强者，最具智慧的魂师，同时也是唐三的老师。玉小刚先生。当然，他也是我的老兄弟，我们已经认识了几十年。或许提到他的名字你们不太清楚，但他的称"
+    },
+    {
+      "name": "雪珂",
+      "entity_type": "person",
+      "frequency": 11,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第472章｜，能给我介绍一下么？” 唐月华回头看去，只见一身便装的太子雪清河在优雅大方的刚毕业学员雪珂陪同下走了过来。 她当然早就知道雪珂的身份，大部分学员也都知道，她更看到雪珂对唐三的与"
+    },
+    {
+      "name": "卢奇斌",
+      "entity_type": "person",
+      "frequency": 8,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第157章｜魂龙纹棍，六十三级魂帝。” 指向第二位年纪更大一些，似乎有七旬开外的老者，道：“这位是卢奇斌卢老师，武魂星罗棋，六十六级魂帝。”"
+    },
+    {
+      "name": "水月儿",
+      "entity_type": "person",
+      "frequency": 7,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第358章｜这次你似乎要遇到对手了。 唐三依旧是一脸平静，想从他的脸上看出些什么可不容易。 “水月儿，三十六级敏攻系战魂师。”站在水冰儿身边，相貌和她有几分相像，也是之前曾经对戴沐白很有兴趣"
+    },
+    {
+      "name": "李郁松",
+      "entity_type": "person",
+      "frequency": 6,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第157章｜介绍一下学院的老师。”说着，弗兰德指向唐三曾经见过的那位，武魂为长棍的老者。 “这位是李郁松老师，武魂龙纹棍，六十三级魂帝。” 指向第二位年纪更大一些，似乎有七旬开外的老者，道："
+    },
+    {
+      "name": "石墨",
+      "entity_type": "person",
+      "frequency": 6,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜紫。 副队长：独孤雁，武魂：碧磷蛇，三十八级控制系战魂师。魂环：两黄一紫。 队员：石墨，武魂：玄武龟，三十八级防御系战魂师。魂环：两黄一紫。 队员：石磨，武魂：玄武龟，三十"
+    },
+    {
+      "name": "海鬼斗罗",
+      "entity_type": "person",
+      "frequency": 5,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第592章｜的考官是海之矛。应该叫海矛斗罗吧。” 马红俊道：“我的考官是海魔鬼斗罗，估计正确称呼叫海鬼斗罗。” 唐三松了口气，道：“还好，你们的对手并没有海龙斗罗。不然的话，过关恐怕就艰难了。"
+    },
+    {
+      "name": "白宝山",
+      "entity_type": "person",
+      "frequency": 4,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第219章｜异常矍铄，满面红光。 一边说着，梦神机指向自己左边的老者，道：“这位是学院教委会次席，白宝山魂斗罗。武魂天星炉，防御系八十五级八环战魂斗罗。” 白宝山的体型和梦神机正好相反，身材"
+    },
+    {
+      "name": "石磨",
+      "entity_type": "person",
+      "frequency": 4,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜黄一紫。 队员：石墨，武魂：玄武龟，三十八级防御系战魂师。魂环：两黄一紫。 队员：石磨，武魂：玄武龟，三十七级防御系战魂师。魂环：两黄一紫。 队员：御风，武魂：风铃鸟，三十"
+    },
+    {
+      "name": "海魔女斗罗",
+      "entity_type": "person",
+      "frequency": 3,
+      "confidence": "high",
+      "aliases": [
+        "海魔女"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第592章｜我们的讲述来看，这七个人中最强的应该是海龙斗罗，很可能已经达到了九十五级。我的第五考考官是海魔女斗罗，准确的名字可能会叫海女斗罗。” 奥斯卡道：“我的考官好，老熟人，海马斗罗。” 戴"
+    },
+    {
+      "name": "武魂殿",
+      "entity_type": "org",
+      "frequency": 1485,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第7章｜唐三答应一声，这才走出了铁匠铺。 在老杰克的带领下，唐三跟随着他来到了村子中央的武魂殿。当然，这所谓的武魂殿只不过是一间大点的木屋而已。 因为每个人都有武魂，每年都会有孩子"
+    },
+    {
+      "name": "史莱克七怪",
+      "entity_type": "org",
+      "frequency": 1141,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第93章｜” 通过魂力催动声音，只要是在这学院内，恐怕就不会有人听不到。 很多年以后，当身为史莱克七怪老大的邪眸白虎戴沐白已经功成名就的时候，被人问及，在史莱克七怪之中，究竟谁最可怕呢？"
+    },
+    {
+      "name": "史莱克学院",
+      "entity_type": "org",
+      "frequency": 1102,
+      "confidence": "high",
+      "aliases": [
+        "怪物学院"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第68章｜地方。 邪眸恢复了正常，戴沐白深深的看了唐三和小舞一眼，“我想，我们很快会再见面的。到史莱克学院，如果有人找你们麻烦，报我邪眸白虎戴沐白的名字。” 说完，他向那一对双胞胎美女招了招手"
+    },
+    {
+      "name": "天斗帝国",
+      "entity_type": "org",
+      "frequency": 782,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜斗罗大陆，天斗帝国西南，法斯诺行省。 圣魂村，如果只是听其名，那么，这绝对是个相当令人惊讶的名字，可实际"
+    },
+    {
+      "name": "唐门",
+      "entity_type": "org",
+      "frequency": 767,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第1章｜巴蜀，历来有天府之国的美誉，其中，最有名的门派莫过于唐门。 唐门所在是一个神秘的地方，许多人只知道，那是一个半山腰，而唐门所在这座山的山顶有一"
+    },
+    {
+      "name": "昊天宗",
+      "entity_type": "org",
+      "frequency": 646,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第278章｜经告诉过他当世七大宗门都是什么人。七大宗门中，分为上三门和下四门。 其中的上三门分别是昊天宗，七宝琉璃宗和蓝电霸王宗。他们之所以被称为上三门，那是因为这三大宗门之中都至少有一位封号斗"
+    },
+    {
+      "name": "武魂帝国",
+      "entity_type": "org",
+      "frequency": 568,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第608章｜手势，急道：“魂师大人，您可不要乱说话啊！也怪我，没说清楚。现在大陆上已经没有武魂殿，只有武魂帝国。” 听他如此一说，唐三顿时明白，在自己离开这四年多的时间中，大陆上必定是风云变幻，赶"
+    },
+    {
+      "name": "七宝琉璃宗",
+      "entity_type": "org",
+      "frequency": 488,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第84章｜的，就是那位短发少女宁荣荣。 唐三吃惊的道：“你的武魂是七宝琉璃塔。那这么说，你出身于七宝琉璃宗了？” 七宝琉璃塔这种武魂一脉相传，在整个斗罗大陆上，只有七宝琉璃宗的直系子弟才有可能"
+    },
+    {
+      "name": "天斗皇家学院",
+      "entity_type": "org",
+      "frequency": 211,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第200章｜在一家学院任教了？”弗兰德有些惊讶的看着他。 秦明点了点头，道：“弗兰德老师，我现在在天斗皇家学院任教。皇斗战队这七个孩子，都是天斗皇家学院最出色的弟子。这次带他们出来，算是一次历练。正好"
+    },
+    {
+      "name": "炽火学院",
+      "entity_type": "org",
+      "frequency": 168,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第334章｜“除了象甲学院之外，另外四支能够对你们产生威胁的学院有雷霆学院、神风学院、天水学院和炽火学院。你们应该也发现了，从名字上来看，这四座学院分别代表着四种强大的能力。雷电、风、水和火。再"
+    },
+    {
+      "name": "苍晖学院",
+      "entity_type": "org",
+      "frequency": 163,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第122章｜职业，也是个有钱的职业，老板自然不敢大意。 “那小妞长的不错啊，戴老大，这些家伙应该是苍晖学院的吧。”胖子一双小眼睛死死的盯视着那八个人队伍中唯一的少女。不得不说，那个女孩子确实有几分"
+    },
+    {
+      "name": "星罗帝国",
+      "entity_type": "org",
+      "frequency": 129,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第5章｜，拥有武装力量的贵族多不胜数。 这两个帝国一个是唐三所在的天斗帝国，另一个，则是南方的星罗帝国。 法斯诺行省位于两国交界处，而圣魂村旁的诺丁城更是距离星罗帝国只有不到二百里的路程而"
+    },
+    {
+      "name": "力之一族",
+      "entity_type": "org",
+      "frequency": 119,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第268章｜万一他老人家也和您一样跑到我们学校来闹事，我这个学也没法上了。” 泰诺哼了一声，“我们力之一族，就是护短。怎么了？你有意见？这件事必须要告诉你爷爷，我也不相信一个小孩子的实力能够那么强"
+    },
+    {
+      "name": "象甲宗",
+      "entity_type": "org",
+      "frequency": 109,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第326章｜的对手居然让大师表情如此凝重。难道这对手能和当初的皇斗战队相比么？ 旁边的柳二龙道：“象甲宗你们听说过吧。七大宗门排名第六。你们今天的对手来自象甲宗所创的象甲学院。对方的七名参赛人员"
+    },
+    {
+      "name": "蓝电霸王龙家族",
+      "entity_type": "org",
+      "frequency": 101,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜知道，但我却清楚，碧磷斗罗也是复姓独孤。” 宁荣荣突然开口道：“那他们那个队长难道就是蓝电霸王龙家族的人？” 弗兰德苦笑道：“除了蓝电霸王龙家族，至少我还没听说过哪里有蓝电霸王龙魂师的存"
+    },
+    {
+      "name": "唐家军",
+      "entity_type": "org",
+      "frequency": 100,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第625章｜大批量以诸葛神弩为主的暗器，为天斗帝国装备了一支万人精锐军队。雪崩陛下亲自为这支军队命名为唐家军，这次出征，由爷爷暂代这一军统帅，就等您正式接任了。” 泰诺将唐三最急于知道的情况用简"
+    },
+    {
+      "name": "神风学院",
+      "entity_type": "org",
+      "frequency": 99,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第334章｜的对手也再没出现过一名四十级以上的魂师。 同样获得六连胜的另外两个学院分别是雷霆学院和神风学院。 今天是预选赛第八天，也将开始第七轮的比赛，史莱克学院的对手乃是在之前比赛中仅仅获得"
+    },
+    {
+      "name": "皇斗战队",
+      "entity_type": "org",
+      "frequency": 98,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜量决定双方参战人数。眼前出现在资料上的这支队伍和史莱克七怪一样，只有七人，资料如下。 皇斗战队，全七人，全银斗魂徽章拥有者。 队长：玉天恒，武魂：蓝电霸王龙，三十九级强攻系战魂师。"
+    },
+    {
+      "name": "敏之一族",
+      "entity_type": "org",
+      "frequency": 89,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第521章｜下面附属大量的魂师派系，其中又以我们四大单属性宗门为最。包括了我的力之一族，还有御之一族、敏之一族以及破之一族在内。随着后来昊天宗出事，宗门宣布封闭，我们也先后退出了昊天宗。但我们四大单属"
+    },
+    {
+      "name": "御之一族",
+      "entity_type": "org",
+      "frequency": 85,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第521章｜第一宗门，下面附属大量的魂师派系，其中又以我们四大单属性宗门为最。包括了我的力之一族，还有御之一族、敏之一族以及破之一族在内。随着后来昊天宗出事，宗门宣布封闭，我们也先后退出了昊天宗。但我"
+    },
+    {
+      "name": "黄金铁三角",
+      "entity_type": "org",
+      "frequency": 78,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第97章｜火之光了。 黑衣人冷淡的道：“不用多礼，我是来找麻烦的。猫鹰武魂，七十八级，不愧是当初黄金铁三角中主战的弗兰德。这史莱克学院，就是你的吧。” 弗兰德点了点头，道：“是的，冕下。不知赵"
+    },
+    {
+      "name": "雷霆学院",
+      "entity_type": "org",
+      "frequency": 73,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第334章｜而已。他们的对手也再没出现过一名四十级以上的魂师。 同样获得六连胜的另外两个学院分别是雷霆学院和神风学院。 今天是预选赛第八天，也将开始第七轮的比赛，史莱克学院的对手乃是在之前比赛"
+    },
+    {
+      "name": "破之一族",
+      "entity_type": "org",
+      "frequency": 67,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第521章｜的魂师派系，其中又以我们四大单属性宗门为最。包括了我的力之一族，还有御之一族、敏之一族以及破之一族在内。随着后来昊天宗出事，宗门宣布封闭，我们也先后退出了昊天宗。但我们四大单属宗门一向守望"
+    },
+    {
+      "name": "武魂殿学院战队",
+      "entity_type": "org",
+      "frequency": 62,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第410章｜那边晋级赛的冠军，也没能改变他们的想法。 作为三支种子站队之一，在他们眼中的对手就只有武魂殿学院战队。 可眼前，当戴沐白与朱竹清，真正的展现出四十级以上的实力后，戴维斯和朱竹云内心震撼之"
+    },
+    {
+      "name": "天水学院",
+      "entity_type": "org",
+      "frequency": 54,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第334章｜人惦记。” “除了象甲学院之外，另外四支能够对你们产生威胁的学院有雷霆学院、神风学院、天水学院和炽火学院。你们应该也发现了，从名字上来看，这四座学院分别代表着四种强大的能力。雷电、风、"
+    },
+    {
+      "name": "狂战队",
+      "entity_type": "org",
+      "frequency": 50,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第179章｜狂犀这才转身而去。 那位敖主管淡淡的扫了戴沐白一眼，淡然道：“不要被表象所蒙蔽。狂犀，狂战队的队长，狂战队所有队员都是三十五级以上的实力。来到斗魂场注册七天，团队已经获得了魂尊级七连"
+    },
+    {
+      "name": "象甲学院",
+      "entity_type": "org",
+      "frequency": 48,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第326章｜旁边的柳二龙道：“象甲宗你们听说过吧。七大宗门排名第六。你们今天的对手来自象甲宗所创的象甲学院。对方的七名参赛人员都是象甲宗的直系子弟。其中三人达到四十级，另外四人也有接近四十级的实力"
+    },
+    {
+      "name": "植物学院",
+      "entity_type": "org",
+      "frequency": 27,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第376章｜观察，唐三发现，除了四元素学院之外，还有两支学院的实力也很强，一支名叫西拉斯学院，一支叫做植物学院。 西拉斯学院到还好，看上去和四元素学院的实力差不多，拥有三名四十级以上级别的学员。而"
+    },
+    {
+      "name": "上三宗",
+      "entity_type": "org",
+      "frequency": 24,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第317章｜宁风致微微一笑，道：“也不能说是我们七宝琉璃宗所培养，只是那拥有万年第四环的孩子也是我上三宗的子弟而已。当初，他们本来是要加入天斗皇家学院的，可惜，却被雪星亲王殿下赶走了。后来才在天"
+    },
+    {
+      "name": "诺丁初级魂师学院",
+      "entity_type": "org",
+      "frequency": 24,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第18章｜，等爷爷下次看到你的时候，希望你已经成为了魂师，那样的话，我们圣魂村都会以你为荣。” 诺丁初级魂师学院坐落在诺丁城西，老杰克向路人打听了几次，终于带着唐三来到了这里。 远远的，他们已经看到"
+    },
+    {
+      "name": "巴拉克学院",
+      "entity_type": "org",
+      "frequency": 23,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第373章｜拉克王国，乃是王室学院。就像天斗皇家学院在天斗帝国的地位一样。名字也和他们的王国一样，名叫巴拉克学院。 巴拉克学院第一个出场的，是一名身材高大的青年，看上去二十多岁的样子，一身黑色镶金边"
+    },
+    {
+      "name": "圣龙宗",
+      "entity_type": "org",
+      "frequency": 13,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第629章｜之中。这些魂师按修炼方向不同分为数个集团。圣龙军团前方正中的，数百魂师，就是新七大宗门中的圣龙宗。 每一名圣龙宗的弟子身上都覆盖着一层白色鳞片，身体健壮粗大，这是他们的武魂白甲地龙，"
+    },
+    {
+      "name": "单属性四宗族",
+      "entity_type": "org",
+      "frequency": 11,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第521章｜唐三站起身，道：“那就先这样吧。我先回去，唐门成立之事暂缓，明日一早我来与您汇合，一起参加单属性四宗族的聚会。” 泰坦祖孙三人一直将唐三送到大门外，目送着他远去。 泰诺看看父亲，再看看"
+    },
+    {
+      "name": "下四宗",
+      "entity_type": "org",
+      "frequency": 9,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第327章｜是为了他们。” 武魂殿的实力之所以被称为大陆最强，甚至可以与两大帝国相比，与七大宗门中下四宗的支持是分不开的。七大宗门里，上三宗的七宝琉璃宗一向是支持天斗帝国皇室的。而蓝电霸王龙家族"
+    },
+    {
+      "name": "双翼白虎",
+      "entity_type": "org",
+      "frequency": 5,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第178章｜，在全部一对一和二对二的斗魂中，竟然都获得了胜利。其中奥斯卡和戴沐白的组合被他们自己命名为双翼白虎，意指在小奥的辅助下，邪眸白虎如虎添翼。他们遇到了一对攻防两系魂师的组合，戴沐白在奥斯卡的"
+    },
+    {
+      "name": "紫星学院",
+      "entity_type": "org",
+      "frequency": 1,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第315章｜。他似乎很不愿意说话，每抽出一对对手，都交给司仪来宣布。 “预选赛第一轮，苍晖学院对战紫星学院。” “预选赛第一轮，奥克兰学院对战火焰光辉学院。” “……” “预选赛第一轮"
+    },
+    {
+      "name": "海神岛",
+      "entity_type": "location",
+      "frequency": 459,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第548章｜还折损了两名封号斗罗在那里。那个地方，武魂殿称之为魔鬼岛，但我却知道它真正的名字，应该叫做海神岛。”"
+    },
+    {
+      "name": "嘉陵关",
+      "entity_type": "location",
+      "frequency": 425,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第626章｜万岁。” “启奏陛下。目前我军行进一切正常，根据斥候来报，武魂帝国已经做出了反应，正在嘉陵关前聚集大军。”坐在唐三下手位的一名五十余岁的将领站起身说道。在说话时，他的目光扫了唐三一眼"
+    },
+    {
+      "name": "星斗大森林",
+      "entity_type": "location",
+      "frequency": 346,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第120章｜每个人回去准备，你们有一天的时间调整和休息，明天一早，全体启程，由赵无极赵老师带领你们前往星斗大森林帮助奥斯卡获得他的第三个魂环。这不只是奥斯卡一个人的事，也是你们所有人的历练，在遇到千年魂"
+    },
+    {
+      "name": "天斗城",
+      "entity_type": "location",
+      "frequency": 207,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第209章｜”弗兰德收拾心情，下达了出发的命令。一行十余人，踏上了离开史莱克的步伐。 天斗帝国皇城天斗城，位于天斗帝国中心偏东北方向，是整个天斗帝国政治权利核心所在，也是整个大陆最大的两座城市之"
+    },
+    {
+      "name": "冰火两仪眼",
+      "entity_type": "location",
+      "frequency": 188,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第232章｜天地灵气所聚集之所。而眼前的景象，不正和玄天宝录中形容的三大聚宝盆之一一模一样么？ “冰火两仪眼。这竟然是冰火两仪眼？” 冰火两仪眼，指的是眼前这得天独厚的泉眼，一眼双生，两仪互克，"
+    },
+    {
+      "name": "杀戮之都",
+      "entity_type": "location",
+      "frequency": 183,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第447章｜释放魂力，剩余的十七人也毫不犹豫的抽出了自己的武器。竟然没有一人逃走。 “这是考验，是杀戮之都给我们的考验。杀了他，我们就能进入杀戮之都。”不知道是谁呐喊了一声，所有人的眼睛都变得通红"
+    },
+    {
+      "name": "海神殿",
+      "entity_type": "location",
+      "frequency": 132,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第552章｜是我们共同的敌人。这些年以来，你们每个人都有了不同程度的进步，也都拥有了更强的魂技。在前往海神殿之前，我希望你们能够完成一个磨合的过程。毕竟分开了这么多年，就算默契还在，彼此不熟悉伙伴的"
+    },
+    {
+      "name": "海神山",
+      "entity_type": "location",
+      "frequency": 105,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第572章｜紫衣海魂师眼中尽是虔诚之色，“是的，这就是我们海神岛的禁地，供奉海神大人的海神殿，就是海神山顶唯一的建筑。也是真正的海神岛，又称之为岛中之岛。各位请看，在我们正面的，就是上岛阶梯。那"
+    },
+    {
+      "name": "地狱路",
+      "entity_type": "location",
+      "frequency": 99,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第449章｜然说道：“那到也不是。想要离开杀戮之都只有一个办法。那就是获得地狱杀戮场的冠军，拥有了挑战地狱路的资格后冲出地狱路，方可离开杀戮之都。凡是那样的强者，都将会被赋予杀神的称号。杀戮之都建成"
+    },
+    {
+      "name": "斗罗大陆",
+      "entity_type": "location",
+      "frequency": 92,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜斗罗大陆，天斗帝国西南，法斯诺行省。 圣魂村，如果只是听其名，那么，这绝对是个相当令人惊讶的名"
+    },
+    {
+      "name": "庚辛城",
+      "entity_type": "location",
+      "frequency": 74,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第521章｜副会长。购买稀有金属不成问题。只是需要一定的时间而已。过些天，等唐门稳定下来，我亲自去一趟庚辛城。那里是铁匠协会总会所在，有着最大的金属交易市场。从那里，我们应该能够得到不少好东西。甚至"
+    },
+    {
+      "name": "索托城",
+      "entity_type": "location",
+      "frequency": 68,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第62章｜治和经济的中心。而另一座城市则是位于巴拉克王国境内最富饶的立马平原中央，有巴拉克粮仓之称的索托城。 这两座城市都有重兵驻守，是整个王国的重中之重。 索托城是一座大城市，这一点从其"
+    },
+    {
+      "name": "落日森林",
+      "entity_type": "location",
+      "frequency": 68,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第234章｜之中，而那沉入其中的唐三，却依旧没有浮出水面，似乎，他已经完全从这泉水中消失了一般。 落日森林内，一行三人正飞速的在林间穿越。不断的前进着。穿梭于树林之间。"
+    },
+    {
+      "name": "武魂城",
+      "entity_type": "location",
+      "frequency": 67,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第396章｜一共十五个战队，加上老师以及五百名皇家骑士团士兵的护送，一行上千人，出发前往总决赛举办地。武魂城。 本来总决赛的地点并不是设置在武魂城，但不知道为什么，武魂殿突然做出了改变。将这一届"
+    },
+    {
+      "name": "圣魂村",
+      "entity_type": "location",
+      "frequency": 44,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜斗罗大陆，天斗帝国西南，法斯诺行省。 圣魂村，如果只是听其名，那么，这绝对是个相当令人惊讶的名字，可实际上，这只不过是法斯诺行省诺丁城"
+    },
+    {
+      "name": "诺丁城",
+      "entity_type": "location",
+      "frequency": 44,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜圣魂村，如果只是听其名，那么，这绝对是个相当令人惊讶的名字，可实际上，这只不过是法斯诺行省诺丁城南一个只有三百余户的小村而已。之所以名为圣魂，是因为传说中，在百年前这里曾经走出过一位魂圣"
+    },
+    {
+      "name": "巴拉克王国",
+      "entity_type": "location",
+      "frequency": 32,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第62章｜骤然甩出，无数道丝线般的银光冲天而起，唐三眼中已是一片紫芒。 …… 五年后。 巴拉克王国，位于天斗帝国南，与法斯诺行省接壤，说是王国，其实它的面积只有法斯诺行省四分之三大，隶属于"
+    },
+    {
+      "name": "瀚海城",
+      "entity_type": "location",
+      "frequency": 26,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第557章｜在马车上摊开地图，众人围在他身边向地图看去。抬手指在地图上，唐三道：“我们马上就到这里了。瀚海城，帝国西部海滨唯一的港口城市。依海而建。我们要去海神岛，就必须要从这座城市的港口租用一条船"
+    },
+    {
+      "name": "猎魂森林",
+      "entity_type": "location",
+      "frequency": 21,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第33章｜魂兽？” 这从学院走出的，正是大师和唐三师徒二人。 “我们要去诺丁城东北四百里处的猎魂森林。那里是帝国圈养魂兽的地方。肯定可以找到适合你的。”大师今天穿了一身劲装，看上去增添了几分"
+    },
+    {
+      "name": "魔鲸海域",
+      "entity_type": "location",
+      "frequency": 20,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第561章｜吧？” 海德尔点了点头，道：“当然没有。我是完全按照您给的地图进行航行的。这片海域名叫魔鲸海域。是附近最深的地方。据说水面下是深达千米的海沟。所以，如果是飞行魂师从天上看。这里的大海是"
+    },
+    {
+      "name": "紫珍珠岛",
+      "entity_type": "location",
+      "frequency": 19,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第561章｜尔现在大有知无不言，言无不尽的意思，极为配合的回答道：“我们紫珍珠海盗团就在据此两天海程的紫珍珠岛上。近十年来，在团长紫珍珠大人的带领下，我们收编或毁灭了这片海域所有的小海盗团。形成了庞大"
+    },
+    {
+      "name": "海马城",
+      "entity_type": "location",
+      "frequency": 17,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第571章｜贵宾，任何人不得怠慢或冒犯。除了不可帮助他们完成考验之外，尽可能满足他们的条件。就住在你的海马城吧。还有，召集其他六人，明日海神殿议事。” “是。”海马斗罗欧亚极其恭敬的答应着。尽管"
+    },
+    {
+      "name": "法斯诺行省",
+      "entity_type": "location",
+      "frequency": 10,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜斗罗大陆，天斗帝国西南，法斯诺行省。 圣魂村，如果只是听其名，那么，这绝对是个相当令人惊讶的名字，可实际上，这只不过是法"
+    },
+    {
+      "name": "哈根达斯王国",
+      "entity_type": "location",
+      "frequency": 8,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第607章｜王国境内。这个王国在天斗帝国西北部，部分边境与星罗帝国接壤。从现在这里顺着官道走过去，穿过哈根达斯王国，再经过巴拉克王国，就能抵达星斗大森林了。而此处再向东两百里左右，就是哈根达斯王国的一座重"
+    },
+    {
+      "name": "西尔维斯王国",
+      "entity_type": "location",
+      "frequency": 6,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第210章｜？ 史莱克学院一行人想要到达天斗城，需要先离开巴拉克王国境内，然后穿越巴拉克王国以北的西尔维斯王国全境，才能进入天斗帝国皇城圈。再向东，方是天斗帝国皇城所在。整个路途漫长，足有近两千里。由"
+    },
+    {
+      "name": "怒浪绝境",
+      "entity_type": "location",
+      "frequency": 5,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第586章｜若寒蝉的感觉。和大海相比，他们感觉自己是那样的渺小。 “这里就是你们第三考的地方。名叫怒浪绝境。乃是海神岛的奇景之一。就算是魔魂大白鲨那样的海魂兽，也绝不会来到这里。这也是大海中少有的"
+    },
+    {
+      "name": "西尔维斯城",
+      "entity_type": "location",
+      "frequency": 5,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第211章｜速度带领着一行人朝东北方向前进。 当天，他们一直来到了西尔维斯王国位于国境南方的首都，西尔维斯城。弗兰德有些破天荒的竟然选择了这座大城市作为落脚的地方。而且他们在入城的时候，天色才刚刚暗"
+    },
+    {
+      "name": "武魂",
+      "entity_type": "concept",
+      "frequency": 5475,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第5章｜路程而已。 唐三从村民的交谈中知道，在斗罗大陆中，没有自己那个世界的武功，但却有一种叫武魂的东西。据说，每个人都有属于自己的武魂，其中，极少一部份人的武魂可以进行修炼，形成了一个职"
+    },
+    {
+      "name": "魂师",
+      "entity_type": "concept",
+      "frequency": 4447,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜只有三百余户的小村而已。之所以名为圣魂，是因为传说中，在百年前这里曾经走出过一位魂圣级别的魂师，从而得名。这也是圣魂村永远的骄傲。 圣魂村外，尽是大片的农耕之地，这里出产的粮食和蔬"
+    },
+    {
+      "name": "海神",
+      "entity_type": "concept",
+      "frequency": 3732,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第548章｜还折损了两名封号斗罗在那里。那个地方，武魂殿称之为魔鬼岛，但我却知道它真正的名字，应该叫做海神岛。”"
+    },
+    {
+      "name": "魂环",
+      "entity_type": "concept",
+      "frequency": 3320,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第9章｜升可不是那么容易的。每跨跃一个称号，不只是武魂力要达到前一个称号的巅峰，同时还需要得到一个魂环。没有魂环，就算你再努力修炼，也不可能进入下一个称号。就比如像你现在这样，因为已经达到了先"
+    },
+    {
+      "name": "魂力",
+      "entity_type": "concept",
+      "frequency": 3245,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第6章｜助能力。但不论是哪一种魂师，级别都是按照同样的称号进行排序的。” “魂师都拥有自己的武魂力，根据武魂力的强弱，一共分为十大称号。每一个称号又分为十级。最初刚刚入门的，叫做魂士，只要"
+    },
+    {
+      "name": "领域",
+      "entity_type": "concept",
+      "frequency": 1449,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第37章｜。这六位封号斗罗，无疑都是强者中的强者。哪怕是有其他魂师也修炼到九十级以上，进入封号斗罗的领域，也无法动摇他们的地位。这些对你现在来说还太遥远。好了，我们要准备进入森林了，从现在开始，"
+    },
+    {
+      "name": "魂兽",
+      "entity_type": "concept",
+      "frequency": 1432,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第9章｜乎还在琢磨着素云涛的话，下意识的回答道：“我也不知道什么是魂环，想要得到魂环，似乎是要猎杀魂兽吧。那是很危险的事，只有魂师才会去进行。”"
+    },
+    {
+      "name": "魂骨",
+      "entity_type": "concept",
+      "frequency": 1283,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第40章｜，现在我教你一个理论。环多骨多，技力一波，环少骨少，撒腿就跑。这里的环指的是魂环，骨指的是魂骨。关于魂骨我以后会向你解释。也就是说，当你的魂环和魂骨数量明显超过对手时，那么，你就要凭借"
+    },
+    {
+      "name": "封号斗罗",
+      "entity_type": "concept",
+      "frequency": 1227,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第6章｜体的十个称号是这样的。” “魂士，魂师，大魂师，魂尊，魂宗，魂王，魂帝，魂圣，魂斗罗和封号斗罗。我们斗罗大陆的名字，就是由此而来。传说中，达到九十级以上的封号斗罗都可以自行给自己取一个"
+    },
+    {
+      "name": "魂帝",
+      "entity_type": "concept",
+      "frequency": 694,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第6章｜相当强大的魂师了。总体的十个称号是这样的。” “魂士，魂师，大魂师，魂尊，魂宗，魂王，魂帝，魂圣，魂斗罗和封号斗罗。我们斗罗大陆的名字，就是由此而来。传说中，达到九十级以上的封号斗"
+    },
+    {
+      "name": "人面魔蛛",
+      "entity_type": "concept",
+      "frequency": 448,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第139章｜兽憎恶的对象，恐怖的邪恶杀戮者。 这些称号都是用来形容眼前这只长腿蜘蛛的。它的名字叫做人面魔蛛。在魂兽中，也属于恐怖的存在。当然，和泰坦巨猿相比，显然不在一个层面上。但是，这种人面魔蛛"
+    },
+    {
+      "name": "魂圣",
+      "entity_type": "concept",
+      "frequency": 334,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜丁城南一个只有三百余户的小村而已。之所以名为圣魂，是因为传说中，在百年前这里曾经走出过一位魂圣级别的魂师，从而得名。这也是圣魂村永远的骄傲。 圣魂村外，尽是大片的农耕之地，这里出产"
+    },
+    {
+      "name": "武魂融合技",
+      "entity_type": "concept",
+      "frequency": 295,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第80章｜相成的武魂是极其困难的。可一旦遇到，如果联手的话，自身武魂的实力就会成倍增加。这就是所谓的武魂融合技。” 小舞失声笑道：“那这么说，那个女孩子的武魂应该是母老虎了？” 戴沐白脸上流露"
+    },
+    {
+      "name": "武魂真身",
+      "entity_type": "concept",
+      "frequency": 289,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第137章｜舞的手臂扑了过去。 所有拥有兽武魂的魂师在达到七十级之后的第七个魂技都是类似的，那就是武魂真身。就像三十级是魂师的瓶颈一样，七十级也是如此。拥有武魂真身的兽武魂魂师，实力将大幅度提升，"
+    },
+    {
+      "name": "魂斗罗",
+      "entity_type": "concept",
+      "frequency": 281,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第6章｜师了。总体的十个称号是这样的。” “魂士，魂师，大魂师，魂尊，魂宗，魂王，魂帝，魂圣，魂斗罗和封号斗罗。我们斗罗大陆的名字，就是由此而来。传说中，达到九十级以上的封号斗罗都可以自行给"
+    },
+    {
+      "name": "魔魂大白鲨",
+      "entity_type": "concept",
+      "frequency": 253,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第567章｜什么东西？” 紫珍珠道：“护岛神兽是一只修炼了十万年的鲨鱼，而且是鲨鱼中最凶猛的一种，魔魂大白鲨。有海洋捕猎者的称号。是最具有攻击性，最凶猛的海魂兽。哪怕是一只千年级别的魔魂大白鲨，也能"
+    },
+    {
+      "name": "万年魂环",
+      "entity_type": "concept",
+      "frequency": 236,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第78章｜环的颜色分别是一白，一黄，三紫，一黑。也就是一个十年魂环，一个百年魂环，三个千年魂环和一个万年魂环。这个看上去像是普通农民的老者，竟然是一位六十级以上的魂帝级超级强者。 六十级，那可是"
+    },
+    {
+      "name": "暗魔邪神虎",
+      "entity_type": "concept",
+      "frequency": 212,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第640章｜顶级，在魂兽世界中是很难生存的，所以才会那样稀少。 按照古籍中记载，这种魔兽的名字叫做暗魔邪神虎，传说中，是邪恶之神降临到一只白虎身上，令其发生变异，使白虎原本的光明属性变成了黑暗属性，"
+    },
+    {
+      "name": "修罗神",
+      "entity_type": "concept",
+      "frequency": 185,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第611章｜你的，是海神，海洋之神。而选中我的，却是恶念之神，也可以称之为杀戮之神，而它真正的名字叫做修罗神。” “当年，因为一个许诺，我将全部心力都用在突破成神上。但是，想要成神却是在太难太难"
+    },
+    {
+      "name": "十万年魂环",
+      "entity_type": "concept",
+      "frequency": 170,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第157章｜名叫魂师梦想榜。其中，外附魂骨一直高居魂师梦想榜的第二位。仅次于排名第一，几乎不可能存在的十万年魂环。” 大师用最容易理解的方法告诉了唐三这他自己以为是怪物的八条蛛腿有多么珍贵。 “"
+    },
+    {
+      "name": "天使神",
+      "entity_type": "concept",
+      "frequency": 169,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第547章｜时使用这六块魂骨，才能将它们同时激发到十万年级别，从而成为神一般的存在。这六块魂骨被称之为天使神装。” 这件事大师甚至没对唐三讲述过，唐三惊讶的问道：“老师，难道使用这六块魂骨还有什"
+    },
+    {
+      "name": "外附魂骨",
+      "entity_type": "concept",
+      "frequency": 156,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第156章｜这次你收获最大的，并不是第三魂环，更不是那第三魂技蛛网束缚，而是这八条蛛腿。或者说，是这块外附魂骨。” “外附魂骨？”唐三看向大师。 大师点了点头，“这些年我一直在教导你怎样辨别魂"
+    },
+    {
+      "name": "双生武魂",
+      "entity_type": "concept",
+      "frequency": 152,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第11章｜“爸爸，有什么不对么？” 看着那黑色的小锤子，之前消失的激动光芒再次出现在唐昊眼中，“双生武魂。竟然是双生武魂。儿子，我的儿子。” 猛地，唐昊张开有力的双臂，将唐三紧紧的拥入自己怀"
+    },
+    {
+      "name": "千钧蚁皇",
+      "entity_type": "concept",
+      "frequency": 109,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第644章｜的三只千钧蚁的体长都超过了三米，唐三可以肯定，这三只千钧蚁都是千钧蚁王级别的，不，应该说是千钧蚁皇才对，它们的修为，恐怕要达到了九万年左右。距离突破最后的界限，进入到十万年级别，已经不远了"
+    },
+    {
+      "name": "地穴魔蛛",
+      "entity_type": "concept",
+      "frequency": 108,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第301章｜此时却摇了摇头，“对不起，老师，这第四魂环能让我自己选择么？弗兰德院长，赵老师，我就选那只地穴魔蛛吧。” “你说什么？”没等弗兰德和赵无极反应过来，大师已经惊怒出声，大踏步的来到唐三身"
+    },
+    {
+      "name": "魂尊",
+      "entity_type": "concept",
+      "frequency": 89,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第6章｜境界，就已经是一名相当强大的魂师了。总体的十个称号是这样的。” “魂士，魂师，大魂师，魂尊，魂宗，魂王，魂帝，魂圣，魂斗罗和封号斗罗。我们斗罗大陆的名字，就是由此而来。传说中，达到"
+    },
+    {
+      "name": "魂王",
+      "entity_type": "concept",
+      "frequency": 88,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第6章｜是一名相当强大的魂师了。总体的十个称号是这样的。” “魂士，魂师，大魂师，魂尊，魂宗，魂王，魂帝，魂圣，魂斗罗和封号斗罗。我们斗罗大陆的名字，就是由此而来。传说中，达到九十级以上的"
+    },
+    {
+      "name": "大魂师",
+      "entity_type": "concept",
+      "frequency": 87,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第5章｜让你错过了。是诺丁城武魂分殿的执事大人亲自来帮助我们村里的孩子觉醒呢。那位执事大人可是以为大魂师级别的魂师。” 说道大魂师三个字的时候，杰克眼中明显流露出了羡慕之色。 唐三对于魂"
+    },
+    {
+      "name": "曼陀罗蛇",
+      "entity_type": "concept",
+      "frequency": 81,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第40章｜火折迎风既燃，翻滚中照亮了那片区域，这次，大师也看到蛇头的存在了。口中倒吸一口凉气，“是曼陀罗蛇，怎么这种猛恶的家伙会在猎魂森林外围出现。希望是条十年的。” 丝丝，丝丝，仿佛是被火折"
+    },
+    {
+      "name": "凤尾鸡冠蛇",
+      "entity_type": "concept",
+      "frequency": 71,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第127章｜有一个肉冠，看上去比头还要大，鲜红如血。尾巴比较特殊，呈扇形。” 赵无极眼睛一亮，“是凤尾鸡冠蛇，这种魂兽可是相当少见啊，它头顶上的肉冠有很多奇妙的作用，奥斯卡，你有福了。可惜不知道这条"
+    },
+    {
+      "name": "魂宗",
+      "entity_type": "concept",
+      "frequency": 70,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第6章｜就已经是一名相当强大的魂师了。总体的十个称号是这样的。” “魂士，魂师，大魂师，魂尊，魂宗，魂王，魂帝，魂圣，魂斗罗和封号斗罗。我们斗罗大陆的名字，就是由此而来。传说中，达到九十级"
+    },
+    {
+      "name": "大地之王",
+      "entity_type": "concept",
+      "frequency": 64,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第290章｜步才算站稳身形。 此时，唐三已经辨别出这只魂兽的种类。从外形来看，他可以断定，这是一只大地之王。属于火属性魂兽。 这种名叫大地之王的蝎子极为霸道，嗜杀成性，虽然不像人面魔蛛的剧毒那"
+    },
+    {
+      "name": "罗刹神",
+      "entity_type": "concept",
+      "frequency": 64,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第611章｜是修罗神。” “恶念之神在世间其实有两个，一个是主管杀戮的修罗神，另一个则是主管邪念的罗刹神。堕落之都就是他们超脱这个世界时留下的遗迹。修罗神与罗刹神并不是双生存在的，他们反而是永远"
+    },
+    {
+      "name": "神位",
+      "entity_type": "concept",
+      "frequency": 38,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第353章｜愕然的目光，唐三在伙伴们身边坐了下来闭目养神。 虽然只是一句简单的解释，却也将他自己从神位上拉回到正常人范畴，不少人都有长出口气的感觉。 这时，大师、柳二龙和弗兰德三人已经赶了"
+    },
+    {
+      "name": "千年魂环",
+      "entity_type": "concept",
+      "frequency": 36,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第34章｜，你现在只是一个十级魂士，以你现在的魂力，最多也只能吸收一头百年魂兽的魂环，如果你妄图吸收千年魂环，那么结果只会有一个，身体无法承受，被魂环的力量毁灭。在吸收魂环的时候，是任何外力无法帮助"
+    },
+    {
+      "name": "粉红娘娘",
+      "entity_type": "concept",
+      "frequency": 36,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第293章｜，目前我们遇到的是一群千只‘粉红女郎’族群，那么，我可以断定，在这个族群之中，必然出现了‘粉红娘娘’。” “‘粉红娘娘’是‘粉红女郎’的变种。也是最强大的‘粉红女郎’，想要产生这种变异"
+    },
+    {
+      "name": "食神",
+      "entity_type": "concept",
+      "frequency": 32,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第671章｜奥，这个找上你的神称呼是什么？”唐三问道。 奥斯卡嘿嘿一笑，道：“很适合我，他说，他是食神。嘿嘿，这下哥哥的封号也有了，以后请叫我食神斗罗。拉不拉风？帅不帅气？” 食神？唐三心"
+    },
+    {
+      "name": "百年魂环",
+      "entity_type": "concept",
+      "frequency": 28,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第34章｜器魂师路线，那么，你得到一个属性相合的十年魂环，那么，你的蓝银草控制性就会增加十，但如果是百年魂环，那么，你对蓝银草的控制性就是增加一百。以此类推。因此，在可能的情况下，所有魂师都会尽量去"
+    },
+    {
+      "name": "九彩神女",
+      "entity_type": "concept",
+      "frequency": 22,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第671章｜迷茫，她睁开了双眼。一眼就看到了站在自己身前不远的唐三，赶忙跳起来，“三哥，刚才有个叫什么九彩神女的声音跟我说，让我传承她什么神诋。不过要等我到了九十九级才对我进行考核。这不会是真的吧？”"
+    },
+    {
+      "name": "鬼藤",
+      "entity_type": "concept",
+      "frequency": 22,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第67章｜二十级的时候，大师就已经想好了他的第二魂环要捕捉哪种魂兽。 唐三的第二魂环得自一种名叫鬼藤的植物系魂兽，第二魂环最大吸收魂环年限是七百六十四年，唐三得到的这个鬼藤魂环，拥有至少超过"
+    },
+    {
+      "name": "魂士",
+      "entity_type": "concept",
+      "frequency": 14,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第6章｜己的武魂力，根据武魂力的强弱，一共分为十大称号。每一个称号又分为十级。最初刚刚入门的，叫做魂士，只要武魂觉醒之后，每个人都是魂士。如果武魂能够修炼的话，当魂力达到十一级的时候，就会进入"
+    },
+    {
+      "name": "三眼魔狐",
+      "entity_type": "concept",
+      "frequency": 1,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第620章｜圣级别，她所吸收的那块魂骨，名为精神凝聚之魅惑头骨。得自出产她第七魂环的那只近六万年修为的三眼魔狐，拥有了这块魂骨后，小舞那第二魂技的魅惑技能可以说是几何倍数的提升。唐三曾经在精神力内蕴的"
+    },
+    {
+      "name": "蓝银草",
+      "entity_type": "item",
+      "frequency": 1215,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第8章｜轻的飘摆着。 唐三隐约觉得，这种蓝色的小草自己似乎见过。很快，他就想了起来，这种草叫做蓝银草，在村子里随处可见，就像自己原来那个世界的青草一样普遍，除了生命力比较顽强以外，并没有其他"
+    },
+    {
+      "name": "昊天锤",
+      "entity_type": "item",
+      "frequency": 979,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第278章｜草属于你的母亲，那么，那锤子也就只有一种可能，是属于你的父亲。别的我能认错，但如果连主人的昊天锤都认错了，那我也没脸活在这个世界上了。昊天锤的纹理独一无二，我当年一直追随在主人身边，又怎"
+    },
+    {
+      "name": "海神三叉戟",
+      "entity_type": "item",
+      "frequency": 975,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第598章｜唐三也不太明白为什么自己不选择先休息再挑战，而是做出了这样的抉择，隐约中，似乎正是额头上那海神三叉戟烙印内出现的一些特殊精神波动影响了自己的决策。 等到镇海神曲开始之后，唐三就已经没有了"
+    },
+    {
+      "name": "八蛛矛",
+      "entity_type": "item",
+      "frequency": 772,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第171章｜得到了强化，同时，每天晚上大师还格外对他进行特训，训练的目标，就是潜伏在他脊椎内的外附魂骨八蛛矛。 八蛛矛这个名字是大师取得，原因是这外附魂骨得自人面魔蛛，又酷似八根长矛。经过这段时"
+    },
+    {
+      "name": "暗器",
+      "entity_type": "item",
+      "frequency": 742,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第1章｜年了，自从二十九年前他被外门长老唐蓝太爷在襁褓时就捡回唐门时开始，唐门就是他的家，而唐门的暗器就是他的一切。 突然，唐三脸色骤然一变，但很快又释然了，有些苦涩的自言自语道：“该来的"
+    },
+    {
+      "name": "蓝银皇",
+      "entity_type": "item",
+      "frequency": 723,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第444章｜错。如果您只是那些普通人类拥有的蓝银草武魂，您认为能够修炼到现在这样的程度么？您拥有的，是蓝银皇族的血脉啊！伟大的王。” 唐三呆住了，“你是说，我的蓝银草并不是普通的蓝银草？”"
+    },
+    {
+      "name": "香肠",
+      "entity_type": "item",
+      "frequency": 433,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第80章｜舞则按照他所说的那样来到前面考生后面排队。 正在这时，一个软绵绵的声音响起。 “卖香肠，卖香肠了。瞧一瞧，看一看，走过路过不要错过。奥斯卡牌香肠，味美香甜。价格便宜量又足。只要"
+    },
+    {
+      "name": "海神之光",
+      "entity_type": "item",
+      "frequency": 409,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第570章｜考。难度不言而喻。 奥斯卡抢在宁荣荣之前走了上来，站在相应的位置上，在海马斗罗开始祈祷海神之光前，他开口问道：“前辈，我有个问题。这些考验如此之难。如果我们能够通过的话，能得到什么好处"
+    },
+    {
+      "name": "玄天功",
+      "entity_type": "item",
+      "frequency": 382,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜男孩儿做出一个绝不应该出现在他这个年龄的无奈表情，摇了摇头，自言自语的道：“还是不行，我的玄天功依旧无法冲破第一重的瓶颈。这已经整整三个月了，究竟是为什么？哪怕是需要依靠紫气东来只能清晨"
+    },
+    {
+      "name": "蓝银领域",
+      "entity_type": "item",
+      "frequency": 374,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第465章｜一的蓝银帝皇，在它二次觉醒的同时，就赋予了唐三它所拥有的帝皇之威，也就是蓝银皇的天赋领域，蓝银领域。 在这里，蓝银领域当然无法发挥出最大的威力，或者说蓝银领域自身的效果在这里已经被压制"
+    },
+    {
+      "name": "缠绕",
+      "entity_type": "item",
+      "frequency": 357,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第31章｜花，但唐三现在可没心情去感受这种美妙，因为他骇然发现，小舞的手臂竟然奇异的扭曲了一下，不但缠绕上了自己的手掌，而且瞬间延伸，缠绕向自己的手臂，于此同时，她的另一只手也抬了起来，同样缠向"
+    },
+    {
+      "name": "杀神领域",
+      "entity_type": "item",
+      "frequency": 331,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第453章｜比赛中相遇。如果被任何一位杀神知道这样的情况。对于地狱之都，才真正是毁灭性的灾难。在他们的杀神领域中，任何魂师都可以恢复魂技的使用。否则，你以为我为什么要对他们妥协么？” 血红色的目光"
+    },
+    {
+      "name": "诸葛神弩",
+      "entity_type": "item",
+      "frequency": 266,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第141章｜机璜。在唐三的前一世，这看上去不起眼的黑匣子可以说是闻名遐迩，它有一个世人熟知的名字，——诸葛神弩。 长方形的黑匣子一段有十六个孔洞，一次可以同时释放出十六根无尾弩箭。五十米内足以刺穿"
+    },
+    {
+      "name": "紫极魔瞳",
+      "entity_type": "item",
+      "frequency": 255,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜法冲破第一重的瓶颈。这已经整整三个月了，究竟是为什么？哪怕是需要依靠紫气东来只能清晨修炼的紫极魔瞳一直都在进步。玄天功不能突破瓶颈，我的玄玉手也无法再做提升。当初我修炼的时候，在第一重到第"
+    },
+    {
+      "name": "金魂币",
+      "entity_type": "item",
+      "frequency": 180,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第34章｜东西之后，立刻在城内雇佣了一辆马车，给车夫五个银魂币。 斗罗大陆的货币兑换是这样的，一金魂币等于十个银魂币，等于一百个铜魂币。一个金魂币已经足够一个普通三口之家生活几个月的正常开销了"
+    },
+    {
+      "name": "幽冥白虎",
+      "entity_type": "item",
+      "frequency": 166,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第196章｜为双方魂力的差距，这种情况才在马红俊自身潜力被彻底激发出来的情况下才会出现。 “竹清，幽冥白虎。”戴沐白口中虎啸大作。作为史莱克七怪的队长，眼看着小舞受伤，他又怎能不怒。此时此刻，他终"
+    },
+    {
+      "name": "蓝电霸王龙",
+      "entity_type": "item",
+      "frequency": 162,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第36章｜两种令牌在完成魂兽猎杀之后必须要交回武魂殿，我这个是可以终身持有的。这块令牌上多出的是一条蓝电霸王龙，在兽武魂中，算的上是顶级存在。虽然它的主人并不是属于武魂殿中人，但所代表的家族却深受武魂"
+    },
+    {
+      "name": "蓝银囚笼",
+      "entity_type": "item",
+      "frequency": 155,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第310章｜“这就是我的第四魂技。脱胎于地穴魔蛛的蛛网囚笼，因为我这囚笼是用蓝银草形成，所以，我叫它蓝银囚笼。” 戴沐白抬手在那漆黑的蓝银草上弹了弹，铿锵之声从其上传来，柔软的蓝银草在魂技的作用"
+    },
+    {
+      "name": "九宝琉璃塔",
+      "entity_type": "item",
+      "frequency": 149,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第254章｜颤抖了。七宝琉璃塔变成了九层意味着什么？ 意味着她这已经不再是七宝琉璃塔，而是传说中的九宝琉璃塔，也是自己父亲，七宝琉璃宗宗主宁风致一生的目标。而自己竟然在这时达到了。 宁荣荣的目光"
+    },
+    {
+      "name": "瀚海乾坤罩",
+      "entity_type": "item",
+      "frequency": 146,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第553章｜。招揽他是极其必要的，在雪夜大帝心中，此时的唐三，已经比宁风致更加重要了。 “此物名为瀚海乾坤罩。从某种意义上来说，它可以算是一件魂导器吧。以后它就是蓝昊王的象征。此物的妙用很多。蓝昊王"
+    },
+    {
+      "name": "七宝琉璃塔",
+      "entity_type": "item",
+      "frequency": 132,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第84章｜兽武魂兔子，二十九级强攻系战魂师。” 齐耳短发少女犹豫了一下，才说道：“宁荣荣，器武魂七宝琉璃塔，二十六级辅助系器魂师。” 最后的冰冷少女依旧冷漠，淡淡的道：“朱竹清，兽武魂幽冥灵猫"
+    },
+    {
+      "name": "如意百宝囊",
+      "entity_type": "item",
+      "frequency": 126,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第246章｜独孤博摇了摇头，“不，这个和你那个不一样。我孙女又不喜欢玩这些药物，给她也是浪费。这叫如意百宝囊，你那个魂导器虽然不错，但和它相比还是差了些。因为，你那个装的是死物，我这个装的却是活物。"
+    },
+    {
+      "name": "蓝银皇右腿骨",
+      "entity_type": "item",
+      "frequency": 121,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第479章｜在这一刻，唐三已经给自己制定了唯一的人生目标，令武魂殿在自己手上彻底覆灭。 得到蓝银皇右腿骨，并未使唐三的魂力提升，只是进一步提纯，但是，贯通督脉，却令他获得了巨大的好处。奇经八脉贯"
+    },
+    {
+      "name": "罗三炮",
+      "entity_type": "item",
+      "frequency": 120,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第37章｜大师那原本有些颓废的眼神突然变得明亮起来，双手在胸前一合，再快速的向下方分开，“出来吧，罗三炮。” 噗的一声，一股淡紫色的魂力从大师双掌中分出，唐三只觉得大师身上传出一阵魂力波动，"
+    },
+    {
+      "name": "海神之心",
+      "entity_type": "item",
+      "frequency": 119,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第605章｜的摇了摇头，道：“不，你是海神大人选择的人，又岂是他人所能替代的？我也没有能力从你身上取走海神之心。是它自行选择了你。这不只是幸运，而是你符合了海神大人的要求。这也是没有人能够改变的事实。"
+    },
+    {
+      "name": "相思断肠红",
+      "entity_type": "item",
+      "frequency": 117,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第252章｜上，有着几片惊人的红色，鲜红如血看上去给人几分惊心动魄的感觉。 唐三正色道：“此草名曰相思断肠红。乃是仙品药草中的神品至宝。它还有一个传说中的故事，在很久以前，有一少年，生性恬淡，最喜扶"
+    },
+    {
+      "name": "鬼影迷踪",
+      "entity_type": "item",
+      "frequency": 115,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第3章｜有六种，分别是内功心法玄天功，练手之法玄玉手，练眼之法紫极魔瞳，擒拿之法控鹤擒龙，轻身之法鬼影迷踪，以及暗器使用之法，暗器百解。 前五种是基础，没有坚实的基础，又怎么能发挥出唐门暗器的"
+    },
+    {
+      "name": "碧磷蛇",
+      "entity_type": "item",
+      "frequency": 112,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜天恒，武魂：蓝电霸王龙，三十九级强攻系战魂师。魂环：两黄一紫。 副队长：独孤雁，武魂：碧磷蛇，三十八级控制系战魂师。魂环：两黄一紫。 队员：石墨，武魂：玄武龟，三十八级防御系战魂"
+    },
+    {
+      "name": "乱披风锤法",
+      "entity_type": "item",
+      "frequency": 107,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第57章｜铁匠已经有十五年的时间了。 看着微微喘息额头见汗的唐三，石三口吃的道：“这，这难道就是乱披风锤法？锻造术中最强的连续铸造术？” “乱披风锤法？那是什么？”唐三疑惑的道。 石三因为"
+    },
+    {
+      "name": "无敌金身",
+      "entity_type": "item",
+      "frequency": 106,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第410章｜用。下一刻，小舞的蝎子辫已经甩出，牢牢的缠绕在了他的脖子上。 柔骨魅兔小舞，第四魂技，无敌金身，发动。 对于小舞来说，没有什么比这个更适合她的魂技了。"
+    },
+    {
+      "name": "瀚海护身罩",
+      "entity_type": "item",
+      "frequency": 102,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第554章｜化为一道蓝光从唐三额头处隐没不见，没入眉心之中。 “这是它的第二个作用，第一个技能名叫瀚海护身罩，第二个技能名叫乾坤定神罩。还有第三个技能，名叫瀚海狂涛，第四个技能乾坤破魔。都是用来攻击"
+    },
+    {
+      "name": "二十四桥明月夜",
+      "entity_type": "item",
+      "frequency": 101,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第35章｜字吧。” 看着那二十四颗温润的玉石，唐三几乎是不假思索的就想起了前世一首著名的诗句，“二十四桥明月夜。就叫它二十四桥明月夜吧。” 大师微微一愣，僵硬的面庞看不出表情，点了点头，道：“很好"
+    },
+    {
+      "name": "蛛网束缚",
+      "entity_type": "item",
+      "frequency": 92,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第155章｜唐三在释放出这张蛛网后脸色明显变得有些苍白，显然是耗力过大的缘故。这就是唐三的第三魂技，蛛网束缚。 “小三，说说你对这个魂技的感触。”大师一边仔细的看着粘连在两棵大树之间的蛛网，一边"
+    },
+    {
+      "name": "大须弥锤",
+      "entity_type": "item",
+      "frequency": 78,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第638章｜的要求极高，不是天赋异禀的天才，绝对无法修炼成功，反而有生命之危。这门修炼的功法，就叫做，大须弥锤。” 唐三愣了一下，他知道，须弥和芥子是两个相反的词汇，须弥代表着无穷大的意思，而芥子"
+    },
+    {
+      "name": "控鹤擒龙",
+      "entity_type": "item",
+      "frequency": 77,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第3章｜宝录上记载的武功只有六种，分别是内功心法玄天功，练手之法玄玉手，练眼之法紫极魔瞳，擒拿之法控鹤擒龙，轻身之法鬼影迷踪，以及暗器使用之法，暗器百解。 前五种是基础，没有坚实的基础，又怎么"
+    },
+    {
+      "name": "碧磷蛇皇",
+      "entity_type": "item",
+      "frequency": 75,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第237章｜阴冷的盯视着罗三炮，口中蛇信吞吐，浓浓的绿雾氤氲在身体四周。 这正是独孤博的武魂真身，碧磷蛇皇。 独孤雁继承的，就是独孤博的武魂碧磷蛇，而已经达到封号斗罗级别，独孤博的武魂真身可不"
+    },
+    {
+      "name": "蓝银霸王枪",
+      "entity_type": "item",
+      "frequency": 75,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第489章｜否则在蛛网束缚困住唐虎的时候，他的第五魂技就已经可以释放了。那充满恐怖气息的金色长枪，名为蓝银霸王枪。 作为蓝银草自行凝结而成的魂技，当时的蓝银王充分考虑到了唐三技能中的欠缺，才赋予了他"
+    },
+    {
+      "name": "破魂枪",
+      "entity_type": "item",
+      "frequency": 74,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第530章｜，围绕着这柄丈二长枪上下闪耀，顿时绽放出无比炫丽的光彩。 没错，破之一族的武魂就是枪，破魂枪。 长枪入手，杨无敌并没有立刻进攻，作为长辈，又是一名魂斗罗，他自然要等唐三将武魂全部"
+    },
+    {
+      "name": "袖箭",
+      "entity_type": "item",
+      "frequency": 74,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第15章｜上，正带着来到这个世界后的第一件作品，而且是所有步骤都是由他自己完成的作品。 那是一个袖箭，在当初的唐门来说，袖箭是最普通的机括类暗器了，袖箭的制作关键在于机璜的力量以及本身设计的"
+    },
+    {
+      "name": "龙渊艇",
+      "entity_type": "item",
+      "frequency": 73,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第559章｜人高声道：“下面，我们要拍卖的拍品乃是一件魂导器，最适合在近海区域使用，有大海征服者之称的龙渊艇。”"
+    },
+    {
+      "name": "幽香绮罗仙品",
+      "entity_type": "item",
+      "frequency": 71,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第233章｜为中心形成的。 脑海中阻塞瞬间贯通，灵光闪现之间，唐三冲口而出，叫出了这种花的名字，“幽香绮罗仙品。” 没错，就是‘幽香绮罗仙品’。唐三的心已经开始有些颤抖了。雪蚕和朱砂莲他以前毕竟还"
+    },
+    {
+      "name": "月刃",
+      "entity_type": "item",
+      "frequency": 71,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第413章｜就是被武魂殿誉为黄金一代的三个奇才。最前面的黑发青年名叫邪月，五十二级强攻系战魂王，武魂是月刃，是一名器魂师。在他后面的红发男子名叫焱，五十二级火属性强攻系战魂王，武魂是火焰领主。在邪"
+    },
+    {
+      "name": "瞬移",
+      "entity_type": "item",
+      "frequency": 71,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第165章｜系魂师不只是要控制敌人，同时也要控制自己。” 最后，大师看向小舞，“你的第三魂技应该是瞬移吧。不过有距离限制。如果我猜得不错，这应该是闪电兔的能力。你的第三魂环是一只千年级别的闪电"
+    },
+    {
+      "name": "天使领域",
+      "entity_type": "item",
+      "frequency": 68,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第544章｜变在天空之中自然有他的目的。任何领域都是有范围的，不论是他的杀神领域、蓝银领域还是雪清河的天使领域都是如此。唐三自问，以自己此时的实力，在领域增幅上能带给战友的帮助肯定不如雪清河的天使领域"
+    },
+    {
+      "name": "紫极神光",
+      "entity_type": "item",
+      "frequency": 67,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第437章｜所未有的恐怖。 后来唐三给出这个技能的解释就是：透视世间万物，抹灭一切不平。技能名曰：紫极神光。 一道紫极神光发出，唐三第一时间并不是兴奋，而是飞快的计算着这到紫极神光所产生出的破"
+    },
+    {
+      "name": "白虎金刚变",
+      "entity_type": "item",
+      "frequency": 65,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第68章｜是我正常的魂力，都无法在一次攻击下将它们切割开来。但是，我现在使用的，是我的第三魂环技能，白虎金刚变。当初，为了得到这个魂环，我可以说是历经艰险，终于猎杀了一头千年金刚虎魂兽。它不但令我的力"
+    },
+    {
+      "name": "飞天神爪",
+      "entity_type": "item",
+      "frequency": 64,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第209章｜什么东西？是威力更大的袖箭么？” 唐三微笑摇头，道：“准确的说，它算是一种工具，我叫它飞天神爪。你们看清楚我的操作方法。” 他在飞天神爪上方前端位置一拉，拉出五个环扣似的金属套在自"
+    },
+    {
+      "name": "佛怒唐莲",
+      "entity_type": "item",
+      "frequency": 63,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第1章｜看着这些脸色凝重的长老来到自己面前，挡住了所有的去路，而在他背后，是鬼见愁。 放下三朵佛怒唐莲，唐三投下最后那恋恋不舍的一眼，嘴角处流露出一丝欣慰的微笑，他毕竟成功了，努力了二十年，他"
+    },
+    {
+      "name": "玄武龟",
+      "entity_type": "item",
+      "frequency": 62,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第187章｜队长：独孤雁，武魂：碧磷蛇，三十八级控制系战魂师。魂环：两黄一紫。 队员：石墨，武魂：玄武龟，三十八级防御系战魂师。魂环：两黄一紫。 队员：石磨，武魂：玄武龟，三十七级防御系战魂"
+    },
+    {
+      "name": "玄玉手",
+      "entity_type": "item",
+      "frequency": 61,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第2章｜为什么？哪怕是需要依靠紫气东来只能清晨修炼的紫极魔瞳一直都在进步。玄天功不能突破瓶颈，我的玄玉手也无法再做提升。当初我修炼的时候，在第一重到第二重之间，似乎并没有遇到这样的情况。玄天功一"
+    },
+    {
+      "name": "无定风波",
+      "entity_type": "item",
+      "frequency": 60,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第614章｜世界千余载，终得海神之位。自创黄金十三戟，横扫海内无敌。现传你前三戟，我只用一遍。第一式，无定风波。” 声音在唐三脑海中回荡，那金色虚影已经再次踏前一步，这一步踏出，周围的一切顿时都变"
+    },
+    {
+      "name": "寄生",
+      "entity_type": "item",
+      "frequency": 58,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第67章｜刺中，毒素就会立刻散发，直到化为脓水，成为鬼藤的肥料为止。而且，最令魂师们惧怕的，是鬼藤的寄生能力。在它攻击的时候，会自行散发出无数细微的种子，直接寄生在敌人身上，只要鬼藤提供足够的能"
+    },
+    {
+      "name": "炸环",
+      "entity_type": "item",
+      "frequency": 58,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第649章｜为唐昊讲述到这门绝学的时候，唐三才极度吃惊，认为这根本是不可能使用的技能。这门绝学就名叫：炸环。 每一个魂环都可以进行一次炸环，炸环后，魂环的力量将完全被迸发出来，瞬间变成自身的力"
+    },
+    {
+      "name": "邪眸白虎",
+      "entity_type": "item",
+      "frequency": 58,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第68章｜深的看了唐三和小舞一眼，“我想，我们很快会再见面的。到史莱克学院，如果有人找你们麻烦，报我邪眸白虎戴沐白的名字。” 说完，他向那一对双胞胎美女招了招手，率先向酒店外走去。 小舞忍不"
+    },
+    {
+      "name": "凤凰火线",
+      "entity_type": "item",
+      "frequency": 57,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第100章｜出，这胖子在手下留情么？好，那我也对你温柔点。 就在马红俊以为小舞要伤在自己第一魂环技凤凰火线中的时候，突然，空中的小舞身体瞬间蜷缩在一起，同时在空中轻飘飘的扭动了一下，柔软的身体似乎"
+    },
+    {
+      "name": "修罗魔剑",
+      "entity_type": "item",
+      "frequency": 56,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第662章｜给自己体内修罗神力复苏的机会，曾祖留下这柄剑是好意，给自己多一个选择，或者说，他留下的这柄修罗魔剑很可能就是修罗神传承的关键，可是，现在自己绝不能接触这柄魔剑。至少也要等到自己完成了海神神"
+    },
+    {
+      "name": "六翼天使",
+      "entity_type": "item",
+      "frequency": 56,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第544章｜识雪清河释放的武魂所属。脸色凝重的道：“这是一种传说中的武魂，也是最顶级的武魂。老师说过，六翼天使象征着神的代言人。拥有这种武魂的人，不但是先天满魂力，而且是先天二十级的满魂力。只要拥有了"
+    },
+    {
+      "name": "魅惑",
+      "entity_type": "item",
+      "frequency": 55,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第164章｜识到了不好，但终究还是晚了一点，看到了小舞那已经变成粉红色的双眼。 小舞第二魂环技能，魅惑，发动。 唐三只觉得脑海中一阵晕眩，幸好他在第一时间就闭上了双眼，没有让小舞的技能威力"
+    },
+    {
+      "name": "水晶血龙参",
+      "entity_type": "item",
+      "frequency": 50,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第529章｜殊的人参，哪怕当初在冰火两仪眼周围他也没有得到。他很清楚这株人参的价值有多么巨大。这是一株水晶血龙参，如果说万年九品参王乃是人参中的帝王。那么，水晶血龙参就是人参中的帝后。 对于水晶血龙"
+    },
+    {
+      "name": "奇茸通天菊",
+      "entity_type": "item",
+      "frequency": 49,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第251章｜出的这株植物所吸引。 唐三微微一笑，向戴沐白道：“戴老大，这是我特意为你准备的。它叫做奇茸通天菊，乃是中性仙品药草，食之气运四肢，血通八脉，可练金刚不坏之身。” 戴沐白大吃一惊，“这"
+    },
+    {
+      "name": "分心控制",
+      "entity_type": "item",
+      "frequency": 48,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第322章｜练她到现在也仍心有余悸。 大师道：“荣荣，如果我记得不错，你们七宝琉璃宗应该有一门名叫分心控制的技能吧。你现在修炼到了什么程度？” 宁荣荣显示愣了一下，然后才回答道：“我现在刚修炼"
+    },
+    {
+      "name": "孔雀翎",
+      "entity_type": "item",
+      "frequency": 44,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第98章｜办法。就是制造出强力的机括类暗器。譬如，唐门三大最恐怖的机括类暗器，佛怒唐莲，暴雨梨花针和孔雀翎。 只是，这三样暗器制作起来实在太困难了，任何一种对于材料的要求都苛刻到了极点。以现在"
+    },
+    {
+      "name": "暴雨梨花针",
+      "entity_type": "item",
+      "frequency": 44,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第98章｜，就只有一个办法。就是制造出强力的机括类暗器。譬如，唐门三大最恐怖的机括类暗器，佛怒唐莲，暴雨梨花针和孔雀翎。 只是，这三样暗器制作起来实在太困难了，任何一种对于材料的要求都苛刻到了极点"
+    },
+    {
+      "name": "白虎烈光波",
+      "entity_type": "item",
+      "frequency": 43,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第67章｜一团乳白色的光球从他口中喷吐而出。 戴沐白前两个魂环所附带的技能，分别是白虎护身障以及白虎烈光波，此时同时发动，顿时展现出恐怖的威力。 从外面看，戴沐白的身体已经被庞大的藤蔓困在其中"
+    },
+    {
+      "name": "凤翼天翔",
+      "entity_type": "item",
+      "frequency": 39,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第294章｜一颗烈火流星般追着那绿色光球朝着那只‘粉红娘娘’飞了过去。 这就是马红俊的第三魂环技，凤翼天翔。 凭借这个魂技，能够让他暂时拥有飞行的能力，在飞行过程中，魂力会不断的消耗，同时，这"
+    },
+    {
+      "name": "黄金十三戟",
+      "entity_type": "item",
+      "frequency": 39,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第614章｜一个浑厚苍劲，充满威严的声音在唐三脑海中想起，“吾纵横斗罗水世界千余载，终得海神之位。自创黄金十三戟，横扫海内无敌。现传你前三戟，我只用一遍。第一式，无定风波。” 声音在唐三脑海中回荡，"
+    },
+    {
+      "name": "森罗万象",
+      "entity_type": "item",
+      "frequency": 38,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第576章｜“这是我的蓝银领域在第七魂技蓝银真身作用下释放出的本来面目。也是蓝银领域第三次进化技能，森罗万象。附带效果，同化、压制。通过领域，我可以让这里的每一处随心意发生变化。同化技能指的是同化周"
+    },
+    {
+      "name": "精神凝聚之智慧头骨",
+      "entity_type": "item",
+      "frequency": 36,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第416章｜师来说，就是极品的存在。 站在教皇背后的鬼斗罗鬼魅以他那低沉的声音道：“三块魂骨分别是精神凝聚之智慧头骨，爆裂焚烧之火焰右臂，以及急速前行之追风左腿。这三块魂骨都出自于万年魂兽。其中，精神凝聚之"
+    },
+    {
+      "name": "观音泪",
+      "entity_type": "item",
+      "frequency": 35,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第651章｜脏贯穿而出，而是应该在你的心脏中爆炸。那样的话，就算是神，恐怕你也要掉半条命吧。观音有泪，观音泪。” “观音泪？我从未听过这样的名字，这是你的自创魂技？”千仞雪呆呆的看着唐三。"
+    },
+    {
+      "name": "七位一体融合技",
+      "entity_type": "item",
+      "frequency": 34,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第351章｜还能叫神技么？苍晖学院那七个学员虽然不错，但还远远不足以施展这种魂技。他们所用的，只不过是七位一体融合技而已。真亏得苍晖学院能够找到七个武魂契合度这么高的学员。” 弗兰德愣了一下，“七位一体"
+    },
+    {
+      "name": "阎王帖",
+      "entity_type": "item",
+      "frequency": 34,
+      "confidence": "high",
+      "aliases": [
+        "阎王贴"
+      ],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第338章｜明月夜中取出了一样东西，一样令他唯一有可能翻盘的东西。 唐门内门暗器排名第三，追魂夺命阎王帖。 没有选择机括类暗器，也没有选择自己制作出，能够笼罩大范围的子母追魂夺命胆。因为唐三"
+    },
+    {
+      "name": "雷霆万钧",
+      "entity_type": "item",
+      "frequency": 34,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第39章｜带上口罩，眼睛却一顺不瞬的看着罗三炮的行动。伴随着那一声轰鸣，只见一个黄色的光罩骤然释放，雷霆万钧一般，将六条十年幽冥狼全部覆盖在内。 六条幽冥狼的身体，在罗三炮的攻击下宛如破麻袋一般"
+    },
+    {
+      "name": "幻之空间",
+      "entity_type": "item",
+      "frequency": 32,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第552章｜唐三将从时年那里得到的魂骨给了宁荣荣，宁荣荣就拥有了这项技能。幻境智慧头骨带给她的能力名叫幻之空间。与她的九宝琉璃塔武魂融合后。这幻之空间的作用比原本时年使用时要强大的多。毕竟，九宝琉璃塔"
+    },
+    {
+      "name": "白虎流星雨",
+      "entity_type": "item",
+      "frequency": 32,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第298章｜，无数拳头大小的金色光球瞬间锁定了鬼虎的身体，蜂拥而上。正是戴沐白刚刚获得不久的第四魂技，白虎流星雨。 论攻击的爆发力，或许戴沐白这第四魂技比不上胖子的凤凰啸天击，但它最大的特点就是能够"
+    },
+    {
+      "name": "子母追魂夺命胆",
+      "entity_type": "item",
+      "frequency": 31,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第247章｜常肯定，这小怪物能够拿出来送给自己，肯定不是什么普通货色。 唐三这才正色道：“此物名为子母追魂夺命胆，乃是我目前制作出的暗器中最为霸道的一种。你可千万要小心些。一旦受到过大的外力挤压或者撞击"
+    },
+    {
+      "name": "幽冥灵猫",
+      "entity_type": "item",
+      "frequency": 31,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第84章｜宝琉璃塔，二十六级辅助系器魂师。” 最后的冰冷少女依旧冷漠，淡淡的道：“朱竹清，兽武魂幽冥灵猫，二十七级敏攻系战魂师。” 当四人分别介绍完自己，包括戴沐白在内，其中四个人的目光都集"
+    },
+    {
+      "name": "含沙射影",
+      "entity_type": "item",
+      "frequency": 30,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第92章｜发挥出了最大的作用。他胸口这件暗器，也是他身上为数不多的几种能够破护身罡气的暗器之一。名叫含沙射影。 当然，赵无极的不动明王身防御力太强了，含沙射影射出的六十四根钢针也只能勉强刺破他的"
+    },
+    {
+      "name": "蓝银突刺阵",
+      "entity_type": "item",
+      "frequency": 30,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第411章｜罗学院战队的队员们都陷入了短暂的眩晕之中。 千手修罗唐三，第四魂技，蓝银囚笼变异能力，蓝银突刺阵发动。 这是唐三潜心研究的结果。蓝银囚笼在实战的时候，就是蓝银草突然从地面下涌出，将对"
+    },
+    {
+      "name": "八段摔",
+      "entity_type": "item",
+      "frequency": 27,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第172章｜学院有个女孩子被一个怪大叔猥亵了，小舞用的就是这招。把那个人骗到一个阴暗的角落中，然后就是八段摔。” “八段摔？那是什么？”戴沐白也不禁好奇起来。 唐三眼中流露出一丝恐惧，“就是"
+    },
+    {
+      "name": "尖尾雨燕",
+      "entity_type": "item",
+      "frequency": 27,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第526章｜敏路线，与自身的武魂也有着很大关系。因为敏之一族的武魂乃是拥有最快飞行速度的一种鸟类，名叫尖尾雨燕。正是拥有这样的武魂，才导致了敏之一族的修炼路线。 跟随在白鹤身边，是一个看上去年纪与"
+    },
+    {
+      "name": "七杀剑",
+      "entity_type": "item",
+      "frequency": 26,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第552章｜“剑长四尺三寸，宽三寸，柄长一尺二寸，名曰：七杀。” 就在剑斗罗尘心的手即将握住这柄七杀剑前的刹那，唐三眼中光芒大放，大喝一声，“强攻。” 与此同时，一白、一蓝，两圈光芒同时从"
+    },
+    {
+      "name": "邪火凤凰",
+      "entity_type": "item",
+      "frequency": 25,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第100章｜有可以前进的道路。 马红俊心中暗想，死丫头，敢说我是土鸡，不给你的颜色看看，老子就不叫邪火凤凰。不过，她长的挺漂亮的，还是不要烧坏了才好。一边想着，他喷出的火焰也变得弱了几分，伤人足够"
+    },
+    {
+      "name": "死亡蛛皇",
+      "entity_type": "item",
+      "frequency": 24,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第612章｜之下，还有四只生长出来的小眼睛。怎么看，她都像是一头巨大的毒蜘蛛。这就是比比东的第一武魂，死亡蛛皇。 黄、紫、紫、黑、黑、黑、黑、黑、红，九个魂环整齐的排列在她身上。超级魂环配比，封号"
+    },
+    {
+      "name": "疾风魔狼三十六连斩",
+      "entity_type": "item",
+      "frequency": 21,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第394章｜再强大一些，我今天也一定要战胜你。下面，我将用我自创的魂技向你发动攻击，小心了。魂技名曰：疾风魔狼三十六连斩。” 听着对方的话，唐三脚下不丁不八的站稳，只用两个字回答了对手，“来吧。” 自创"
+    },
+    {
+      "name": "太阳圣剑",
+      "entity_type": "item",
+      "frequency": 19,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第652章｜，空气完全扭曲着，无数泥沙、石块在那恐怖的太阳神力中消融。这一击，可是真正的神之一击，名叫太阳圣剑。乃是天使之神特有的能力。威力之强，就胜在爆炸力上。 六翼天使之神，本身的属性是以神圣"
+    },
+    {
+      "name": "无声袖箭",
+      "entity_type": "item",
+      "frequency": 18,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第20章｜把握，包括老杰克在内，没有谁会发现那枚袖箭是他发出的。没有证据，谁又能够说是他杀人？唐门的无声袖箭弹速极快，只会有一道影子，又岂是门房那样的货色所能闪躲的。 杰克又叮嘱了唐三几句后，这"
+    },
+    {
+      "name": "发晶",
+      "entity_type": "item",
+      "frequency": 16,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第74章｜晌才说出这么一句话。 小舞好奇的道：“那什么样的水晶才珍贵？” 唐三郑重的道：“是发晶。” “发晶？那是什么？”小舞惊讶的看着他，这个词汇她甚至连听都没有听说过。 也难"
+    },
+    {
+      "name": "大力金刚熊",
+      "entity_type": "item",
+      "frequency": 16,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第84章｜柱香的时间，就算通过了。可谁知道今天他那根弦不对，竟然要亲自出手。” “赵老师的武魂是大力金刚熊，是一种强力兽武魂。全身毫无破绽，防御力极其恐怖，哪怕是和他等级相同的魂师，也很难破开他的"
+    },
+    {
+      "name": "暗器百解",
+      "entity_type": "item",
+      "frequency": 16,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第3章｜，练手之法玄玉手，练眼之法紫极魔瞳，擒拿之法控鹤擒龙，轻身之法鬼影迷踪，以及暗器使用之法，暗器百解。 前五种是基础，没有坚实的基础，又怎么能发挥出唐门暗器的精髓呢？ 一岁多开始修炼"
+    },
+    {
+      "name": "望穿秋水露",
+      "entity_type": "item",
+      "frequency": 15,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第253章｜是在药草中央，有三片雪白的叶子，叶子中央有几滴水珠，就像是清晨留下的露水。 “此草名为望穿秋水露，食之可练火眼金睛，透视万方奇物。虽然形容的夸张了一些，但它对我的紫极魔瞳修炼有不小的好处"
+    },
+    {
+      "name": "死亡领域",
+      "entity_type": "item",
+      "frequency": 14,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第613章｜完全挡住，同时在那蓝金色的世界中也同时失去了唐三和大明、二明的身影。 比比东的领域名叫死亡领域，死亡蛛皇天赋领域，效果极其强悍，到达了她现在的修为，领域一共具有三大效果。自身全属性增幅"
+    },
+    {
+      "name": "鸡冠凤凰葵",
+      "entity_type": "item",
+      "frequency": 14,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第252章｜众不同只出，叶脉竟然是赤金色的，此草一出，整个房间内的温度顿时大幅度上升。 “此物名叫鸡冠凤凰葵，不可咀嚼，吞咽。提聚魂力输导，不论多么痛苦你都要忍耐住，否则就会功亏一篑。 此物的效"
+    },
+    {
+      "name": "冰凤凰",
+      "entity_type": "item",
+      "frequency": 13,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第360章｜起。 听着那明亮的凤鸣，感觉着减轻攻击压力后却更强大的精神压力，唐三突然醒悟了。 冰凤凰，那水冰儿的武魂竟然是顶级武魂中的冰凤凰。 难怪，难怪她的魂技控制力那么强，难怪她能拥"
+    },
+    {
+      "name": "噬魂蛛皇",
+      "entity_type": "item",
+      "frequency": 13,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第613章｜种意义上来说，就是昆虫类魂兽的帝王之尊。 她的第一武魂乃是死亡蛛皇，而她的第二武魂则是噬魂蛛皇，从她此时身上的魂环就能看出，这第二武魂显然是在第一武魂达到九环之后才开始吸收的。 伴"
+    },
+    {
+      "name": "天青牛蟒右臂骨",
+      "entity_type": "item",
+      "frequency": 13,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第616章｜对能够相当于一块儿十万年魂骨的存在了。 除了这块额外的魂骨之外，唐三还拥有十万年级别的天青牛蟒右臂骨，泰坦巨猿左臂骨，邪魔虎鲸左腿骨，蓝银帝皇右腿骨。整整四块儿十万年魂骨。唯一一块儿不是十万"
+    },
+    {
+      "name": "泰坦巨猿左臂骨",
+      "entity_type": "item",
+      "frequency": 13,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第616章｜儿十万年魂骨的存在了。 除了这块额外的魂骨之外，唐三还拥有十万年级别的天青牛蟒右臂骨，泰坦巨猿左臂骨，邪魔虎鲸左腿骨，蓝银帝皇右腿骨。整整四块儿十万年魂骨。唯一一块儿不是十万年级别的精神凝聚"
+    },
+    {
+      "name": "绮罗郁金香",
+      "entity_type": "item",
+      "frequency": 12,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第252章｜的感觉。 “你的武魂七宝琉璃塔十分特殊，我也是考虑再三，才给你选定了这株仙草。此物名为绮罗郁金香，雍容华贵。服用它，能吸天地精华，日月光辉。你的七宝琉璃塔本身就属于宝物类的武魂，有这株绮"
+    },
+    {
+      "name": "绝望光波",
+      "entity_type": "item",
+      "frequency": 11,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第585章｜。 她头部释放出的蓝色波纹可不是领域能力了，而是那曾经险些干掉唐三的特殊精神攻击，名叫绝望光波。一旦被成功笼罩，那么，在绝望光波中的敌人将无法行动，而且全身魂技处于短暂的被封印状态，就"
+    },
+    {
+      "name": "八瓣仙兰",
+      "entity_type": "item",
+      "frequency": 10,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第251章｜兰花，花瓣发抖般轻微颤动着，通体一片雪白精莹，予人清高出尘之感。 唐三道：“此物名为‘八瓣仙兰’，也是仙品药草，须用金取玉装，只要装在玉制器具中，千年不凋，百世不谢。它在我这次带回来的"
+    },
+    {
+      "name": "听声辨位",
+      "entity_type": "item",
+      "frequency": 10,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第41章｜蛇的身上，令本来已经近在咫尺，可以发动攻击的魂兽骤然停滞了一下，重新被拉开几分距离。 听声辨位在唐门只是最粗浅的能力而已，唐三自然是会的，接下来的一幕，令大师心中充满了震撼。只见唐三的"
+    },
+    {
+      "name": "幽冥百爪",
+      "entity_type": "item",
+      "frequency": 10,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第88章｜旋转的朝着赵无极的方向冲去。 在她那团起的身影之中，只见爪影纷纷，正是她的第二魂环技，幽冥百爪。凭借着身体的急速旋转和猫爪尖锐穿透性的攻击力，在极短的时间内向敌人攻出上百次攻击，并且是"
+    },
+    {
+      "name": "火影",
+      "entity_type": "item",
+      "frequency": 10,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第342章｜舞。她才是整个战队的灵魂，也是战队的副队长。她的武魂就是她自己，一个以她自己为本体的影子，火影。 在比赛开始前，唐三也只是来得及扫一眼对方的魂师组合。并不是史莱克学院得到的消息晚，"
+    },
+    {
+      "name": "疾风双头狼",
+      "entity_type": "item",
+      "frequency": 10,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第392章｜在第一场就派上了自己最强的队员。 神风学院战队队长风笑天，四十四级强攻系战魂宗，武魂，疾风双头狼。 史莱克学院战队副队长唐三，四十二级控制系战魂宗，武魂，蓝银草。"
+    },
+    {
+      "name": "邪魔虎鲸左腿骨",
+      "entity_type": "item",
+      "frequency": 9,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第616章｜在了。 除了这块额外的魂骨之外，唐三还拥有十万年级别的天青牛蟒右臂骨，泰坦巨猿左臂骨，邪魔虎鲸左腿骨，蓝银帝皇右腿骨。整整四块儿十万年魂骨。唯一一块儿不是十万年级别的精神凝聚之智慧头骨本身也"
+    },
+    {
+      "name": "昊天九绝",
+      "entity_type": "item",
+      "frequency": 7,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第581章｜挛中失去了行动能力。竟是被震得晕了。 唐三此时施展的，正是唐昊传授给他的昊天宗本门绝学昊天九绝中的震字绝。昊天九绝，并非是九种技能或是招式，而是昊天锤九种发力的方法。每一种都有着自己的"
+    },
+    {
+      "name": "九品紫芝",
+      "entity_type": "item",
+      "frequency": 6,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第253章｜一株灵芝。灵芝通体呈紫色，下面是翡翠般的茎秆，生九叶。 唐三走到大师面前，“老师，这株九品紫芝虽然算不得仙品，但也有固本培元，益气增功之效。对您的身体有不小的好处。您把它吃下吧。”"
+    },
+    {
+      "name": "四眼猫鹰",
+      "entity_type": "item",
+      "frequency": 6,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第104章｜商大叔么？” 奥斯卡惊讶的道：“什么奸商大叔？这是我们的院长大人，史莱克学院的创始人，四眼猫鹰弗兰德。一名七十八级的魂圣。比赵老师还要猛。而且他拥有飞行类兽武魂。在战魂师中，也算是相当"
+    },
+    {
+      "name": "水仙玉肌骨",
+      "entity_type": "item",
+      "frequency": 6,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第253章｜株白色精莹花草，看上去宛如青莲白耦般一尘不染，唐三将它递到朱竹清面前，微笑道：“此花名叫‘水仙玉肌骨’，功能润筋补骨，气通七经八脉。本来我是给小舞准备的，但她已经有了‘相思断肠红’，这株仙草"
+    },
+    {
+      "name": "大力猩猩",
+      "entity_type": "item",
+      "frequency": 5,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第258章｜乎壮大了一倍，同时手臂延伸，垂至膝下，裸露在外的地方都露出了黑色的毛发。 “泰隆，武魂大力猩猩，三十七级强攻系战魂尊，请指教。” 三十七级？唐三愣了一下，脸上不禁流露出一丝古怪的笑"
+    },
+    {
+      "name": "板甲巨犀",
+      "entity_type": "item",
+      "frequency": 5,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第521章｜量攻击，他们更偏向于皮糙肉厚。论防御力，御之一族绝不比七大宗门中的象甲宗差，他们的武魂乃是板甲巨犀，只不过攻击力无法与象甲宗相比而已。” “其他三族成立的时间都在百年之内，历史还不如我"
+    },
+    {
+      "name": "妖狐",
+      "entity_type": "item",
+      "frequency": 3,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第451章｜正是当初武魂殿学院战队的中流砥柱之一，武魂殿黄金一代中唯一的女性，妖狐胡列娜。 她怎么会在这里。这是唐三脑海中第一个念头。他的目光下意识的就落在了胡列娜身上"
+    },
+    {
+      "name": "柔骨兔",
+      "entity_type": "item",
+      "frequency": 3,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第434章｜何魂兽都会达到一个奇妙的层次。在这个层次的魂兽，实力几乎相差无几。像你的小舞，原本只是一只柔骨兔，但当她修炼到十万年级别后，就算和同级别的泰坦巨猿比，也决不逊色。但是，到了十万年级别，魂"
+    },
+    {
+      "name": "钻石猛犸",
+      "entity_type": "item",
+      "frequency": 3,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第326章｜最强的辅助宗门一样，象甲宗也有自己的称号。那就是最强的防御宗门。 象甲宗的祖传武魂名曰钻石猛犸，是一种防御力极高的超级武魂，特性主要体现在力量和防御上。同等级的武魂，几乎没有魂师能够攻"
+    },
+    {
+      "name": "雪色天鹅吻",
+      "entity_type": "item",
+      "frequency": 3,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第465章｜是吃下它，哪怕是被它沾上一点，碰到的部位任何病毒都会千百倍的滋生。在很多情况下，这株名为“雪色天鹅吻”的仙草比起任何剧毒来都要可怕。哪怕是用玄玉手拿着它，唐三也显得战战兢兢。 这株仙草的"
+    },
+    {
+      "name": "骨龙",
+      "entity_type": "item",
+      "frequency": 3,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第107章｜不会有事的。” 剑叔怒气冲冲的哼了一声，“荣荣有事我就拿你是问。身上有点发紧了，我找老骨龙去活动活动筋骨。” 别说在七宝琉璃宗，哪怕是在整个斗罗大陆敢向宁风致这么说话的，也没几"
+    },
+    {
+      "name": "罗刹领域",
+      "entity_type": "item",
+      "frequency": 1,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第682章｜神装上不断闪烁着一道道紫色光芒。比比东对唐三可以说是恨之入骨，之前的第一击更是将蓄势已久的罗刹领域全部发动起来，连千仞雪这样的神级强者承受下来都难免受伤。不过幸好她的天使领域是纯粹的光明属"
+    },
+    {
+      "name": "追魂夺命阎王帖",
+      "entity_type": "item",
+      "frequency": 1,
+      "confidence": "high",
+      "aliases": [],
+      "source": "preset:douluo1-curated-v2",
+      "sample_context": "第338章｜二十四桥明月夜中取出了一样东西，一样令他唯一有可能翻盘的东西。 唐门内门暗器排名第三，追魂夺命阎王帖。 没有选择机括类暗器，也没有选择自己制作出，能够笼罩大范围的子母追魂夺命胆。因为唐三"
+    }
+  ]
+}

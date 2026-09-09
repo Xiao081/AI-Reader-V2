@@ -16,7 +16,7 @@ from src.services.entity_preset_service import (
 from src.extraction.context_summary_builder import ContextSummaryBuilder
 
 
-PRESET_ID = "douluo1-curated-v1"
+PRESET_ID = "douluo1-curated-v2"
 
 
 def test_douluo1_preset_is_curated_and_unique():
@@ -24,12 +24,23 @@ def test_douluo1_preset_is_curated_and_unique():
     entries = preset["entries"]
     by_name = {entry.name: entry for entry in entries}
 
-    assert len(entries) == 83
+    assert len(entries) == 338
     assert len(by_name) == len(entries)
     assert by_name["玉小刚"].aliases == ["大师", "小刚"]
+    assert by_name["比比东"].entity_type == "person"
+    assert by_name["千仞雪"].aliases == ["雪清河"]
+    assert by_name["唐三"].aliases == ["小三", "千手修罗", "唐银"]
+    assert by_name["小白"].sample_context.startswith("第582章")
+    assert by_name["泰坦"].sample_context.startswith("第274章")
+    assert by_name["时年"].sample_context.startswith("第314章")
+    assert by_name["楼高"].sample_context.startswith("第535章")
     assert by_name["蓝银草"].entity_type == "item"
     assert by_name["八蛛矛"].entity_type == "item"
+    assert by_name["分心控制"].entity_type == "item"
     assert by_name["人面魔蛛"].entity_type == "concept"
+    assert by_name["泰坦巨猿"].entity_type == "person"
+    assert by_name["天青牛蟒"].entity_type == "person"
+    assert by_name["蓝银王"].entity_type == "person"
 
     # Known segmentation noise and globally ambiguous offices stay out.
     assert "三身体" not in by_name
@@ -47,14 +58,28 @@ async def test_curated_preset_reaches_analysis_context(monkeypatch):
         return preset["entries"]
 
     monkeypatch.setattr(entity_dictionary_store, "get_all", get_all)
-    section = await ContextSummaryBuilder()._build_dictionary_section("novel-1")
+    builder = ContextSummaryBuilder()
+    section = await builder._build_dictionary_section("novel-1")
 
-    assert "玉小刚（person" in section
-    assert "可能别名：大师、小刚" in section
-    assert "蓝银草（item" in section
-    assert "人面魔蛛（concept" in section
+    assert section.startswith("### 本书人工精校实体词表（高优先级）")
+    assert "玉小刚（别名：大师、小刚）" in section
+    assert "比比东" in section
+    assert "千仞雪（别名：雪清河）" in section
+    assert "蓝银草" in section
+    assert "人面魔蛛" in section
+    assert len(section) < 6000
     assert "三身体" not in section
-    assert "院长（person" not in section
+    assert "院长" not in section
+
+    # The curated dictionary is kept before variable history sections, so a
+    # later context-budget truncation cannot erase late-book entities.
+    context = await builder.build(
+        "novel-1",
+        1,
+        include_world_structure=False,
+    )
+    assert context.startswith("### 本书人工精校实体词表（高优先级）")
+    assert "比比东" in context
 
 
 @pytest.mark.parametrize(

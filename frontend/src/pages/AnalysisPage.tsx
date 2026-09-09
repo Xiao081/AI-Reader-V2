@@ -205,7 +205,7 @@ export default function AnalysisPage() {
       setPrescanEntityCount(res.entity_count)
       setPrescanPreset(res.preset)
       if (res.status === "completed" && res.entity_count > 0) {
-        const dict = await fetchEntityDictionary(nId, undefined, 100)
+        const dict = await fetchEntityDictionary(nId, undefined, 500)
         setPrescanEntities(dict.data)
       }
     } catch {
@@ -400,7 +400,7 @@ export default function AnalysisPage() {
             prescanPollRef.current = null
           }
           if (res.status === "completed" && res.entity_count > 0) {
-            const dict = await fetchEntityDictionary(novelId, undefined, 100)
+            const dict = await fetchEntityDictionary(novelId, undefined, 500)
             setPrescanEntities(dict.data)
           }
         }

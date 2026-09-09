@@ -14,6 +14,10 @@ _DEFAULT_MONTHLY_BUDGET_CNY = 50.0
 
 _PRICING: dict[str, tuple[float, float]] = {
     # (input_per_1m, output_per_1m) in USD
+    # V4 uses peak/off-peak pricing; use peak rates for safe budget estimates.
+    "deepseek-v4-flash": (0.44, 1.32),
+    "deepseek-v4-pro": (1.32, 3.96),
+    "deepseek-v4-flash-vision-exp": (0.44, 1.32),
     "deepseek-chat": (0.27, 1.10),
     "deepseek-reasoner": (0.55, 2.19),
     "gpt-4o-mini": (0.15, 0.60),

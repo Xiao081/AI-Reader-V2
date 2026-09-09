@@ -850,7 +850,7 @@ export default function GraphPage() {
           onEngineStop={handleEngineStop}
         />
 
-        {novelId && <EntityCardDrawer novelId={novelId} />}
+        {novelId && <EntityCardDrawer novelId={novelId} asOfChapter={chapterEnd} />}
       </div>
     </VisualizationLayout>
   )

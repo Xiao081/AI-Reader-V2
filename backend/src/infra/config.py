@@ -22,6 +22,7 @@ LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
 LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "")
 LLM_MODEL = os.environ.get("LLM_MODEL", "")
 LLM_MAX_TOKENS = int(os.environ.get("LLM_MAX_TOKENS", "16384"))
+LLM_THINKING_MODE = os.environ.get("LLM_THINKING_MODE", "enabled")
 
 # API protocol format for cloud providers: "openai" (default) | "anthropic"
 # Separate from LLM_PROVIDER so users can use Anthropic-compatible proxies
@@ -119,17 +120,20 @@ def update_cloud_config(
     api_key: str,
     base_url: str,
     model: str,
+    thinking_mode: str | None = None,
 ) -> None:
     """Hot-update cloud LLM config at runtime (no restart needed).
 
     Falls back to .env initial values when DB-provided values are empty.
     """
-    global LLM_PROVIDER, LLM_API_KEY, LLM_BASE_URL, LLM_MODEL, LLM_PROVIDER_FORMAT  # noqa: PLW0603
+    global LLM_PROVIDER, LLM_API_KEY, LLM_BASE_URL, LLM_MODEL, LLM_PROVIDER_FORMAT, LLM_THINKING_MODE  # noqa: PLW0603
 
     LLM_PROVIDER = provider
     LLM_API_KEY = api_key or _ENV_LLM_API_KEY
     LLM_BASE_URL = base_url or _ENV_LLM_BASE_URL
     LLM_MODEL = model or _ENV_LLM_MODEL
+    if thinking_mode in {"enabled", "disabled"}:
+        LLM_THINKING_MODE = thinking_mode
     # Detect API format from provider id or base_url
     LLM_PROVIDER_FORMAT = "anthropic" if (
         provider == "anthropic" or "anthropic.com" in (base_url or "")

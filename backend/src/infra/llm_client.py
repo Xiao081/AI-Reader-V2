@@ -334,6 +334,7 @@ def get_llm_client() -> LLMClient | OpenAICompatibleClient | AnthropicClient:
                     base_url=_cfg.LLM_BASE_URL,
                     api_key=_cfg.LLM_API_KEY,
                     model=_cfg.LLM_MODEL or "gpt-4o",
+                    thinking_mode=_cfg.LLM_THINKING_MODE,
                 )
         else:
             _client = LLMClient(

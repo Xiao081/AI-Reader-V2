@@ -165,7 +165,13 @@ async def detect_and_update_context_window() -> int:
             ctx, config.get_model_name(),
         )
     elif config.LLM_PROVIDER == "openai":
-        ctx = 131072
+        if (
+            "api.deepseek.com" in config.LLM_BASE_URL.lower()
+            and config.LLM_MODEL.startswith("deepseek-v4-")
+        ):
+            ctx = 1_000_000
+        else:
+            ctx = 131072
         logger.info(
             "Context window: %d (cloud mode, model=%s)",
             ctx, config.get_model_name(),

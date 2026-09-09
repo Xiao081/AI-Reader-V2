@@ -221,3 +221,20 @@ def get_person_priors(novel_title: str) -> list[list[str]]:
         from src.services.douluo1_person_prior import get_alias_groups
         return get_alias_groups()
     return []
+
+
+def get_temporal_identity_rules(novel_title: str) -> dict[str, dict[str, object]]:
+    """Return edition-specific identity reveal rules for presentation only."""
+    normalized = novel_title.replace(" ", "")
+    douluo_sequel_markers = (
+        "绝世唐门", "龙王传说", "终极斗罗", "神界传说", "唐门英雄传",
+        "斗罗大陆2", "斗罗大陆Ⅱ", "斗罗大陆II",
+        "斗罗大陆3", "斗罗大陆Ⅲ", "斗罗大陆III",
+        "斗罗大陆4", "斗罗大陆Ⅳ", "斗罗大陆IV",
+    )
+    if "斗罗大陆" in normalized and not any(
+        marker in normalized for marker in douluo_sequel_markers
+    ):
+        from src.services.douluo1_person_prior import TEMPORAL_IDENTITY_RULES
+        return {name: dict(rule) for name, rule in TEMPORAL_IDENTITY_RULES.items()}
+    return {}

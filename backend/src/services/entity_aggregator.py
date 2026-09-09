@@ -33,6 +33,9 @@ from src.models.entity_profiles import (
     OrgRelationEntry,
     PersonExperience,
     PersonProfile,
+    PersonStateChange,
+    PersonStateSnapshot,
+    SoulRingState,
     RelationChain,
     RelationStage,
 )
@@ -132,14 +135,30 @@ async def _load_chapter_facts(novel_id: str) -> list[ChapterFact]:
 # ── Person Aggregation ────────────────────────────
 
 
-async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
-    cache_key = (novel_id, "person", person_name)
+async def aggregate_person(
+    novel_id: str,
+    person_name: str,
+    as_of_chapter: int | None = None,
+) -> PersonProfile:
+    cache_key = (novel_id, f"person:{as_of_chapter or 'all'}", person_name)
     cached = _cache_get(cache_key)
     if cached is not None:
         return cached
 
     facts = await _load_chapter_facts(novel_id)
     alias_map = await build_alias_map(novel_id)
+    identity_presentations = {}
+    if as_of_chapter is not None:
+        from src.services.temporal_identity import (
+            build_identity_presentations,
+            build_temporal_alias_map,
+            load_temporal_identity_rules,
+        )
+        temporal_rules = await load_temporal_identity_rules(novel_id, get_connection)
+        alias_map = build_temporal_alias_map(alias_map, as_of_chapter, temporal_rules)
+        identity_presentations = build_identity_presentations(
+            facts, alias_map, as_of_chapter, temporal_rules,
+        )
     from src.services.alias_resolver import get_detached_aliases
     from src.services.name_authority import CANONICAL_BLOCKLIST
     detached = get_detached_aliases(novel_id).get(person_name, set())
@@ -176,6 +195,9 @@ async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
     _raw_relations: dict[str, list[tuple[int, str, str]]] = defaultdict(list)  # other -> [(ch, type, evidence)]
     items: list[ItemAssociation] = []
     experiences: list[PersonExperience] = []
+    state_changes: list[PersonStateChange] = []
+    relation_state_seen: dict[str, str] = {}
+    cultivation_events: list[tuple[int, object]] = []
     chapter_set: set[int] = set()
     first_chapter = 0
 
@@ -187,6 +209,8 @@ async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
 
     for fact in facts:
         ch = fact.chapter_id
+        if as_of_chapter is not None and ch > as_of_chapter:
+            continue
 
         # Characters
         for char in fact.characters:
@@ -229,6 +253,15 @@ async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
                         description=ab.description,
                     )
                 )
+                if ab.name:
+                    state_changes.append(PersonStateChange(
+                        chapter=ch,
+                        attribute=ab.dimension or "能力",
+                        action="获得",
+                        value=ab.name,
+                        evidence=ab.description,
+                        source_type="ability",
+                    ))
 
         # Relationships involving this person (any name in name_set)
         for rel in fact.relationships:
@@ -242,7 +275,45 @@ async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
                 continue
             if other == person_name:
                 continue  # skip self-relations caused by alias
+            normalized_relation = normalize_relation_type(rel.relation_type)
             _raw_relations[other].append((ch, rel.relation_type, rel.evidence))
+            previous_relation = relation_state_seen.get(other)
+            if previous_relation != normalized_relation:
+                state_changes.append(PersonStateChange(
+                    chapter=ch,
+                    attribute="关系",
+                    action="建立" if previous_relation is None else "变化",
+                    value=f"{other}：{normalized_relation}",
+                    previous_value=(
+                        f"{other}：{previous_relation}"
+                        if previous_relation else None
+                    ),
+                    evidence=rel.evidence,
+                    source_type="relationship",
+                ))
+                relation_state_seen[other] = normalized_relation
+
+        # Source-grounded cultivation deltas are replayed separately because
+        # soul-ring slots can be enriched by later chapters.
+        for ce in fact.cultivation_events:
+            owner = alias_map.get(ce.character, ce.character)
+            if owner != person_name:
+                continue
+            cultivation_events.append((ch, ce))
+            details = [
+                ce.martial_soul or "",
+                f"第{ce.ring_slot}魂环" if ce.ring_slot else "",
+                ce.ring_color or "", ce.ring_age or "",
+                ce.ring_source or "", ce.skill_name or "", ce.level or "",
+            ]
+            state_changes.append(PersonStateChange(
+                chapter=ch,
+                attribute="修炼",
+                action=ce.event_type,
+                value=" · ".join(part for part in details if part),
+                evidence=ce.evidence,
+                source_type="cultivation",
+            ))
 
         # Item events involving this person
         for ie in fact.item_events:
@@ -258,6 +329,32 @@ async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
                         description=ie.description or "",
                     )
                 )
+                item_action = ie.action
+                if ie.action == "赠予":
+                    item_action = "获得" if recipient == person_name else "赠出"
+                state_changes.append(PersonStateChange(
+                    chapter=ch,
+                    attribute="物品",
+                    action=item_action,
+                    value=alias_map.get(ie.item_name, ie.item_name),
+                    evidence=ie.description or "",
+                    source_type="item",
+                ))
+
+        # Organization membership/role deltas involving this person.
+        for oe in fact.org_events:
+            member = alias_map.get(oe.member, oe.member) if oe.member else ""
+            if member != person_name:
+                continue
+            org_name = alias_map.get(oe.org_name, oe.org_name)
+            state_changes.append(PersonStateChange(
+                chapter=ch,
+                attribute="势力",
+                action=oe.action,
+                value=org_name,
+                evidence=oe.evidence or oe.description or "",
+                source_type="organization",
+            ))
 
         # Events involving this person
         for ev in fact.events:
@@ -372,6 +469,84 @@ async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
     # Sort by earliest chapter
     appearances.sort(key=lambda a: a.chapters[0])
 
+    # Deterministically replay the extracted deltas into an as-of snapshot.
+    ability_state: dict[str, set[str]] = defaultdict(set)
+    organization_state: set[str] = set()
+    item_state: set[str] = set()
+    relationship_state: dict[str, str] = {}
+    for change in sorted(state_changes, key=lambda c: c.chapter):
+        if change.source_type == "ability":
+            ability_state[change.attribute].add(change.value)
+        elif change.source_type == "organization":
+            if change.action in {"离开", "叛出", "逐出", "阵亡"}:
+                organization_state.discard(change.value)
+            elif change.action in {"加入", "晋升", "创建", "成立"}:
+                organization_state.add(change.value)
+        elif change.source_type == "item":
+            if change.action in {"丢失", "消耗", "损毁", "赠出"}:
+                item_state.discard(change.value)
+            elif change.action in {"获得", "持有", "装备", "继承", "拾取", "接受"}:
+                item_state.add(change.value)
+        elif change.source_type == "relationship":
+            other, _, relation = change.value.partition("：")
+            if other:
+                relationship_state[other] = relation
+
+    martial_soul_state: set[str] = set()
+    soul_skill_state: set[str] = set()
+    ring_state: dict[tuple[str, int | None], SoulRingState] = {}
+    soul_power_level: str | None = None
+    for _chapter, event in sorted(cultivation_events, key=lambda row: row[0]):
+        martial_soul = (event.martial_soul or "").strip()
+        if martial_soul:
+            martial_soul_state.add(martial_soul)
+        if event.skill_name:
+            soul_skill_state.add(event.skill_name)
+        if event.level:
+            soul_power_level = event.level
+        if event.ring_slot is not None or event.event_type in {"获得魂环", "补充魂环信息"}:
+            key = (martial_soul, event.ring_slot)
+            current = ring_state.get(key, SoulRingState(
+                martial_soul=martial_soul, slot=event.ring_slot,
+            ))
+            skills = list(current.skills)
+            if event.skill_name and event.skill_name not in skills:
+                skills.append(event.skill_name)
+            ring_state[key] = current.model_copy(update={
+                "color": event.ring_color or current.color,
+                "age": event.ring_age or current.age,
+                "source": event.ring_source or current.source,
+                "skills": skills,
+            })
+
+    presentation = identity_presentations.get(person_name)
+    display_name = presentation.display_name if presentation else person_name
+    if as_of_chapter is not None:
+        aliases = [
+            alias for alias in aliases
+            if alias.first_chapter > 0
+            and (not presentation or alias.name in presentation.visible_names)
+            and alias.name != display_name
+        ]
+        for relation in relation_chains:
+            other_presentation = identity_presentations.get(relation.other_person)
+            if other_presentation:
+                relation.other_person = other_presentation.display_name
+        relationship_state = {
+            (
+                identity_presentations[other].display_name
+                if other in identity_presentations else other
+            ): relation
+            for other, relation in relationship_state.items()
+        }
+        for change in state_changes:
+            if change.source_type == "relationship":
+                other, sep, relation = change.value.partition("：")
+                other_presentation = identity_presentations.get(other)
+                if other_presentation:
+                    change.value = f"{other_presentation.display_name}{sep}{relation}"
+
+    snapshot_chapter = as_of_chapter or (max(chapter_set) if chapter_set else 0)
     profile = PersonProfile(
         name=person_name,
         aliases=aliases,
@@ -380,6 +555,22 @@ async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
         relations=relation_chains,
         items=items,
         experiences=experiences,
+        state_changes=sorted(state_changes, key=lambda c: c.chapter),
+        state_as_of=PersonStateSnapshot(
+            as_of_chapter=snapshot_chapter,
+            abilities={k: sorted(v) for k, v in ability_state.items()},
+            organizations=sorted(organization_state),
+            items=sorted(item_state),
+            relationships=dict(sorted(relationship_state.items())),
+            martial_souls=sorted(martial_soul_state),
+            soul_rings=sorted(
+                ring_state.values(),
+                key=lambda ring: (ring.martial_soul, ring.slot or 999),
+            ),
+            soul_skills=sorted(soul_skill_state),
+            soul_power_level=soul_power_level,
+        ),
+        temporal_view=as_of_chapter is not None,
         stats={
             "chapter_count": len(chapter_set),
             "first_chapter": first_chapter,
@@ -408,6 +599,7 @@ async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
         )
 
     await _apply_edit_markers(profile, novel_id)
+    profile.name = display_name
     _cache_set(cache_key, profile)
     return profile
 

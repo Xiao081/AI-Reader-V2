@@ -36,6 +36,7 @@ async def get_entity(
     novel_id: str,
     name: str,
     type: str | None = Query(None, description="Entity type hint: person/location/item/org"),
+    as_of_chapter: int | None = Query(None, ge=1, description="人物资料仅包含截至该章的知识"),
 ):
     """Get the full aggregated profile for a single entity.
 
@@ -47,6 +48,14 @@ async def get_entity(
 
     # Resolve alias to canonical name
     alias_map = await build_alias_map(novel_id)
+    if as_of_chapter is not None:
+        from src.services.person_knowledge_prior import get_temporal_identity_rules
+        from src.services.temporal_identity import build_temporal_alias_map
+        alias_map = build_temporal_alias_map(
+            alias_map,
+            as_of_chapter,
+            get_temporal_identity_rules(novel["title"]),
+        )
     resolved_name = alias_map.get(name, name)
 
     # 实体级可见性 override(issue #66 Epic 1):隐藏的实体卡片 404;
@@ -75,7 +84,9 @@ async def get_entity(
         raise HTTPException(status_code=404, detail="实体不存在")
 
     if entity_type == "person":
-        profile = await entity_aggregator.aggregate_person(novel_id, resolved_name)
+        profile = await entity_aggregator.aggregate_person(
+            novel_id, resolved_name, as_of_chapter=as_of_chapter,
+        )
     elif entity_type == "location":
         profile = await entity_aggregator.aggregate_location(novel_id, resolved_name)
     elif entity_type == "item":

@@ -23,6 +23,8 @@ const CATEGORY_ORDER = ["family", "intimate", "hierarchical", "social", "hostile
 
 export const PersonCard = memo(function PersonCard({ profile, onEntityClick, onChapterClick, novelId }: PersonCardProps) {
   const { aliases, appearances, abilities, relations, items, experiences, stats } = profile
+  const stateChanges = profile.state_changes ?? []
+  const stateAsOf = profile.state_as_of
 
   // Group abilities by dimension
   const abilityGroups = new Map<string, typeof abilities>()
@@ -262,6 +264,77 @@ export const PersonCard = memo(function PersonCard({ profile, onEntityClick, onC
           </div>
         ))}
       </CardSection>
+
+      {/* Deterministic state reconstructed by replaying chapter deltas. */}
+      {stateAsOf && (
+        <CardSection title={`当前状态 · Ch.${stateAsOf.as_of_chapter}`} defaultLimit={12}>
+          {(stateAsOf.martial_souls ?? []).map((name) => (
+            <div key={`martial-soul-${name}`} className="text-sm">
+              <span className="text-muted-foreground mr-1">武魂</span>{name}
+            </div>
+          ))}
+          {(stateAsOf.soul_rings ?? []).map((ring, i) => (
+            <div key={`soul-ring-${ring.martial_soul}-${ring.slot ?? i}`} className="text-sm">
+              <span className="text-muted-foreground mr-1">
+                {ring.martial_soul ? `${ring.martial_soul} · ` : ""}
+                {ring.slot ? `第${ring.slot}魂环` : "魂环"}
+              </span>
+              {[ring.color, ring.age, ring.source, ...(ring.skills ?? [])].filter(Boolean).join(" · ")}
+            </div>
+          ))}
+          {(stateAsOf.soul_skills ?? []).map((name) => (
+            <div key={`soul-skill-${name}`} className="text-sm">
+              <span className="text-muted-foreground mr-1">魂技</span>{name}
+            </div>
+          ))}
+          {stateAsOf.soul_power_level && (
+            <div className="text-sm">
+              <span className="text-muted-foreground mr-1">魂力</span>{stateAsOf.soul_power_level}
+            </div>
+          )}
+          {Object.entries(stateAsOf.abilities).flatMap(([dimension, names]) =>
+            names.map((name) => (
+              <div key={`ability-${dimension}-${name}`} className="text-sm">
+                <span className="text-muted-foreground mr-1">{dimension}</span>{name}
+              </div>
+            )),
+          )}
+          {stateAsOf.organizations.map((org) => (
+            <div key={`org-${org}`} className="text-sm">
+              <span className="text-muted-foreground mr-1">势力</span>{org}
+            </div>
+          ))}
+          {stateAsOf.items.map((item) => (
+            <div key={`item-${item}`} className="text-sm">
+              <span className="text-muted-foreground mr-1">持有</span>{item}
+            </div>
+          ))}
+          {Object.entries(stateAsOf.relationships).map(([person, relation]) => (
+            <div key={`relation-${person}`} className="text-sm">
+              <span className="text-muted-foreground mr-1">关系</span>
+              <EntityLink name={person} type="person" onClick={onEntityClick} />
+              <span className="ml-1">— {relation}</span>
+            </div>
+          ))}
+        </CardSection>
+      )}
+
+      {stateChanges.length > 0 && (
+        <CardSection title="状态变更" defaultLimit={10}>
+          {[...stateChanges].reverse().map((change, i) => (
+            <div key={`${change.chapter}-${change.attribute}-${change.value}-${i}`} className="text-sm">
+              <ChapterTag chapter={change.chapter} onClick={onChapterClick} />
+              <span className="text-muted-foreground ml-1.5">{change.attribute}</span>
+              <span className="ml-1">{change.action} {change.value}</span>
+              {change.previous_value && (
+                <span className="text-muted-foreground ml-1 text-xs">
+                  （原：{change.previous_value}）
+                </span>
+              )}
+            </div>
+          ))}
+        </CardSection>
+      )}
 
       {/* H. Scenes */}
       {novelId && <EntityScenes novelId={novelId} entityName={profile.name} onChapterClick={onChapterClick} />}

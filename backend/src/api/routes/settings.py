@@ -58,16 +58,21 @@ MODEL_CATALOG = [
 # ── Cloud provider presets ────────────────────────
 
 # TODO: replace with live /v1/models lookup per-provider at settings page load.
-# These hard-coded lists go stale every 3-6 months. Last audit: 2026-04-18.
+# These hard-coded lists go stale every 3-6 months. Last audit: 2026-09-09.
 CLOUD_PROVIDERS = [
     # 国产模型
     {
         "id": "deepseek",
         "name": "DeepSeek",
         "base_url": "https://api.deepseek.com",
-        "default_model": "deepseek-chat",
-        "models": ["deepseek-chat", "deepseek-reasoner"],
+        "default_model": "deepseek-v4-flash",
+        "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "deepseek-v4-flash-vision-exp",
+        ],
         "api_format": "openai",
+        "supports_thinking_toggle": True,
     },
     {
         "id": "minimax",
@@ -209,6 +214,7 @@ class CloudConfigRequest(BaseModel):
     base_url: str
     model: str
     api_key: str
+    thinking_mode: str = "enabled"
 
 
 class ValidateCloudRequest(BaseModel):
@@ -471,10 +477,16 @@ async def get_cloud_config():
     from src.infra.secret_store import load_api_key
 
     # Load provider/model/base_url from app_settings
-    config = {"provider": "", "base_url": "", "model": "", "has_api_key": False}
+    config = {
+        "provider": "", "base_url": "", "model": "",
+        "thinking_mode": "enabled", "has_api_key": False,
+    }
     conn = await get_connection()
     try:
-        for key in ("cloud_provider", "cloud_base_url", "cloud_model"):
+        for key in (
+            "cloud_provider", "cloud_base_url", "cloud_model",
+            "cloud_thinking_mode",
+        ):
             row = await conn.execute(
                 "SELECT value FROM app_settings WHERE key=?",
                 (key,),
@@ -482,6 +494,8 @@ async def get_cloud_config():
             result = await row.fetchone()
             short_key = key.replace("cloud_", "")
             config[short_key] = result[0] if result else ""
+        if not config["thinking_mode"]:
+            config["thinking_mode"] = "enabled"
     finally:
         await conn.close()
 
@@ -501,6 +515,9 @@ async def save_cloud_config(req: CloudConfigRequest):
     from src.db.sqlite_db import get_connection
     from src.infra.secret_store import load_api_key, save_api_key
 
+    if req.thinking_mode not in {"enabled", "disabled"}:
+        return {"success": False, "error": "无效的思考模式"}
+
     # Save API key securely (if provided; empty string = keep existing key)
     if req.api_key:
         storage = await save_api_key(req.api_key)
@@ -515,6 +532,7 @@ async def save_cloud_config(req: CloudConfigRequest):
             ("cloud_provider", req.provider),
             ("cloud_base_url", req.base_url),
             ("cloud_model", req.model),
+            ("cloud_thinking_mode", req.thinking_mode),
         ]:
             await conn.execute(
                 """INSERT INTO app_settings (key, value, updated_at)
@@ -536,6 +554,7 @@ async def save_cloud_config(req: CloudConfigRequest):
         api_key=effective_key,
         base_url=req.base_url,
         model=req.model,
+        thinking_mode=req.thinking_mode,
     )
 
     # Re-detect context window for the new cloud config
@@ -659,7 +678,7 @@ async def switch_llm_mode(req: SwitchModeRequest):
         conn = await get_connection()
         try:
             cloud_cfg: dict[str, str] = {}
-            for key in ("cloud_base_url", "cloud_model"):
+            for key in ("cloud_base_url", "cloud_model", "cloud_thinking_mode"):
                 row = await conn.execute(
                     "SELECT value FROM app_settings WHERE key=?",
                     (key,),
@@ -675,6 +694,7 @@ async def switch_llm_mode(req: SwitchModeRequest):
             api_key=api_key,
             base_url=cloud_cfg.get("cloud_base_url", ""),
             model=cloud_cfg.get("cloud_model", ""),
+            thinking_mode=cloud_cfg.get("cloud_thinking_mode", "enabled"),
         )
 
     # Re-detect context window for the new mode/model

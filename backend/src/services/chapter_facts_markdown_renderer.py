@@ -49,6 +49,25 @@ def _render_chapter(fact: ChapterFact, title: str, alias_map: dict[str, str]) ->
                     out.append(f"  - {label}{desc}")
         out.append("")
 
+    if fact.cultivation_events:
+        out.append("### ✨ 修炼状态")
+        for ce in fact.cultivation_events:
+            bits = [ce.event_type]
+            if ce.martial_soul:
+                bits.append(f"武魂：{ce.martial_soul}")
+            if ce.ring_slot:
+                bits.append(f"第{ce.ring_slot}魂环")
+            bits.extend(v for v in (ce.ring_color, ce.ring_age, ce.ring_source) if v)
+            if ce.skill_name:
+                bits.append(f"魂技：{ce.skill_name}")
+            if ce.level:
+                bits.append(f"魂力：{ce.level}")
+            line = f"- **{_resolve(ce.character, alias_map)}** · " + " · ".join(bits)
+            if ce.evidence:
+                line += f" — {ce.evidence}"
+            out.append(line)
+        out.append("")
+
     if fact.relationships:
         out.append("### 🤝 关系")
         for r in fact.relationships:

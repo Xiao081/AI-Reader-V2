@@ -16,6 +16,7 @@ import pytest_asyncio
 
 import src.db.entity_override_store as entity_override_store_mod
 import src.services.alias_resolver as alias_resolver_mod
+import src.services.entity_aggregator as entity_aggregator_mod
 import src.services.visualization_service as visualization_mod
 from src.extraction.name_resolver import NameResolver
 from src.extraction.fact_validator import FactValidator
@@ -31,6 +32,11 @@ from src.services.douluo1_person_prior import (
     PERSONA_ALIAS_GROUPS,
     SCOPED_ROLE_TITLES,
     STRICT_ALIAS_GROUPS,
+    TEMPORAL_IDENTITY_RULES,
+)
+from src.services.temporal_identity import (
+    build_identity_presentations,
+    build_temporal_alias_map,
 )
 
 
@@ -50,6 +56,33 @@ class TestDouluoDeferredTitleIdentity:
         }
         assert not (SCOPED_ROLE_TITLES & flattened)
         assert not (OVERLOADED_NON_PERSON_TERMS & flattened)
+
+    def test_possessed_identity_stays_separate_until_reveal(self):
+        facts = [
+            ChapterFact(
+                chapter_id=448, novel_id=self.NOVEL,
+                characters=[CharacterFact(name="杀戮之王")],
+            ),
+            ChapterFact(
+                chapter_id=549, novel_id=self.NOVEL,
+                characters=[CharacterFact(name="唐晨")],
+            ),
+        ]
+        full_alias_map = {"杀戮之王": "唐晨"}
+        early_map = build_temporal_alias_map(
+            full_alias_map, 549, TEMPORAL_IDENTITY_RULES,
+        )
+        early = build_identity_presentations(
+            facts, early_map, 549, TEMPORAL_IDENTITY_RULES,
+        )
+
+        assert early_map["杀戮之王"] == "杀戮之王"
+        assert {p.display_name for p in early.values()} == {"杀戮之王", "唐晨"}
+
+        revealed_map = build_temporal_alias_map(
+            full_alias_map, 610, TEMPORAL_IDENTITY_RULES,
+        )
+        assert revealed_map["杀戮之王"] == "唐晨"
 
     def test_prescan_protected_title_keeps_character_and_relationship(self):
         fact = ChapterFact(
@@ -592,7 +625,7 @@ class TestGraphOutputNames:
 
 
 class TestDouluoGraphRegression:
-    """Chapter-19 title edges are projected onto the chapter-157 real name."""
+    """Chapter-19 identity stays title-safe, then merges after chapter 157."""
 
     NOVEL = "test-douluo-graph"
 
@@ -608,6 +641,7 @@ class TestDouluoGraphRegression:
             return {}
 
         with patch("src.services.visualization_service.get_connection", factory), \
+             patch("src.services.entity_aggregator.get_connection", factory), \
              patch("src.services.alias_resolver.get_connection", factory), \
              patch("src.db.entity_override_store.get_connection", factory), \
              patch("src.services.hallucination_filter.get_ungrounded_persons",
@@ -667,6 +701,14 @@ class TestDouluoGraphRegression:
             title="斗罗大陆1",
         )
 
+        early_graph = await visualization_mod.get_graph_data(self.NOVEL, 1, 156)
+        early_nodes = {n["name"]: n for n in early_graph["nodes"]}
+        early_edges = {(e["source"], e["target"]) for e in early_graph["edges"]}
+
+        assert "大师" in early_nodes
+        assert "玉小刚" not in early_nodes
+        assert ("唐三", "大师") in early_edges
+
         graph = await visualization_mod.get_graph_data(self.NOVEL, 1, 200)
         nodes = {n["name"]: n for n in graph["nodes"]}
         edges = {(e["source"], e["target"]) for e in graph["edges"]}
@@ -675,3 +717,22 @@ class TestDouluoGraphRegression:
         assert "大师" not in nodes
         assert "大师" in nodes["玉小刚"]["aliases"]
         assert ("唐三", "玉小刚") in edges
+
+    @pytest.mark.asyncio
+    async def test_temporal_profile_and_state_replay(self, graph_db):
+        await _seed_naming_db(
+            graph_db, self.NOVEL, self._entries(), self._facts(),
+            title="斗罗大陆1",
+        )
+
+        profile = await entity_aggregator_mod.aggregate_person(
+            self.NOVEL, "大师", as_of_chapter=156,
+        )
+
+        assert profile.name == "大师"
+        assert profile.temporal_view is True
+        assert profile.stats["last_chapter"] == 19
+        assert profile.state_as_of is not None
+        assert profile.state_as_of.as_of_chapter == 156
+        assert profile.state_as_of.relationships == {"唐三": "师徒"}
+        assert all(change.chapter <= 156 for change in profile.state_changes)

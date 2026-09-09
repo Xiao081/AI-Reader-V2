@@ -129,6 +129,28 @@ async def get_graph_data(
 
     facts = await _load_facts_in_range(novel_id, chapter_start, chapter_end)
     alias_map = await build_alias_map(novel_id)
+    # Presentation names need knowledge accumulated from chapter 1 through the
+    # selected cutoff, even when the visible graph range starts later.
+    identity_facts = facts if chapter_start <= 1 else await _load_facts_in_range(
+        novel_id, 1, chapter_end,
+    )
+    from src.services.temporal_identity import (
+        build_temporal_alias_map,
+        build_identity_presentations,
+        display_name_for,
+        load_temporal_identity_rules,
+    )
+    temporal_rules = await load_temporal_identity_rules(novel_id, get_connection)
+    alias_map = build_temporal_alias_map(alias_map, chapter_end, temporal_rules)
+    protected_temporal_names = {
+        str(name)
+        for rule in temporal_rules.values()
+        if chapter_end < int(rule["reveal_chapter"])
+        for name in rule.get("early_names", ())
+    }
+    identity_presentations = build_identity_presentations(
+        identity_facts, alias_map, chapter_end, temporal_rules,
+    )
 
     # Build the set of "known canonical names" — names that appear as values
     # in alias_map. Override-rescued primaries (e.g. 薛姨妈, 王夫人 in 红楼梦)
@@ -149,6 +171,8 @@ async def get_graph_data(
         # override).  Let it reach canonicalization instead of deleting all of
         # its earlier graph edges.  Unsafe names that are not actually mapped
         # still follow the strict generic filter below.
+        if name in protected_temporal_names:
+            return False
         mapped = alias_map.get(name)
         if mapped and mapped != name and _is_generic_person(mapped) is None:
             return False
@@ -304,18 +328,24 @@ async def get_graph_data(
                 if k[0] not in gone and k[1] not in gone
             }
 
-    nodes = [
-        {
-            "id": name,
-            "name": name,
+    nodes = []
+    for name, chs in person_chapters.items():
+        presentation = identity_presentations.get(name)
+        display_name = display_name_for(name, identity_presentations)
+        visible_aliases = (
+            set(presentation.visible_names) if presentation
+            else set(person_aliases.get(name, set()))
+        )
+        visible_aliases.discard(display_name)
+        nodes.append({
+            "id": display_name,
+            "name": display_name,
             "type": "person",
             "chapter_count": len(chs),
             "org": person_org.get(name, ""),
-            "aliases": sorted(person_aliases.get(name, set())),
+            "aliases": sorted(visible_aliases),
             "edit_status": "edited" if name in override_targets else "",
-        }
-        for name, chs in person_chapters.items()
-    ]
+        })
     nodes.sort(key=lambda n: -n["chapter_count"])
 
     edges_out: list[dict] = []
@@ -325,8 +355,8 @@ async def get_graph_data(
         category = classify_relation_category(primary_type)
         category_counts[category] += 1
         edges_out.append({
-            "source": e["source"],
-            "target": e["target"],
+            "source": display_name_for(e["source"], identity_presentations),
+            "target": display_name_for(e["target"], identity_presentations),
             "relation_type": primary_type,
             "all_types": [t for t, _ in e["type_counts"].most_common()],
             "weight": len(e["chapters"]),

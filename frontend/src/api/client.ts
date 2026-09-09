@@ -212,7 +212,8 @@ export function saveCloudConfig(config: {
   base_url: string
   model: string
   api_key: string
-}): Promise<{ success: boolean; storage: string }> {
+  thinking_mode?: "enabled" | "disabled"
+}): Promise<{ success: boolean; storage?: string; error?: string }> {
   return apiFetch("/settings/cloud/config", {
     method: "POST",
     body: JSON.stringify(config),
@@ -488,8 +489,12 @@ export function fetchEntityProfile(
   novelId: string,
   name: string,
   type?: string,
+  asOfChapter?: number,
 ): Promise<Record<string, unknown>> {
-  const params = type ? `?type=${type}` : ""
+  const search = new URLSearchParams()
+  if (type) search.set("type", type)
+  if (asOfChapter != null) search.set("as_of_chapter", String(asOfChapter))
+  const params = search.size ? `?${search.toString()}` : ""
   return apiFetch(`/novels/${novelId}/entities/${encodeURIComponent(name)}${params}`)
 }
 

@@ -183,12 +183,14 @@ export interface CloudProvider {
   default_model: string
   models?: string[]       // 该供应商支持的模型预设列表
   api_format?: string     // "openai" (默认) | "anthropic"
+  supports_thinking_toggle?: boolean
 }
 
 export interface CloudConfig {
   provider: string
   base_url: string
   model: string
+  thinking_mode: "enabled" | "disabled"
   has_api_key: boolean
   api_key_masked: string
 }
@@ -563,6 +565,34 @@ export interface PersonProfile {
   }[]
   items: { chapter: number; item_name: string; item_type: string; action: string; description: string }[]
   experiences: { chapter: number; summary: string; type: string; location: string | null }[]
+  state_changes?: {
+    chapter: number
+    attribute: string
+    action: string
+    value: string
+    previous_value: string | null
+    evidence: string
+    source_type: string
+  }[]
+  state_as_of?: {
+    as_of_chapter: number
+    abilities: Record<string, string[]>
+    organizations: string[]
+    items: string[]
+    relationships: Record<string, string>
+    martial_souls: string[]
+    soul_rings: {
+      martial_soul: string
+      slot: number | null
+      color: string | null
+      age: string | null
+      source: string | null
+      skills: string[]
+    }[]
+    soul_skills: string[]
+    soul_power_level: string | null
+  } | null
+  temporal_view?: boolean
   stats: Record<string, number>
 }
 

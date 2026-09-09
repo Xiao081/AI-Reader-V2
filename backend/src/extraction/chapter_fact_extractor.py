@@ -186,6 +186,20 @@ def _merge_chapter_facts(
     for fact in facts:
         org_events.extend(fact.org_events)
 
+    # Cultivation deltas: exact-key dedupe across overlapping text segments.
+    cultivation_events = []
+    cultivation_seen: set[tuple] = set()
+    for fact in facts:
+        for ce in fact.cultivation_events:
+            key = (
+                ce.character, ce.event_type, ce.martial_soul, ce.ring_slot,
+                ce.ring_color, ce.ring_age, ce.ring_source, ce.skill_name,
+                ce.level, ce.evidence,
+            )
+            if key not in cultivation_seen:
+                cultivation_seen.add(key)
+                cultivation_events.append(ce)
+
     # New concepts: deduplicate by name
     concept_map: dict[str, object] = {}
     for fact in facts:
@@ -215,6 +229,7 @@ def _merge_chapter_facts(
         events=events,
         new_concepts=list(concept_map.values()),
         world_declarations=world_declarations,
+        cultivation_events=cultivation_events,
     )
 
 

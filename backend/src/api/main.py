@@ -47,7 +47,7 @@ async def _restore_persisted_settings() -> None:
         try:
             settings: dict[str, str] = {}
             for key in ("llm_mode", "ollama_default_model", "llm_max_tokens",
-                         "cloud_base_url", "cloud_model"):
+                         "cloud_base_url", "cloud_model", "cloud_thinking_mode"):
                 row = await conn.execute(
                     "SELECT value FROM app_settings WHERE key=?", (key,),
                 )
@@ -75,6 +75,7 @@ async def _restore_persisted_settings() -> None:
                 api_key=api_key,
                 base_url=settings.get("cloud_base_url", ""),
                 model=settings.get("cloud_model", ""),
+                thinking_mode=settings.get("cloud_thinking_mode", "enabled"),
             )
         else:
             model = settings.get("ollama_default_model", "qwen3:8b")

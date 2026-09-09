@@ -14,6 +14,7 @@ from src.extraction.name_resolver import write_audit_records
 from src.models.chapter_fact import (
     ChapterFact,
     CharacterFact,
+    CultivationEventFact,
     EventFact,
     ItemEventFact,
     OrgEventFact,
@@ -34,6 +35,10 @@ _VALID_SPATIAL_RELATION_TYPES = {
 }
 _VALID_CONFIDENCE = {"high", "medium", "low"}
 _VALID_DISTANCE_CLASS = {"near", "medium", "far", "very_far"}
+_VALID_CULTIVATION_EVENT_TYPES = {
+    "武魂觉醒", "武魂揭示", "武魂进化", "获得魂环", "补充魂环信息",
+    "获得魂技", "魂力突破",
+}
 
 # ── Contains direction fix: suffix-based geographic rank ─────────────
 # Smaller number = larger geographic entity. Used to detect inverted contains.
@@ -1083,6 +1088,9 @@ class FactValidator:
         events = self._validate_events(fact.events)
         new_concepts = self._validate_concepts(fact.new_concepts)
         world_declarations = self._validate_world_declarations(fact.world_declarations)
+        cultivation_events = self._validate_cultivation_events(
+            fact.cultivation_events, chapter_text,
+        )
 
         # Post-processing: ensure referenced parent locations exist as entries
         locations = self._ensure_referenced_locations(locations, world_declarations)
@@ -1164,7 +1172,53 @@ class FactValidator:
             events=events,
             new_concepts=new_concepts,
             world_declarations=world_declarations,
+            cultivation_events=cultivation_events,
         )
+
+    def _validate_cultivation_events(
+        self,
+        events: list[CultivationEventFact],
+        chapter_text: str | None,
+    ) -> list[CultivationEventFact]:
+        """Keep only explicit, source-grounded cultivation deltas."""
+        result: list[CultivationEventFact] = []
+        seen: set[tuple] = set()
+        for event in events:
+            character = _clamp_name(event.character)
+            event_type = (event.event_type or "").strip()
+            evidence = (event.evidence or "").strip()
+            if len(character) < _NAME_MIN_LEN:
+                continue
+            if event_type not in _VALID_CULTIVATION_EVENT_TYPES:
+                continue
+            # A dedicated state record without a verbatim anchor is too risky:
+            # it could leak a future whole-book prescan term into this chapter.
+            if not evidence or (chapter_text is not None and evidence not in chapter_text):
+                continue
+            ring_slot = event.ring_slot
+            if ring_slot is not None and not 1 <= ring_slot <= 10:
+                ring_slot = None
+            values = (
+                event.martial_soul, event.ring_color, event.ring_age,
+                event.ring_source, event.skill_name, event.level,
+            )
+            if not any(value and str(value).strip() for value in values):
+                continue
+            cleaned = event.model_copy(update={
+                "character": character,
+                "event_type": event_type,
+                "ring_slot": ring_slot,
+                "evidence": evidence[:160],
+            })
+            key = (
+                cleaned.character, cleaned.event_type, cleaned.martial_soul,
+                cleaned.ring_slot, cleaned.ring_color, cleaned.ring_age,
+                cleaned.ring_source, cleaned.skill_name, cleaned.level,
+            )
+            if key not in seen:
+                seen.add(key)
+                result.append(cleaned)
+        return result
 
     def _validate_characters(
         self, chars: list[CharacterFact]

@@ -291,12 +291,20 @@ async def test_cloud_providers_list():
     ids = [p["id"] for p in providers]
     assert "deepseek" in ids
     assert "openai" in ids
+    deepseek = next(p for p in providers if p["id"] == "deepseek")
+    assert deepseek["default_model"] == "deepseek-v4-flash"
+    assert deepseek["models"] == [
+        "deepseek-v4-flash",
+        "deepseek-v4-pro",
+        "deepseek-v4-flash-vision-exp",
+    ]
+    assert deepseek["supports_thinking_toggle"] is True
 
 
-def test_cloud_providers_have_required_fields():
+@pytest.mark.asyncio(loop_scope="session")
+async def test_cloud_providers_have_required_fields():
     """Each provider preset should have id, name, base_url, default_model."""
-    import asyncio
-    result = asyncio.get_event_loop().run_until_complete(get_cloud_providers())
+    result = await get_cloud_providers()
     for p in result["providers"]:
         assert "id" in p
         assert "name" in p

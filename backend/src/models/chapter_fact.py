@@ -36,6 +36,26 @@ class CharacterFact(BaseModel):
         return result
 
 
+class CultivationEventFact(BaseModel):
+    """Source-grounded progression delta for cultivation-system novels.
+
+    All detail fields are optional because a chapter often reveals only one
+    part of a state (for example a ring colour but not its exact age).  Keeping
+    this on ChapterFact makes old fact JSON and .air exports compatible.
+    """
+
+    character: str = ""
+    event_type: str = ""
+    martial_soul: str | None = None
+    ring_slot: int | None = None
+    ring_color: str | None = None
+    ring_age: str | None = None
+    ring_source: str | None = None
+    skill_name: str | None = None
+    level: str | None = None
+    evidence: str = ""
+
+
 class RelationshipFact(BaseModel):
     person_a: str
     person_b: str
@@ -171,3 +191,4 @@ class ChapterFact(BaseModel):
     events: list[EventFact] = []
     new_concepts: list[ConceptFact] = []
     world_declarations: list[WorldDeclaration] = []
+    cultivation_events: list[CultivationEventFact] = []

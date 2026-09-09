@@ -14,9 +14,10 @@ import { AliasEditControls } from "./AliasEditControls"
 
 interface EntityCardDrawerProps {
   novelId: string
+  asOfChapter?: number
 }
 
-export function EntityCardDrawer({ novelId }: EntityCardDrawerProps) {
+export function EntityCardDrawer({ novelId, asOfChapter }: EntityCardDrawerProps) {
   const {
     open,
     loading,
@@ -45,9 +46,15 @@ export function EntityCardDrawer({ novelId }: EntityCardDrawerProps) {
     if (!open || !currentCrumb) return
     let cancelled = false
 
-    const resolvedName = aliasMap[currentCrumb.name] ?? currentCrumb.name
+    // A temporal view must send the surface name to the backend. Resolving it
+    // here with the all-book alias map would reveal a future identity.
+    const resolvedName = asOfChapter == null
+      ? (aliasMap[currentCrumb.name] ?? currentCrumb.name)
+      : currentCrumb.name
     // Check cache first
-    const cached = getCachedProfile(currentCrumb.type, resolvedName)
+    const cached = asOfChapter == null
+      ? getCachedProfile(currentCrumb.type, resolvedName)
+      : undefined
     if (cached) {
       setProfile(cached)
       return
@@ -59,11 +66,12 @@ export function EntityCardDrawer({ novelId }: EntityCardDrawerProps) {
           novelId,
           resolvedName,
           currentCrumb.type,
+          asOfChapter,
         )
         if (!cancelled) {
           const p = data as unknown as EntityProfile
           setProfile(p)
-          setCachedProfile(currentCrumb.type, resolvedName, p)
+          if (asOfChapter == null) setCachedProfile(currentCrumb.type, resolvedName, p)
         }
       } catch {
         if (!cancelled) setError("加载失败，请重试")
@@ -74,7 +82,7 @@ export function EntityCardDrawer({ novelId }: EntityCardDrawerProps) {
     return () => {
       cancelled = true
     }
-  }, [novelId, open, currentCrumb?.name, currentCrumb?.type, aliasMap, reloadNonce, setProfile, setLoading, setError, getCachedProfile, setCachedProfile])
+  }, [novelId, open, currentCrumb?.name, currentCrumb?.type, aliasMap, asOfChapter, reloadNonce, setProfile, setLoading, setError, getCachedProfile, setCachedProfile])
 
   const handleEntityClick = useCallback(
     (name: string, type: string) => {
@@ -138,7 +146,7 @@ export function EntityCardDrawer({ novelId }: EntityCardDrawerProps) {
               ))}
             </div>
           </div>
-          {!loading && !cardError && profile && (
+          {!loading && !cardError && profile && asOfChapter == null && (
             <AliasEditControls novelId={novelId} profile={profile} />
           )}
           <Button variant="ghost" size="icon-xs" onClick={close}>

@@ -44,6 +44,30 @@ PERSONA_ALIAS_GROUPS: list[list[str]] = [
 ]
 
 
+# Narrative reveal boundaries in the supplied 校对版 chapter numbering.
+# Before ``reveal_chapter`` the graph may unify the underlying identity, but
+# must present the early surface name so a chapter slice does not leak future
+# knowledge.  玉小刚 is a withheld real name rather than a disguise, but has
+# the same presentation requirement.
+TEMPORAL_IDENTITY_RULES: dict[str, dict[str, object]] = {
+    "玉小刚": {
+        "early_names": ("大师",),
+        "reveal_chapter": 157,
+        "kind": "withheld_name",
+    },
+    "千仞雪": {
+        "early_names": ("雪清河",),
+        "reveal_chapter": 545,
+        "kind": "persona",
+    },
+    "唐晨": {
+        "early_names": ("杀戮之王",),
+        "reveal_chapter": 610,
+        "kind": "possessed_identity",
+    },
+}
+
+
 # These terms need organization/location/time context and must never become
 # unconditional aliases merely because they are frequent in this novel.
 SCOPED_ROLE_TITLES = frozenset({

@@ -114,6 +114,7 @@ export default function SettingsPage() {
   const [cloudProvider, setCloudProvider] = useState("")
   const [cloudBaseUrl, setCloudBaseUrl] = useState("")
   const [cloudModel, setCloudModel] = useState("")
+  const [cloudThinkingMode, setCloudThinkingMode] = useState<"enabled" | "disabled">("enabled")
   const [cloudApiKey, setCloudApiKey] = useState("")
   const [cloudSaving, setCloudSaving] = useState(false)
   const [cloudValidating, setCloudValidating] = useState(false)
@@ -216,12 +217,21 @@ export default function SettingsPage() {
         setCloudProvider(cfg.provider)
         setCloudBaseUrl(cfg.base_url)
         setCloudModel(cfg.model)
+        setCloudThinkingMode(cfg.thinking_mode ?? "enabled")
       })
       .catch(() => {})
   }, [])
 
   // 模型预设选择器状态：false = 使用 select 预设，true = 自由输入
   const [isCustomModel, setIsCustomModel] = useState(false)
+
+  useEffect(() => {
+    if (!cloudConfig || cloudProviders.length === 0) return
+    const preset = cloudProviders.find((p) => p.id === cloudConfig.provider)
+    if (preset?.models?.length && !preset.models.includes(cloudConfig.model)) {
+      setIsCustomModel(true)
+    }
+  }, [cloudConfig, cloudProviders])
 
   const handleProviderChange = useCallback(
     (providerId: string) => {
@@ -232,6 +242,7 @@ export default function SettingsPage() {
       if (preset) {
         setCloudBaseUrl(preset.base_url)
         setCloudModel(preset.default_model)
+        setCloudThinkingMode("enabled")
       }
     },
     [cloudProviders],
@@ -259,19 +270,22 @@ export default function SettingsPage() {
         base_url: cloudBaseUrl,
         model: cloudModel,
         api_key: cloudApiKey,
+        thinking_mode: cloudThinkingMode,
       })
       if (res.success) {
         setCloudSaveMsg(`已保存（密钥存储: ${res.storage}）`)
         setCloudApiKey("")
         refreshEnv()
         fetchCloudConfig().then(setCloudConfig).catch(() => {})
+      } else {
+        setCloudSaveMsg(res.error ?? "保存失败")
       }
     } catch {
       setCloudSaveMsg("保存失败")
     } finally {
       setCloudSaving(false)
     }
-  }, [cloudProvider, cloudBaseUrl, cloudModel, cloudApiKey])
+  }, [cloudProvider, cloudBaseUrl, cloudModel, cloudApiKey, cloudThinkingMode])
 
   // Initiate switch: check running tasks, then show confirmation dialog
   const handleRequestSwitch = useCallback(async () => {
@@ -983,6 +997,23 @@ export default function SettingsPage() {
                         </div>
                       )
                     })()}
+
+                    {cloudProviders.find((p) => p.id === cloudProvider)?.supports_thinking_toggle && (
+                      <div>
+                        <span className="text-sm block mb-1.5">思考模式</span>
+                        <select
+                          className="w-full border rounded px-2 py-1.5 text-sm bg-background"
+                          value={cloudThinkingMode}
+                          onChange={(e) => setCloudThinkingMode(e.target.value as "enabled" | "disabled")}
+                        >
+                          <option value="enabled">开启思考（默认，分析质量优先）</option>
+                          <option value="disabled">关闭思考（速度与输出稳定性优先）</option>
+                        </select>
+                        <p className="text-xs mt-1 text-muted-foreground">
+                          适用于章节抽取、预扫描和普通问答；Agent 工具问答暂固定为不思考模式。
+                        </p>
+                      </div>
+                    )}
 
                     {/* API Key */}
                     <div>

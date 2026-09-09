@@ -179,10 +179,32 @@ def _get_cloud_semaphore() -> asyncio.Semaphore:
 class OpenAICompatibleClient:
     """Async client for OpenAI-compatible APIs."""
 
-    def __init__(self, base_url: str, api_key: str, model: str):
+    def __init__(
+        self,
+        base_url: str,
+        api_key: str,
+        model: str,
+        thinking_mode: str = "enabled",
+    ):
         self.base_url = base_url.rstrip("/")
         self.api_key = api_key
         self.model = model
+        self.thinking_mode = (
+            thinking_mode if thinking_mode in {"enabled", "disabled"}
+            else "enabled"
+        )
+
+    def _apply_deepseek_thinking(self, payload: dict) -> None:
+        """Apply the official V4 Chat Completions thinking toggle."""
+        if "api.deepseek.com" not in self.base_url.lower():
+            return
+        if not self.model.startswith("deepseek-v4-"):
+            return
+        payload["thinking"] = {"type": self.thinking_mode}
+        if self.thinking_mode == "enabled":
+            # DeepSeek V4 ignores sampling controls while thinking. Omitting
+            # them keeps the request aligned with the documented contract.
+            payload.pop("temperature", None)
 
     def _headers(self) -> dict[str, str]:
         return {
@@ -223,17 +245,14 @@ class OpenAICompatibleClient:
             {"role": "system", "content": system},
             {"role": "user", "content": prompt},
         ]
-        # Cap max_tokens to provider limit (DeepSeek: 8192, most others: 16384+)
-        effective_max = max_tokens
-        if "deepseek" in self.base_url.lower():
-            effective_max = min(max_tokens, 8192)
         payload: dict = {
             "model": self.model,
             "messages": messages,
             "temperature": temperature,
-            "max_tokens": effective_max,
+            "max_tokens": max_tokens,
             "stream": False,
         }
+        self._apply_deepseek_thinking(payload)
         if format is not None:
             # Some providers (Zhipu GLM, Yi) don't fully support response_format
             # and may hang or error. Only use it for known-compatible providers.
@@ -270,9 +289,18 @@ class OpenAICompatibleClient:
             raise LLMError("Empty choices in cloud API response")
 
         choice = choices[0]
-        content: str = choice.get("message", {}).get("content", "")
+        message = choice.get("message", {})
+        content: str = message.get("content", "")
         if not content:
-            raise LLMError("Empty content in cloud API response")
+            reasoning = message.get("reasoning_content") or ""
+            finish_reason = choice.get("finish_reason", "")
+            usage_data = data.get("usage", {})
+            raise LLMError(
+                "Empty content in cloud API response "
+                f"(finish_reason={finish_reason or 'unknown'}, "
+                f"reasoning_chars={len(reasoning)}, "
+                f"completion_tokens={usage_data.get('completion_tokens', 0)})"
+            )
 
         finish_reason = choice.get("finish_reason", "")
 
@@ -333,6 +361,11 @@ class OpenAICompatibleClient:
                 for t in tools
             ],
         }
+        # Thinking tool calls require reasoning_content to be replayed on each
+        # follow-up. The provider-neutral agent loop does not expose that field,
+        # so keep this path non-thinking instead of risking a DeepSeek 400.
+        if "api.deepseek.com" in self.base_url.lower() and self.model.startswith("deepseek-v4-"):
+            payload["thinking"] = {"type": "disabled"}
 
         sem = _get_cloud_semaphore()
         async with sem:
@@ -401,6 +434,7 @@ class OpenAICompatibleClient:
             "messages": messages,
             "stream": True,
         }
+        self._apply_deepseek_thinking(payload)
 
         logger.debug("generate_stream() sending request to cloud API (no semaphore)")
         async with self._make_client(

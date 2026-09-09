@@ -59,6 +59,37 @@ class PersonExperience(BaseModel):
     location: str | None = None
 
 
+class PersonStateChange(BaseModel):
+    chapter: int
+    attribute: str
+    action: str
+    value: str
+    previous_value: str | None = None
+    evidence: str = ""
+    source_type: str = ""
+
+
+class SoulRingState(BaseModel):
+    martial_soul: str = ""
+    slot: int | None = None
+    color: str | None = None
+    age: str | None = None
+    source: str | None = None
+    skills: list[str] = []
+
+
+class PersonStateSnapshot(BaseModel):
+    as_of_chapter: int
+    abilities: dict[str, list[str]] = {}
+    organizations: list[str] = []
+    items: list[str] = []
+    relationships: dict[str, str] = {}
+    martial_souls: list[str] = []
+    soul_rings: list[SoulRingState] = []
+    soul_skills: list[str] = []
+    soul_power_level: str | None = None
+
+
 class PersonProfile(BaseModel):
     name: str
     type: str = "person"
@@ -68,6 +99,9 @@ class PersonProfile(BaseModel):
     relations: list[RelationChain] = []
     items: list[ItemAssociation] = []
     experiences: list[PersonExperience] = []
+    state_changes: list[PersonStateChange] = []
+    state_as_of: PersonStateSnapshot | None = None
+    temporal_view: bool = False
     stats: dict = {}
     edit_status: str = ""  # "" | "edited" — has a user alias override applied
     conflict: bool = False  # FR7: auto resolution drifted from the override
